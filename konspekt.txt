@@ -5,22 +5,26 @@ po każdym spinsonie w losowej kolejnosci i
 sprawdzamy na nim (wedłóg grafu -- niekoniecznie
 wszystkie)
 1. Czy potrzebuje nowego auta - czy stare auto 
-przekracza określony wiek kupna nowego (Możliwe kupno nowego auta, z powodu zmiany opinii?)
+przekracza określony wiek kupna nowego (Możliwe kupno nowego auta, z powodu zmiany opinii? -- chyba nie)
 2. Czy BEV są kożystne cenowo wzór na CE
 3. Dostępność ładowarek - R&S 2003
 4. Wpływ społeczny - S&C 2016
 5. Innowacje technologiczne - S&C 2016
+(4 i 5 są równoległe, nie szeregowe)
 
 Następnie ew. wybór samochodu następuje na podstawie 
-metody fuzzy TOPSIS. Dane do zebrania lub z 
-artykułu.
+metody fuzzy TOPSIS (TOPSIS wybiera między BEV i PHEV lub PHEV i CV).
+Najpierw dane z 
+artykułu, później Polskie (Warszawa?).
 
 Na koniec dwie rzeczy:
 I. Rząd i producenci odbierają feedback od 
 społeczeństwa i w zależności od tego: (S&C 2016?)
+producenci:
 	- rozwijają technologię
+rząd: - te scenariusze traktujemy jako badaną zmienną (Appendix A)
 	- dają dotacje
-	- stawiają stacje ładowania
+	- stawiają stacje ładowania (czemu nie firmy zewnętrzne)
 II. Następnie uaktualniają się środowiska:
 	- systemowe - (system dotacji, stacje 
 ładujące, opinia o samochodach elektrycznych)
@@ -29,6 +33,13 @@ A co za tym idzie:
 (spearsony?), obliczane są koszty, i oceniana 
 technologia)
 
+
+Parametry:
+	- scenariusze rządowe
+	- cena paliwa
+	- cena prądu
+	- współczynnik społecznej akceptacji
+	- współczynnik rozwoju technologi
 
 
 
@@ -39,8 +50,3 @@ adoption of plug-in electric vehicles: an
 agent-based model. Energy Policy 96,
 105–118.)
 roznica miedzy BEV a EV
-
-
-moje pomysły:
-	- jaki jest współczynnik złomowania EV i CV 
-po wypadku

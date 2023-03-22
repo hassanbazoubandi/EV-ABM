@@ -1,0 +1,1471 @@
+Sustainable Production and Consumption 28 (2021) 206–217
+
+Contents lists available at ScienceDirect
+
+Sustainable Production and Consumption
+journal homepage: www.elsevier.com/locate/spc
+
+Agent-based modelling for market acceptance of electric vehicles:
+Evidence from China
+Xingjun Huang a, Yun Lin b,∗, Fuli Zhou c, Ming K. Lim a,d, Simin Chen a
+a
+
+College of Mechanical and Vehicle Engineering, Chongqing University, Chongqing, P.R. China
+School of Management Science and Real Estate, Chongqing University, Chongqing, P.R. China
+c
+School of Economics and Management, Zhengzhou University of Light Industry, Zhengzhou, P.R. China
+d
+Center for Business in Society, Coventry University, Coventry, United Kingdom
+b
+
+a r t i c l e
+
+i n f o
+
+Article history:
+Received 17 November 2020
+Revised 1 April 2021
+Accepted 4 April 2021
+Available online 6 April 2021
+Editor: Prof. Adisa Azapagic
+Keywords:
+Electric vehicles
+Adoption decision
+Public charging facilities
+Policy intervention
+Agent-based modelling
+
+a b s t r a c t
+Inadequate consumer adoption has become a major obstacle to the diffusion of electric vehicles. Understanding and interfering with decision-making of these consumers may be the key to the acceptance of
+electric vehicles. In this study, an improved agent-based modelling is proposed to simulate the market
+acceptance of electric vehicles under multi-policy scenarios. The logic of consumer decision-making is
+portrayed by integrating consumer preferences, charging facilities, and the impact of government subsidies. The results show that the current consumers prefer plug-in hybrid electric vehicles and their attitude towards electric vehicles is more negative. A hybrid policy consisting of government subsidies and
+charging facility construction is the most effective strategy, where subsidies help stabilize consumption
+and charging facility construction facilitates the rapid electriﬁcation of vehicles in the current market.
+Moreover, increasing demand for sustainable consumption requires continuous upgrading of EV production technology. Based on these results, policy implications and suggestions for future electric vehicle
+industry are discussed.
+© 2021 Institution of Chemical Engineers. Published by Elsevier B.V. All rights reserved.
+
+1. Introduction
+The electric vehicle (EV) industry has become the largest social
+sustainability movement and the most promising industry to reduce carbon dioxide emissions and dependence on oil (Wang et al.,
+2018b; Zhou et al., 2019). However, a major challenge to the development of a cleaner and sustainable society is the lack of consumer acceptance of EVs (Ullah et al., 2018; Li et al., 2020a). The
+early development of the EV industry is mainly based on the promotion of the public domain, such as public travel, urban sanitation and government vehicles. As the main battleground for the
+popularity of EVs, their penetration in the private passenger car
+market is still low, and the Chinese government wants EVs to succeed in this area (Wang et al., 2018a; Li et al., 2020a).
+
+To encourage the adoption of EVs in the private passenger vehicle sector, China has enacted two important policies since 2012
+– “Energy-saving and new energy vehicle industry development plan
+(2012–2020)” and “New Energy Vehicle Industry Development Plan
+(2021–2035)”. These policies macro-planned future EV industry related guidelines, such as EV technology trajectory, business models,
+demand-led policies, and charging facility service levels. However,
+despite signiﬁcant growth in EV ownership, its market share remains low and EVs are proliferating at a much slower rate than
+the government expects (Wang et al., 2018b; Li et al., 2020a). For
+example, by the ﬁrst half of 2019, China had 250 m cars, of which
+only 1.37% were EVs. Consumers are caught in a state of “high attitude and cold behavior”, i.e. they have a positive attitude towards
+buying EVs, but the real purchase rate is low, which also puts the
+country in an awkward pattern of “hot policies and cold markets”
+(Wang et al., 2018b; Li et al., 2020a). In view of this, further understanding of the social dynamics of EV proliferation from demand
+side may be central to breaking this stalemate.
+
+Existing research has also attempted to understand and intervene consumer adoption decisions. These studies fall into two
+main categories, one to understand consumer inﬂuences on EV
+adoption, such as Wang et al. (2018b); Wu et al. (2019) and
+Ning et al. (2020); and one to understand the logic of consumer decisions on EV adoption, such as Silvia and Krause (2016);
+Zhuge et al. (2020) and Li et al. (2020a). In general, two consensus
+were reached, ﬁrstly, the importance of charging facilities for mass
+EV acceptance is identiﬁed; secondly, consumer decisions are the
+result of a combination of factors, i.e., consumer preferences, policy
+interventions and social networks, and individual micro-decision
+making will deﬁnitely affect EV diffusion (Eppstein et al., 2011;
+Ning et al., 2020; Song et al., 2020). However, to the best of our
+knowledge, conventional wisdom does not fully capture the complex social dynamics of EV adoption, and in particular, the logical
+role of charging facilities in consumer decision making is still missing.
+To this end, this study aims to ﬁnd effective strategies for the
+uptake of EVs in the ﬁeld of private passenger vehicles from the
+perspective of complex adaptive systems. Understanding the necessary needs of consumers and depicting their decision-making logic
+are the premise of formulating effective policy interventions. An
+agent-based modelling (ABM) is used to simulate the dynamics behind the market acceptance of EVs by considering the dynamic interactions between governments, automakers and consumers. This
+study is interested in the following questions. First, what is the
+consumers’ perception and social atmosphere about EVs? Second,
+is the government subsidy still the most important aspect for the
+acceptance of EVs? Third, how much impact have public charging
+facilities on the EV market? Can it be an alternative to government
+subsidies?
+
+
+2. Literature review
+Lack of consumer adoption in the private passenger vehicle segment has become one of the major barriers to the proliferation of
+EVs. Many studies have examined the topic of consumer adoption
+decisions, and these studies can be divided into three categories:
+consumer preferences, policy interventions, and EV diffusion.
+The ﬁrst stream investigates consumer preferences. Many empirical studies have provided theoretical support for consumer
+207
+preferences, i.e., Ning et al. (2020); Li et al. (2020b) and
+Khan et al. (2020), these studies have examined the vast majority of consumer preferences regarding product attributes and policy interventions, including purchase price, operation cost, driving
+range, charging time, vehicle security, and related policies, such
+as purchase subsidy, carbon trading scheme and tradable driving
+credits. One of the key ﬁndings is that public charging facilities
+are key to supporting the mass acceptance of EVs (Santos and
+Davies, 2020; Tan and Lin, 2020). However, limited by the research
+method, i.e., discrete choice model, structural equation model and
+theory of planned behavior, these studies can only identify consumer car purchase preferences in terms of statistical correlation,
+but fail to capture the complex dynamics behind consumer decisions. This study contributes to this ﬂow-through design consumer
+decision by integrating vehicle attributes, policy preferences, and
+facility impacts into a dynamic decision logic. Based on this, the
+vehicle preference attributes are presented in Table 1.
+The second stream examine policy interventions. Policy interventions are also seen as an effective strategic tool to promote
+the development of EVs, but there is a great deal of uncertainty
+about the potential impact of such tools (Silvia and Krause, 2016;
+Sheldon and Dua, 2020). Take government subsidies as an example,
+Noori and Tatari (2016) indicated that EVs will account for 30% of
+the U.S. auto market by 2030, with BEVs accounting for the largest
+share, because of government subsidies. Wang et al. (2019) found
+that the abolishment of subsidies will reduce China’s EV market share by 42%. However, Wang et al. (2018b) and Santos and
+Davies (2020) found that the impact of government subsidies on
+consumers’ willingness to adopt EVs is not signiﬁcant and limited.
+This suggests that the potential effects of policy are uncertain and
+that the optimal policy mix strategy still lacks suﬃcient evidence
+to support it. In light of this, this study contributes to a combination of Pareto eﬃcient strategies, especially in combination with
+charging facility strategies, while providing more theoretical support for the potential effects of policy interventions that would
+promote the development of EVs.
+The third stream is EV diffusion. The EV diffusion is the result of multi-agent and multi-factor combination. Discrete choice
+model, evolutionary game model and ABM are often used in the
+study in EV proliferation. For the ﬁrst model, consumers consider
+the adoption behavior of EVs as the selection of a group of associated characteristics or properties of EVs. They make purchase decisions by assigning weights to the properties of different vehicles.
+For example, Ning et al. (2020) examined consumer’ choice behavior of EVs by incorporating individual preference and network inﬂuence. Kim et al. (2020) used a discrete choice model to examine
+the effect of consumers’ asymmetric preferences on their adoption
+decision, which uses the consumer’s existing product as a reference point. For the second model, the consumer strategy choice
+mechanism under multi-agent interaction is the focus of its attention. Hu et al. (2020b) investigated the dynamic impact of different
+policies on EV diffusion by designing a complex network evolutionary game model. Li et al. (2019) uses a complex network evolutionary game to study the dynamic effects of government policies on the diffusion of EVs in networks of different sizes. However, in the ﬁrst two methods, the discrete choice model emphasizes the importance of statistical relationships, and it is diﬃcult
+to consider the inﬂuence of complex networks, while the evolutionary game model focuses more on the choice of game strategies of homogeneous individuals, reducing the complexity of the
+model. However, consumer decisions require information, not direct learning strategies (Li et al., 2020a). The environmental interaction and heterogeneous individual intelligence decision rules
+at the core of ABM set it apart from other modeling approaches,
+which makes it the most promising method for building complex
+system (Silvia and Krause, 2016; Zhuge et al., 2019). For exam
+
+ple, Zhuge et al. (2020) designed an agent-based integrated microsimulation to analyze the potential inﬂuence of cost-related factors on the adoption of EVs. Sun et al. (2019) simulated the dynamic interactions between consumers and manufacturers to examine the impact of public subsidies on EV diffusion. Silvia and
+Krause (2016) used the ABM model to assess the impact of policy
+interventions on the proliferation of PHEVs. However, to the best
+of our knowledge, existing studies do not adequately capture the
+complex social dynamics of EV proliferation from the demand side,
+and in particular lack the logical role of charging facilities in consumer decisions. This study contributes to this literature stream by
+constructing a dynamic interaction between government, manufacturers, and consumers that integrates the effects of public charging
+facilities, social networks, and consumer preferences. Considering
+that this study model is a typical complex system model, ABM is
+also suitable for this study.
+
+Higueras-Castillo et al. (2019)
+Higueras-Castillo et al. (2019)
+Lin and Wu (2018)
+
+3. Methods
+3.1. Model description
+The purpose of this study is how to promote the electriﬁcation of vehicles in the private passenger car segment and achieve
+the conversion of consumer purchases from conventional vehicles
+(CVs) to EVs through the "scenario-response" method. Fig. 1 introduces a multi-agent framework that works year by year in programming software such as ANYLOGIC. There are three types of
+agents in the vehicle purchase simulation decision chart. Consumers make purchasing decisions to maximize their utility based
+on a combination of factors, such as consumer preferences, public charging facilities, social network impacts and policy interventions. Watts and Strogatz (1998) indicated that real-world interpersonal networks are characterized by small-world networks;
+thus, small-world networks are considered to be the most inﬂuential and commonly used networks. This study also uses smallworld networks as the basis for consumer interaction networks.
+Automakers are to adjust production costs and selling prices by
+using technological learning.
+
+
+ Manufacturers’ production costs and
+sales prices will change in response to market demand for EVs, and
+EVs with changed sales prices will further inﬂuence consumers’
+willingness to buy them. The government agent, acting as a market regulator, speciﬁes the number of subsidies for market-oriented
+charging facilities, the intensity of subsidies for EVs and the external market environment factors. Noted that public chargers only
+serve consumers within their service capabilities, and consumers
+who exceed their charger capabilities will no longer have access to available public charging services, even if they may be close to the
+charger.
+Assumptions of this model are as follows: (1) Information can
+be passed between individuals because there are social network
+connections and the social network structure remains constant
+throughout the diffusion process; (2) No major breakthroughs in
+EV technology and no major changes in consumer preferences will
+occur, so the study context remains unchanged throughout the experimental process; (3) The number of government subsidies for
+EVs is limited, and consumers will no longer be able to receive
+subsidies for purchasing EVs once the number of subsidies reaches
+the ceiling; (4) The external environment for vehicle purchases is
+stable and consumers will not delay purchasing a vehicle once they
+need to replace it with a new one.
+
+3.2. Model
+3.2.1. The purchase decisions of consumers
+In this model, consumers have two important characteristics:
+heterogeneous preferences and bounded rationality. Because the
+purpose of this study is how to promote vehicle electriﬁcation in
+the private passenger vehicle segment and achieve the conversion
+of consumer purchases from CVs to EVs, this study assumes that
+consumers in the private passenger vehicle segment own at least
+one vehicle. Following the literatures, i.e., Eppstein et al. (2012),
+Silvia and Krause (2016) and Li et al. (2020a), this study designs a
+logical decision ﬂow chart for consumers to describe the heterogeneous preferences of consumers. In addition, according to the fact
+that individual consumers make decisions by carefully considering
+all relevant aspects involved in the decision, but it does not matter which aspect is considered ﬁrst, that is, there is no mandatory
+order.
+
+To this end, ﬁve key topics are designed to quantify consumer decisions. First, question A sets the premise of a potential
+consumer’s decision to purchase a vehicle. Noted that a BEV may
+not be necessarily purchased when consumers need to buy a new
+car because their decisions depend on the answers to the remaining four questions in the decision logic.
+Question B deals with the cost of EV adoption. If BEVs are cost
+effective relative to CVs, consumer agents will choose the ideal vehicle between BEVs and PHEVs based on the fuzzy TOPSIS method.
+
+Eq. (1) presents a cost-effective calculation method for each consumer, where the cost effectiveness of BEV CE is deﬁned as the
+remainder of its price premium and lifetime operating cost savings, pr eBEV refers to the BEV price premium, savBEV is the lifetime
+operating cost savings of BEV, and yerBEV is the assigned life cycle of a BEV. The price premium of BEV is shown in (2), where
+cBEV is the sale price of BEV, sBEV is the government subsidy for
+BEVs, and cCV is the sale price of CVs. The lifetime operating cost
+savings is shown in (3), where poil is the price per litre of petrol,
+amtCV /amtBEV are the annual mileage of CVs and BEVs respectively,
+mpgCV is the mileage per litre of oil, ocBEV is the cost of fully
+charge a BEV, and rBEV is the mileage of the BEV. Eq. (4) denotes
+the cost of a BEV to be fully charged once, r ch /r c p refer to the
+probability of charging at home and in public charging facilities
+respectively (shown in (5)), och /oc p refer to the cost of charging at
+home and in public charging facilities respectively.
+
+Noted that the model defaults to all consumers as “potential
+BEV adopters” who are classed as being able to take. Nonetheless,
+a “potential BEV adopter” does not necessarily imply that he/she
+will purchase or use a BEV. If individuals have enough motivations, they will make the decision to buy BEVs, otherwise they
+will choose other models. Questions C-E addresses these motivations. First, are there public chargers around consumer agents to
+meet their potential charging needs? In this study, the availability
+of public charging piles is regarded as a prerequisite for consumers’
+preference for EVs. If so, 2.5% of potential consumers are motivated
+by a personal desire to be at pioneers (or innovators) in technological advances and will buy BEVs (Rogers and Simon, 2003). Environmentalists and individuals who value the cutting edge of technology are often seen as niche groups willing to buy EVs, even
+if this is not "rational" from a purely cost perspective (Silvia and
+Krause, 2016). For simplicity, 16% of the consumers in the model
+are willing to buy BEVs, which is consistent with the value set by
+the Silvia and Krause (2016)’s study. However, if there is no charging facility around the individual or consumers’ preferences are not
+met, they will choose between PHEVs and CVs based on the theory
+of maximum utility.
+Question F deﬁnes the evaluation mechanism of consumer
+multi-vehicle choice based on the fuzzy TOPSIS method. Suppose
+the consumer has m choices of automobile products P1 , P2 , · · · , Pm ,
+and each product has n different attributes. The consumer weights
+each attribute based on the expert group’s assessment of the vehicle. The consumer weight is Sk , expert group’s evaluation is E and
+the inﬂuence of the social network on consumers is αk . In this regard, the speciﬁc decision steps are as follows:
+Step 1: Constructing multi-product attribute evaluation matrix
+E from expert group, and use ei j to represent the j attribute value
+of the i product.
+
+CE = pr eBEV − savBEV · yerBEV
+
+(1)
+
+pr eBEV = cBEV − sBEV − cCV
+
+(2)
+
+savBEV = poil ·
+
+amtCV
+amtBEV
+− ocBEV ·
+mpgCV
+rBEV
+
+ocBEV = r ch · och + r c p · oc p
+r ch =
+
+och
+, r c p = 1 − r ch
+och + oc p
+
+⎡
+
+e11
+⎢ e21
+E=⎢ .
+⎣ ..
+em1
+
+e12
+e22
+···
+em2
+
+···
+···
+..
+.
+···
+
+⎤
+
+e 1n
+e 2n ⎥
+.. ⎥
+⎦
+.
+emn
+
+(6)
+
+Step 2: Constructing consumer matrix Sk based on the consumer product attribute matrix wk = (w1k , w2k , · · · , wnk )T , where
+Sk = E · wk .
+In reality, consumers often make purchase decisions based on
+their ambiguous perceptions. In this study, 7-point Likert scale is
+used to measure consumers’ fuzzy perception and fuzzy TOPSIS
+method is introduced for decision analysis. Two types of language
+variable sets are used for evaluation: namely performance variable
+set and social network impact sensitivity variable set. Noted that
+these variable sets were also used in the perceptual evaluation of
+the expert group in step 1. Triangular fuzzy number is used to
+quantify consumer perception, as shown in Table 2.
+Among them, the membership function μa˜ (x ) : R → [0, 1] of
+triangular fuzzy numbers is in (7):
+
+μa˜ (x ) =
+
+⎧ x−a1
+⎨ am −a1 ,
+⎩
+
+a1 ≤ x ≤ am
+
+x−an
+,
+am −an
+
+am ≤ x ≤ an
+
+0,
+
+other
+
+(7)
+
+In the formula, the number of rows μa˜ (x ) indicates the degree
+to which element x belongs to fuzzy set a˜ and a1 ≤ am ≤ an . The
+cascade average comprehensive representation is used to transform
+the fuzzy number into the exact value P (a˜ ), as shown in (8) and
+(9).
+
+(3)
+(4)
+
+P (a˜ ) = (a1 + 4am + an )/6
+
+(8)
+
+(5)
+
+P a˜  b˜ = [(a1 + 4am + an )/6] × [(b1 + 4bm + bn )/6]
+
+(9)
+
+209
+
+X. Huang, Y. Lin, F. Zhou et al.
+
+Sustainable Production and Consumption 28 (2021) 206–217
+
+Table 2
+linguistic variable set and triangular fuzzy number mapping.
+Variable
+
+Linguistic term
+
+Performance
+Sensitivity to social inﬂuence
+Triangular fuzzy number
+
+Very Poor (VP)
+Very Weak
+(0, 0,.1)
+
+Poor (P)
+Weak
+(0, 0.1, 0.3)
+
+Mid-Poor (MP)
+Mid-Weak
+(0.1, 0.3, 0.5)
+
+In the formula, a˜ = (a1 , am , an ), b˜ = (b1 , bm , bn ). Based on the
+above rules, the independent consumer k establishes a weight matrix sk = (xki j )m×n for the weight wk = (w1k , w2k , · · · , wnk )T of n attributes A1 , A2 , · · · , An of the product automobile agent. Thus, the
+consumer weight is denoted in (10).
+
+⎡
+
+xk11
+⎢ xk21
+Sk = ⎢ .
+⎣ ..
+xkm1
+In
+1
+1
+6 (w jk
+
+xk12
+xk22
+···
+xkm2
+
+the
+
+formula,
+
+4w2jk
+
+w3jk ),ei j
+
+xk1n
+xk2n ⎥
+.. ⎥
+⎦
+.
+k
+xmn
+xki j = P (ei j
+1
+(ei j , e2i j , e3i j )
+
+Cik =
+
+1 1
+6 ( ei j
+
++ 4e2i j + e3i j ) ×
+
+x̄ki j =
+
+m
+
+i=1
+
+ x̄li j
+l∈Lk
+
+(12)
+
+|Lk |
+
+
+
+
+
+
+
+
+
+
+
+pk− = x̄1k− , x̄2k− , · · · , x̄nk− =
+
+
+
+
+
+
+
+(13)
+
+(14)
+
+In the formula, J1 is the proﬁtability index set, representing the
+optimal value on the i index; J2 is the wastage index set, representing the worst value of the i index.
+Step 5: Calculating the distance scale through the n dimensional Euclidean distance formula. The distance from the target to
+the ideal solution pk+ is dik+ , and the distance to the anti-ideal solution pk− is dik− , where i = 1, 2, · · · , m:
+
+dik+ =
+dik− =
+
+n
+j=1
+
+n
+j=1
+
+x̄ki j − x̄kj +
+
+2
+
+x̄ki j − x̄kj −
+
+2
+
+(18)
+
+(19)
+
+This study was carried out in a virtual metropolitan environment with a volume of 20 0,0 0 0 vehicles, which was built on the
+basis of the city of Chongqing, China. Chongqing is an important
+ﬁrst-tier city and municipality in China in terms of economic status and industrial volume. Chongqing’s economic pillar is the automotive industry, with Changan, Lifan, Ford and other 14 vehicle
+manufacturers, 8 major auto brands, 10 0 0 auto parts and accessories manufacturers together to develop the "1 + 8 + 10 0 0 industrial pattern, becoming one of the largest automotive production bases in China. Besides, Chongqing is also one of the ﬁrst pilot cities in China to promote electric vehicles (published in 2013).
+The general public in Chongqing has a relatively good knowledge
+of EVs compared with other cities in China, so the virtual city built
+on the basis of Chongqing is a good representative. Based on the
+0.168 cars per capita in Chongqing, this simulation environment is
+equivalent to a virtual city with 1.2 million people (Chongqing Municipal Bureau of Statistics, 2019). The model is scaled at 1:100, so
+20 0 0 cars represent the full 20 0,0 0 0. The study simulated a 360square-kilometer space area, randomly generating consumer and
+public charging facilities. Every consumer needs to choose a car
+from BEV, PHEV and CV to meet their travel needs. In Fig. 2, the
+blue dot represents the consumer using the CV, the yellow dot represents the consumer using the BEV or PHEV, and the red rectangle
+is the public charging facility.
+
+max x̄ikj− | j ∈ J1 , min x̄ikj− | j ∈ J2 ,
+
+|i = 1, 2, · · · , m
+
+(17)
+
+3.3. Simulation environment
+
+max x̄ki j+ | j ∈ J1 , min x̄ki j+ | j ∈ J2 ,
+
+|i = 1, 2, · · · , m
+
+, i = 1, 2, · · · , m
+
+pi = (1 + μi )Ci
+
+In the formula, αk indicates the consumer’s sensitivity to the
+social network inﬂuence; Lk indicates the number of directly connected neighbors of the consumer k; and x̄li j is the normalized vector of the neighbor.
+Step 4: Determining each consumer’s ideal solution pk+ and
+anti-ideal solution pk− according to the weight normalized value
+x̄ki j :
+
+pk+ = x̄k1+ , x̄k2+ , · · · , x̄kn+ =
+
+dik+ + dik−
+
+where C (Q ) is the unit vehicle production cost when the vehicle
+output reaches Q,C0 is the initial production cost per unit of vehicle, and α is the rate of technological progress of automobile manufacturers. Thus, the learning rate is 1 − 2−α , which is the percentage by which production costs will decrease when production is
+doubled. As for product pricing, assume that automakers use costplus pricing method. The sale price of the product i is measured in
+(19), where μi ≥ 0 refers to the mark-up on the product.
+
+Noted that the normalization matrix of the small-world network model was used to establish the inﬂuence of the social network on consumer adoption decisions:
+
+x̄ki j = (1 − αk )x̄ki j + αk
+
+dik−
+
+C (Q ) = C0 Q −α
+
+(11)
+
+2
+xki j
+
+Very Good (VG)
+Very High
+(0.9, 1, 1)
+
+3.2.2. The decisions of automakers
+It is assumed that the EV automakers’ technology matures over
+time and the cost of producing the car will decrease. Automakers
+make decisions about the price of vehicles based on current market demand and technical maturity. To this end, this study introduces a technical learning curve to depict the above process, which
+is denoted in (18).
+
++
++
+=
+refers
+to
+the
+expert
+evaluation information for the j attribute of product i;
+w jk = (w1jk , w2jk , w3jk ) refers to the preference of consumer k
+on product attribute j.
+Step 3: Standardizing the consumer perception weight matrix,
+getting the normalization vector x̄ki j , and the normalized matrix is
+calculated in (11), where i = 1, 2, · · · , m and j = 1, 2, · · · , n.
+
+xki j
+
+Good (G)
+High
+(0.7,.9,1)
+
+In the formula, 0 ≤ Cik ≤ 1. Noted that the goal is the worst if
+Cik = 0 and pi = pk− , and the goal is the best if Cik = 1 and pi = pk+ .
+Step 7: Sorting the closeness of the ideal solution Cik . The larger
+the value of closeness C ∗ is, the better the goal is. And the one
+with the largest value of Cik is the optimal decision-making goal.
+
+(10)
+
+ w jk ) =
+
+Mid-Fair (MF)
+Mid-High
+(0.5, 0.7, 0.9)
+
+Step 6: Calculating the closeness of the ideal solution:
+
+⎤
+
+···
+···
+..
+.
+···
+
+Fair (F)
+Fair
+(0.3, 0.5, 0.7)
+
+(15)
+(16)
+210
+
+X. Huang, Y. Lin, F. Zhou et al.
+
+Sustainable Production and Consumption 28 (2021) 206–217
+
+Fig. 3. Market acceptance of electric vehicles under the baseline scenario.
+
+Fig. 2. Example simulation environment.
+
+to remove unqualiﬁed respondents, 1) Is it possible for electric vehicles to be banned from travel by traﬃc control? 2) Do you live
+in the city of Chongqing? Those who answered yes to the ﬁrst
+question and no to the second question will be deemed ineligible. Finally, questionnaire was conducted in May 2020 and a total of 243 valid questionnaire data (320 total sample size) was obtained with an effective questionnaire rate of 75.9%. The questionnaire constructs and demographic characteristics are attached in
+Appendix B. As for Table 4, experts from Chongqing Automotive
+Synergy Center and Changan Automobile were visited to obtain expert group vehicle evaluation data. Through the fuzzy transformation of the data set, the expert group’s product feature evaluation
+matrix (see Table 4), consumer product preference attribute perception matrix (see Table 5) and consumer social network sensitivity (see Table 6) are obtained.
+
+3.4. Scenario description
+This study utilizes several policy intervention scenarios to analyze the potential effect that adjusting vehicle purchase price via
+government subsidies and expanding the public charging network
+will throw on the market acceptance of EVs. The baseline scenario
+means no policy intervention. Under the same amount of funding,
+the following four policy scenarios are contrived and their impact
+on the marketplace acceptance of EVs is examined. For simplicity,
+see Appendix A for scenario design rules.
+1. Baseline scenario: No policy intervention;
+2. Government subsidy scenario: Provide 330 subsidies worth
+RMB 18,0 0 0 (USD 2781) each, thereby reducing the purchase
+price of this number of BEVs;
+3. Public charger scenario: Install 151 DC charging facilities and
+227AC charging facilities at various locations in the city;
+4. Hybrid policy: Use funds by providing 165 subsidies worth RMB
+18,0 0 0 (USD 2781) and installing 75 DC charging facilities and
+113 AC charging facilities in the city.
+
+4.2. Results of the electric vehicle choice behavior diffusion
+After obtaining the model data parameters, all simulation experiments are conducted in ANYLOGIC 8.7.2, including multi-policy
+scenario simulation experiments and sensitivity analysis experiments. The baseline scenario is used to show the situation of consumer EV choice behavior. In Fig. 3, the average market acceptance
+of BEVs and PHEVs was run thirty times to obtain. Judging from
+the overall evolutionary trend of the baseline scenario, the growth
+trend of PHEVs is much higher than that of BEVs. The whole evolution process is an S-shaped growth curve, which is consistent
+with the diffusion curve of new product innovation proposed by
+Rogers et al. (2003). Although the initial proportion of BEVs is four
+times that of PHEVs, the growth speed of PHEV market acceptance
+is much higher than that of BEVs. When reaching equilibrium, the
+market share of EVs is 36.7%, including PHEVs for 25.5% and BEVs
+for 11.2%. These results indicate that, for the vast majority of consumers in the ﬁeld of private passenger cars, they prefer to adopt
+PHEVs rather than BEVs.
+Fig. 4 shows the evolution of EVs under different policy interventions. Governments can adopt different strategies to guide the
+acceptance of EVs. Speciﬁcally, the policy hybrid scenario has the
+greatest acceptance of EVs on the market, second only to subsidy
+scenario and public charger scenario, and ﬁnally to the baseline
+scenario. The impact of public charging facilities and subsidies reported in Fig. 4 appears to be different, with charging facilities
+having signiﬁcantly greater incentives in the early stages than subsidies, but the ﬁnal evolution of the two appears to be similar. The
+subsidy policy for charging facilities may be an effective substitute
+for the subsidy policy for EVs. In addition, compared with the simple EV subsidy or a charging facility subsidy scenario, the combination of the two policies is the most effective scenario to promote
+the development of EVs.
+
+To evaluate their potential impacts, each scenario is simulated
+30 times and their events (i.e. the number of EVs adopted, including BEVs and PHEVs) are averaged across all runs.
+4. Results
+4.1. Parameter initialization settings
+The simulation parameters are taken from China’s auto market for 2019 and 2020, including data released by government departments, survey results from existing literature, questionnaires,
+and realistic assumptions. This study selected the BYD Qin EV1 as
+a representative model of the Chinese EV market. BYD Qin has
+three models: CV version, PHEV version and BEV version, the relevant parameters are shown in Table 3. Prior to the empirical research, potential EV consumer groups were identiﬁed, i.e. those
+with experience in using vehicles, already possessed a driving license, know about EVs or have plans to buy or use an EV in the
+next 3 years. The sample data was collected online in a snowball
+format, and we distributed the questionnaires to our colleagues
+and friends who were asked to distribute the questionnaires to
+their colleagues or friends (see Table 4, 5 and 6). In addition to
+the target group identiﬁcation, two additional questions were set
+1
+BYD Qin is a best-selling electric vehicle released by BYD, and it is the highest
+rated vehicle in the top 10 of China’s electric vehicle market sales in 2020
+
+211
+
+X. Huang, Y. Lin, F. Zhou et al.
+
+Sustainable Production and Consumption 28 (2021) 206–217
+
+Table 3
+The initial value setting of the model. (Refer to (China statistics press, 2019), China Electric Vehicle Charging Infrastructure Promotion Alliance (EVCIPA), 2020, questionnaire,
+Silvia and Krause (2016), (Rogers and Simon, 2003)).
+Attribute
+
+Explanation
+
+Values
+
+Initial rate of EVs
+
+According to the ratio of PHEVs to BEVs in China’s EV industry is about 4:1, the
+initial ratio of EVs is assumed to be 2%, including 1.6% for BEVs and 0.4% for
+PHEVs.
+Consumer day travel distance is subject to a triangular distribution.
+The age of each consumer agent is determined by randomly assigning values that
+follow a triangular distribution.
+The preset maximum service time of a vehicle.
+Pre-subsidy automaker’s suggested retail price for BEVs, referenced from BYD Qin
+EV.
+Maximum number of energy that can be accommodated by a BEV.
+Calculated by the vehicle’s energy consumption of 100 km, of which the BEV is
+7.55 miles and the CV is 16.13 miles
+Government subsidizes RMB 18,000 per BEV.
+Subsidies of RMB 36,000 per DC and RMB 2100 per AC.
+The average daily service number of fast charging pile DC is 6, and the average
+daily service number of slow charging pile AC is 2.
+The price per litre of petrol.
+The selling price of fuel vehicle, reference from BYD Qin fuel vehicle.
+The rate of technological progress of automakers
+The mark-up on the product.
+At home 0.65 RMB/kWh, public facilities 1.5 RMB/kWh.
+Based on the matching ratio of 3.5:1 for EVs to charging posts, the 2000 agents
+should have 158 charging facilities, and according to AC and DC 3:2, there are 95
+AC and 63DC.
+2.5% of the population have a preference for technological innovation and are
+willing to adopt new technologies.
+The 16% of consumer agents with the highest environmental score are considered
+as environmentalists.
+
+2%
+
+Daily travel distance
+Vehicle age
+Assigned vehicle age
+Sale price of BEV
+Battery capacity
+Mileages per unit of energy
+Subsidy for BEVs
+Subsidy for AC/DC
+Charging facility service
+capabilities
+Oil price
+Sale price of CVs
+Rate of technological innovation
+Rate of mark-up
+Electricity price
+Number of charging facilities
+
+Innovativeness
+Environmental attitude
+
+T (20, 80, 32) km
+T (24, 60, 36) months
+60 months
+RMB 167,900 (USD 25,991)
+42 kWh
+7.55/16.13 miles
+RMB 18,000 (USD 2781)
+RMB 36,000/2100 (USD 5573/325)
+6/2
+RMB 6.5 (USD 1)
+RMB 79,800 (USD 12,353)
+0.08
+10%
+RMB 0.65/1.5 (USD 0.1/0.23)
+158
+
+2.5%
+16%
+
+Table 4
+Product information created by an expert group.
+Model
+
+BEV
+PHEV
+CV
+
+Attributes
+Purchase
+price
+
+Maintenance
+cost
+
+Security
+
+Technology
+integration
+
+High
+power
+
+Low
+noise
+
+Carbon dioxide
+emission
+
+F
+F
+G
+
+F
+MF
+MF
+
+F
+MF
+MF
+
+G
+MP
+MP
+
+MF
+G
+F
+
+G
+MF
+F
+
+G
+F
+MP
+
+Notes: P, Poor; MP, Mid-Poor; F, Fair; MF, Mid-Fair; G, Good.
+
+Table 5
+Consumers’ weights on seven attributes.
+Weight
+
+Very Poor
+Poor
+Mid-Poor
+Fair
+Mid-Fair
+Good
+Very Good
+
+Attributes
+Purchase
+price
+
+Maintenance
+cost
+
+Security
+
+Technology
+integration
+
+High
+power
+
+Low
+noise
+
+Carbon dioxide
+emission
+
+.0092
+.0046
+.0229
+.1055
+.2798
+.2661
+.3119
+
+.0046
+0
+.0550
+.1468
+.3440
+.2890
+.1606
+
+0
+0
+.0046
+.0275
+.1376
+.2064
+.6239
+
+.0367
+.0642
+.1376
+.1881
+.2752
+.2202
+.0780
+
+.0092
+.0275
+.0826
+.2615
+.3349
+.2202
+.0642
+
+.0046
+.0183
+.0413
+.1468
+.3119
+.3486
+.1284
+
+.0505
+.0550
+.1284
+.1881
+.2523
+.2294
+.0963
+
+Table 6
+Consumer’s sensitivity levels of social inﬂuence.
+Sensitivity level
+
+Very High
+
+High
+
+Mid-High
+
+Fair
+
+Mid-Weak
+
+Weak
+
+Very Weak
+
+Relative frequency
+
+.0872
+
+.2064
+
+.3899
+
+.1835
+
+.0917
+
+0
+
+.0413
+
+conformity (Kim et al., 2011; Ning et al., 2020). In this experiment,
+the policy hybrid scenario was used to analyze the impact of social networks on the EV diffusion. Fig. 5 shows that as the inﬂuence of social networks increases, the rate of EV diffusion (including BEVs and PHEVs) decreases signiﬁcantly. In words, the market
+acceptance of EVs is negatively related to the impact of social networks, which are not conductive to the diffusion of EVs.
+
+4.3. Sensitivity analysis
+4.3.1. Impact of social networks
+Consumers do not exist in isolation, and they are often inﬂuenced by social networks when making purchase decisions. In reality, consumers are more willing to refer to “word-of-mouth” of
+products, friend recommendations, and have a certain mentality of
+212
+
+X. Huang, Y. Lin, F. Zhou et al.
+
+Sustainable Production and Consumption 28 (2021) 206–217
+
+Fig. 4. Market acceptance of electric vehicles under four policy scenarios.
+
+Fig. 7. The impact of oil prices on the market acceptance of electric vehicles.
+
+Fig. 5. The impact of social network on the market acceptance of electric vehicles.
+
+Fig. 8. The impact of technology learning rate on the market acceptance of electric
+vehicles.
+
+CVs to EVs. Second, while this balancing act facilitates the electriﬁcation of vehicles, it does not facilitate the conversion of vehicles
+from PHEVs to BEVs.
+
+4.3.3. Impact of technology learning rate of manufacturers
+Fig. 8 shows that the impact of technology learning rate on the
+EV diffusion. The technology learning rate of manufacturers is positively related to the promotion of EVs. Technology learning has reduced the cost of producing cars for EV manufacturers, prompting
+increased willingness to adopt EVs. It is worth noting that as the
+cost of producing EVs has decreased, sales of PHEVs have increased
+even more, despite the signiﬁcant increase in BEV sales. This suggests that the cost reduction of EVs is not suﬃcient to drive the
+conversion of PHEVs to BEVs, but contributes to the reduction of
+CVs in the market. More non-ﬁnancial incentives are needed in the
+process of achieving electriﬁed road vehicles.
+
+Fig. 6. The impact of electricity prices on the market acceptance of electric vehicles.
+
+4.3.2. Impact of electricity and oil price
+Fig. 6 and 7 represent the impact of electricity and oil prices
+on the proliferation of EVs, respectively. The results show that an
+increase in the price of electricity is inversely proportional to the
+proliferation of EVs, and an increase in the price of oil is positively
+proportional to the proliferation of EVs. Obviously, this conclusion
+is consistent with our intuition, but it is worth noting that two
+ﬁndings have important implications for social practice. First, the
+countervailing force of electricity and oil prices may be a balancing
+policy to drive the conversion of private passenger vehicles from
+
+5. Discussion
+Expanding the market share of EVs in the private passenger car
+segment has become one of the most important issues in society
+today. A deeper understanding of the decision-making logic of consumers in the private passenger vehicle sector is important for the
+development of EV proliferation intervention policies. To this end,
+the discussion is analyzed in two parts based on the simulation
+results, namely policies and consumer demand.
+213
+
+X. Huang, Y. Lin, F. Zhou et al.
+
+Sustainable Production and Consumption 28 (2021) 206–217
+
+5.1. The analysis of policies
+
+2020). Therefore, reasonable tariff setting is still a problem that has
+yet to be solved and directly affects the market acceptance of EVs.
+In this regard, the government and enterprises should pay attention to the rational setting of electricity prices while also adopting
+a balanced electricity-oil price policy strategy to provide an external environment for the implementation of a more attractive electricity price strategy.
+
+Clean energy and technology diffusion are generally policyrelevant, and this study yielded three policy-relevant ﬁndings. (1)
+The effect of vehicle purchase subsidy policy is relatively weak, and
+its effect is not as obvious as the effect of subsidizing charging facilities. (2) Mixed policy incentives are better than any single policy. (3) The inverse force of electricity and oil prices is a good balancing policy.
+In terms of policy uncertainty, the ﬁndings of this paper further support the argument from (Wang et al., 2017, 2018b) and
+agree that the effect of subsidy policies is diminishing. A possible explanation for this might be that the mass still regards
+the EV as a tool to meet their travel needs, in which meeting
+charging needs is a basic or must-be attribute and the government subsidy is attractive attribute (Yang et al., 2015). Government subsidy is their attractive attribute, and its impact on consumers is not as great as expected. And about 25% of the Chinese masses cite subsidies as the main factor inﬂuencing their purchase of an EV, and while signiﬁcant, the convenience factor is
+more important to consumers (Wang et al., 2017). Thus, the existence of government subsidies will improve consumer satisfaction,
+but if it is not provided, it will not cause consumer dissatisfaction (Yang et al., 2015; Li et al., 2018). On the contrary, meeting
+the charging demand is the basic condition for private passenger
+car consumers to adopt EVs and they are also more willing to pay
+more for the use of charging services or charging facilities (Tan and
+Lin, 2020). If this demand is not met, they will be very dissatisﬁed
+and unwilling to use EVs. This also reveals why supporting public
+charging infrastructure is the key to the mass acceptance of BEVs,
+while the effect of government subsidies is limited (Neaimeh et al.,
+2017; Santos and Davies, 2020). To sum up, the inﬂuence of high
+EV subsidies is limited and will not lead to the long-term success of the EV market (Harrison and Thiel, 2017; Song et al.,
+2020).
+Of course, this does not mean that the government should
+abandon the subsidy policy and just subsidize charging facilities.
+This study shows that mixed policies perform better than single
+policies. According to Wang et al. (2019), China’s phasing out of
+subsidies led to a 42% drop in EV market share. Such a drastic drop
+in demand for EVs is bound to be detrimental to the development
+of the charging facility industry as well, as the two are in a circular cause-and-effect relationship. Given this relationship, perhaps
+a buffer phase could be added to mitigate the dramatic impact of
+EV subsidies on the system as a whole, i.e., subsidizing both EVs
+and charging facilities. However, it seems that the Chinese government prefers to promote EVs before developing charging facilities, with the two being promoted independently and the mutual
+causal relationship between them being ignored. This is the reason why the reduction of EV subsidies has led to a sharp drop in
+market share in the short term, and more importantly this is also
+extremely detrimental to the promotion of the charging facility industry. To this end, a buffer phase may be an effective strategy and
+this study provides theoretical support for the scientiﬁc validity of
+this strategy.
+Finally, the policy of balancing oil and electricity prices needs to
+be taken seriously. Although the role of electricity and fuel prices
+has been identiﬁed by many studies, and these two factors are indeed cost factors that inﬂuence consumers’ vehicle choices, the rational use of these two inﬂuencing factors has not been considered
+in depth, and there is a lack of rational application of this power in
+real-life applications (Li et al., 2019; Hu et al., 2020a). In China, the
+service price of charging facilities is not regulated by the government, and fewer charging facilities enterprises have not yet formed
+a competitive pattern, and the local monopoly is not conducive to
+reasonable competition in tariff (Zhang et al., 2019; Zhao et al.,
+
+5.2. The analysis of consumer demand
+As a high-cost durable product, the purchase decision of EVs
+is inevitably inﬂuenced by consumer preferences and externalities
+such as product word-of-mouth and advice from friends. Three important ﬁndings are obtained. (1) Consumers prefer PHEVs to BEVs.
+(2) Current consumer attitudes about EVs in the private passenger
+car segment are negative, creating a negative social network atmosphere that is not conducive to the proliferation of EVs. (3) Increasing demand for sustainable consumption requires continuous
+upgrading of EV production technology.
+In terms of the ﬁrst point, there may be two reasons for this
+phenomenon: ﬁrst, it may be related to barriers to the adoption of
+BEVs, such as a BEV range limitation that is not relevant for PHEVs
+(Silvia and Krause, 2016); second, it may be related to China’s policy guidance. In China, PHEVs are also regarded as a type of EVs,
+belongs to clean vehicle (Zhou et al., 2019), and is an intermediate product to realize the transition from CVs to BEVs. This means
+that many supportive policies of BEVs also support PHEVs, such
+as exemption from road tolling or bus lane access, attracting more
+consumers to adopt PHEVs (Wang et al., 2019). Thus, from the perspective of consumer utility theory, PHEVs have more advantages
+in comprehensive use and policy beneﬁts than BEVs. However, considering that the PHEV is a transitional product in China, its policy
+support should be weakened or removed at a later stage. Before
+a major breakthrough in BEV battery technology, the government
+should adhere to the strategy of PHEVs as a transitional product,
+which does not conﬂict with the travel needs of consumers in the
+ﬁeld of private passenger cars and has the opportunity to achieve a
+lot of potential PHEV purchasing demands. EV enterprises can also
+take the PHEV market as the service object to obtain more ﬁnancial support for the breakthrough of BEV technology while developing battery technology.
+The second ﬁnding is unexpected and a possible explanation
+for this might be that consumers still have a relatively negative
+understanding of EVs, perceive more risks, such as slow charging
+and inconvenient charging, and do not advise people around them
+to use EVs (Wang et al., 2018b). In China, consumers’ knowledge
+about EVs is stereotyped and ﬁxed, and till stays in the stereotype of EVs (vehicles + batteries + government policies). Lacking
+of knowledge about EVs and perceiving high risk of EVs have become a signiﬁcant psychological obstacle hindering consumers’ acceptance of EVs, especially in the current situation of phasing out
+subsidies (Wang et al., 2018b). Consumers are caught in a state
+of “high attitude and cold behavior”, i.e. they have a positive attitude towards buying electric vehicles, but the real purchase rate
+is low, which also puts the country in an awkward pattern of “hot
+policies and cold markets” (Wang et al., 2018b; Li et al., 2020a).
+This negative effect can be reﬂected in the market acceptance of
+both BEVs and PHEVs (see Fig. 5). Therefore, public cognitive bias
+about EVs still exists (Lin and Wu, 2018). It is necessary for governments to design more activities and more reasonable policies to
+guide consumers’ awareness of EVs and improve the physical use
+environment of EVs, such as the layout and operation of charging
+piles.
+Finally, the third ﬁnding is also easy to understand. Many
+studies have shown that high costs are one of the major factors
+hindering the proliferation of EVs (Junquera et al., 2016;
+214
+
+X. Huang, Y. Lin, F. Zhou et al.
+
+Sustainable Production and Consumption 28 (2021) 206–217
+
+Wang et al., 2018b). However, the cost of EVs is not only related
+to their R&D investment cost, but also to their production cost.
+The current EV market in China is only 1.37% of the total market,
+and most automakers are very focused on investing in R&D for EVs,
+while neglecting the technological upgrading of the production line
+itself. The low production demand makes the production cost of
+EVs more expensive compared to CVs, and the mixed production of
+CVs and EVs also makes the production technology more complex.
+Therefore, the improvement of production line technology for EVs
+is an important practical issue, and the ﬁndings of this study suggest that the improvement of production line technology for EVs
+can help the proliferation of EVs. To this end, the government and
+manufacturers should pay attention to the improvement of production line technology while actively guiding the generation of
+consumer demand, such as formulating relevant policies to support, or benchmarking relevant technology companies to promote
+advanced production technology.
+
+udice against EVs, which may be the premise of large-scale adoption of EVs. Finally, EV manufacturers should try to improve their
+technology to gain more market share, and governments should
+not rely too heavily on regulatory strategies related to CV usage
+costs.
+Some restrictions still exist due to the complexity of practical problems. First, this study mainly focuses on the market acceptance of EVs in the ﬁeld of private passenger cars, without
+considering the public domain. In reality, the diffusion of EVs in
+the public domain played a vital role in the development of early
+EVs. Second, the knowledge of consumer evaluation involved in
+the study is a short-term knowledge that inﬂuences consumer vehicle decision-making and remains relatively constant throughout
+the cycle. Future research can analyze the evolution of consumer
+knowledge in different technical contexts to achieve the effectiveness of long-term decision-making.
+Declaration of Competing Interest
+
+6. Conclusions
+None.
+Promoting consumer adoption of EVs is critical to building a
+clean and sustainable society. This study proposed an agent-based
+simulation model considering the effects of public charging facilities, consumer preferences and social networks. The proposed
+model aims to examine the comparative impact of different policy interventions on the market acceptance of EVs to promote the
+popularity of EVs.
+This study is novel in the following regards. First, a novel consumer decision logic is portrayed by integrating the impact of public charging facilities, consumer preferences and social networks.
+Existing studies only show that public charging facilities are statistically positively related to consumers’ willingness/attitude to
+adopt EVs, but the role of public charging facilities in consumer
+decision-making remains unclear. Second, a new EV diffusion dynamics is proposed by integrating the effects of public charging
+facilities, manufacturer technological innovation, and government
+policy intervention on consumer adoption decisions. This study is
+particularly innovative in integrating the effects of charging facilities in the dynamics of EV diffusion. Third, new policy intervention portfolio strategies were designed and evaluated based on an
+improved EV dynamics model. This provides more theoretical supports for the assessment of the uncertainty of the current policy
+effect.
+The main ﬁndings and suggestions of the study are as follows.
+First, consumers are more inclined to PHEVs in the choice of EVs,
+so the governments should adhere to PHEVs as transitional products to realize the transformation of consumer demand from CVs
+to EVs. Second, the planning and deployment of the public charging facilities are conductive to the mass acceptance of EVs and
+subsidies for public charging facilities are an effective alternative
+to EV subsidies. Governments and enterprises should actively formulate policies to develop and operate public charging infrastructure. Third, compared with the simple EV subsidy or the charging facility subsidy scenario, the combination of the two policies
+is the most effective scenario to promote the development of EVs.
+This means that the government can shift EV subsidies to a state
+where the two coexist, looking for the most effective Pareto policy
+mix strategy. Fourth, the social network atmosphere of consumers
+about EVs is still relatively negative, and their perceived bias about
+EVs still exists. At present, it seems that this is a relatively serious problem. The government and enterprises should actively
+guide consumers’ awareness of EVs and change their inherent prej-
+
+Acknowledgments
+This study is supported by the Chinese National Funding of Social Science (Grant No. 18BJY066), Chongqing Science and Technology Commission (Grant No. cstc2018jszx-cyzd0711) and the
+Fundamental Research Funds for the Central Universities (Grant No.
+2019CDCGGK318). We appreciate the anonymous referees and the
+editor for their valuable comments.
+Appendix A. Scenario design
+Baseline scenario: Based on China’s 3.5:1 match rate between
+EVs and charging facilities in 2019, the ratio of fast charging facilities to slow charging is 2:3, and the assumption of their service
+capability, the 20 0 0 agents in the basic scenario should have 158
+charging facilities.
+Government subsidy scenario: According to BYD’s oﬃcial website, a BYD Qin EV can receive a subsidy of RMB 18,0 0 0 (USD 2781)
+in 2021.
+Public charger scenario: In China, different local governments
+have different construction subsidies for charging pile construction, and the subsidy standard is based on a certain proportion of
+power (AC / DC) or total investment. Considering that the construction object of this paper is distributed DC charging pile (DC, 60kw)
+and AC charging pile (AC, 7kw), so the subsidy standard adopts
+the method of power distribution. In most provinces, dc charging piles are subsidized at 40 0–90 0 RMB/kW (61.2–139.3 USD/kW),
+and most are 600 RMB/kW (61.2 USD/kW), while AC charging piles
+are subsidized at half the amount of DC charging piles. Therefore,
+the subsidy amount for each DC charging pile is RMB 36,0 0 0 (USD
+5573), and the AC charging pile is RMB 2100 (USD 325). According
+to China’s Charging Infrastructure Development Report 2019–2020,
+the ratio of China’s charging pile DC to AC is 2:3. Thus, scenario
+3 assumes that the government will provide subsidies for 151 DC
+charging facilities, each worth RMB 36,0 0 0 (USD 5573), and 227 AC
+charging facilities, each worth RMB 2100 (USD 325).
+Appendix B. Questionnaire constructs and demographic
+characteristics
+Tables B1 and B2
+
+215
+
+X. Huang, Y. Lin, F. Zhou et al.
+
+Sustainable Production and Consumption 28 (2021) 206–217
+
+Table B1
+Questionnaire constructs.
+Factors
+
+Measurement items
+
+Purchase price
+Maintenance cost
+Security
+Technology integration
+
+I think the price of a vehicle is very important to the decision I make to purchase the vehicle.
+I think the maintenance cost is very important to the decision I make to purchase the vehicle.
+I think technology security is very important to the decision I make to purchase the vehicle.
+I think technology integration (i.e. imbedding more vehicle technologies) is very important to the decision I make to purchase the
+vehicle.
+I think high power is very important to the decision I make to purchase the vehicle.
+I think low noise is very important to the decision I make to purchase the vehicle.
+I think low carbon dioxide emission is very important to the decision I make to purchase the vehicle.
+I think the inﬂuence of the circle of friends (e.g., a friend’s recommendation or a friend’s decision to buy a car) is important to my car
+purchase decision.
+
+High power
+Low noise
+Carbon dioxide emission
+Social network inﬂuence
+
+Table B2
+Demographic characteristics.
+Characteristics
+Gender
+Male
+Female
+Age (In years)
+<18
+18–24
+25–34
+35–44
+45–65
+Education Level
+High school or below
+Bachelor
+Master
+Ph.D.
+Monthly Income (RMB)
+<3000
+3001–5000
+
+Number
+
+Ratio (%)
+
+126
+117
+
+51.85
+48.15
+
+3
+74
+112
+40
+14
+
+1.23
+30.45
+46.09
+16.46
+5.76
+
+8
+126
+74
+35
+
+3.29
+51.85
+30.45
+14.4
+
+96
+36
+
+39.51
+14.81
+
+References
+
+Characteristics
+
+Number
+
+Ratio (%)
+
+5001–10,000
+10,001–15,000
+>15,000
+Occupation
+Student
+Business
+Public servant
+Manufacturing and Engineering
+Other
+Marriage
+Unmarried
+Married
+Family size
+1–2 members
+3 members
+4 members
+5 members and more than
+
+58
+31
+22
+
+23.87
+12.76
+9.05
+
+50
+49
+44
+67
+33
+
+20.57
+20.16
+18.1
+27.59
+13.58
+
+83
+160
+
+34.15
+65.85
+
+31
+78
+81
+53
+
+12.76
+32.1
+33.33
+21.81
+
+Li, L., Wang, Z., Chen, L., Wang, Z., 2020b. Consumer preferences for battery electric
+vehicles: a choice experimental survey in China. Transport. Res. Part d-Trans.
+Environ. 78.
+Lin, B.Q., Wu, W., 2018. Why people want to buy electric vehicle: an empirical study
+in ﬁrst-tier cities of China. Energy Policy 112, 233–241.
+Neaimeh, M., Salisbury, S.D., Hill, G.A., Blythe, P.T., Scoﬃeld, D.R., Francfort, J.E., 2017.
+Analysing the usage and evidencing the importance of fast chargers for the
+adoption of battery electric vehicles. Energy Policy 108, 474–486.
+Ning, W., Guo, J.H., Liu, X., Pan, H.Z., 2020. Incorporating individual preference and
+network inﬂuence on choice behavior of electric vehicle sharing using agent-based model. Int. J. Sustain. Transport. 14, 917–931.
+Noori, M., Tatari, O., 2016. Development of an agent-based model for regional market penetration projections of electric vehicles in the United States. Energy 96,
+215–230.
+Rogers, E.M., Simon, Schuster, 2003. Diffusion of Innovations, 5th Edition.
+Santos, G., Davies, H., 2020. Incentives for quick penetration of electric vehicles in
+ﬁve European countries: perceptions from experts and stakeholders. Transportation Research Part a-Policy and Practice 137, 326–342.
+Sheldon, T.L., Dua, R., 2020. Effectiveness of China’s plug-in electric vehicle subsidy.
+Energy Economics 88.
+Silvia, C., Krause, R.M., 2016. Assessing the impact of policy interventions on the
+adoption of plug-in electric vehicles: an agent-based model. Energy Policy 96,
+105–118.
+Song, Y.Q., Li, G.J., Wang, Q., Meng, X.H., Wang, H., 2020. Scenario analysis on subsidy policies for the uptake of electric vehicles industry in China. Resources
+Conservation and Recycling 161, 104927.
+Sun, X.H., Liu, X.L., Wang, Y., Yuan, F., 2019. The effects of public subsidies on emerging industry: an agent-based model of the electric vehicle industry. Technol.
+Forecast Soc. Change 140, 281–295.
+Tan, R., Lin, B., 2020. Are people willing to support the construction of charging
+facilities in China? Energy Policy 143, 111604.
+Ullah, A., Aimin, W., Ahmed, M., 2018. Smart Automation, Customer Experience and
+Customer Engagement in Electric Vehicles. Sustainability 10.
+Wang, N., Tang, L., Zhang, W., Guo, J., 2019. How to face the challenges caused
+by the abolishment of subsidies for electric vehicles in China? Energy 166,
+359–372.
+Wang, N., Tang, L.H., Pan, H.Z., 2018a. Analysis of public acceptance of electric
+vehicles: an empirical study in Shanghai. Technol. Forecast Soc. Change 126,
+284–291.
+Wang, S., Wang, J., Li, J., Wang, J., Liang, L., 2018b. Policy implications for promoting
+the adoption of electric vehicles: do consumer’s knowledge, perceived risk and
+ﬁnancial incentive policy matter? Transportation Research Part A: Policy and
+Practice 117, 58–69.
+
+China statistics press, 2019. Chonging Statictical Yearbook (in Chinese) http://tjj.cq.
+gov.cn//tjnj/2019/zk/indexee.htm.
+Eppstein, M.J., Grover, D.K., Marshall, J.S., Rizzo, D.M., 2011. An agent-based model
+to study market penetration of plug-in hybrid electric vehicles. Energy Policy
+39, 3789–3802.
+Eppstein, M.J., Grover, D.K., Marshall, J.S., Rizzo, D.M., 2012. An agent-based model
+to study market penetration of plug-in hybrid electric vehicles (vol 39, pg 3789,
+2011). Energy Policy 51, 998–999.
+China Electric Vehicle Charging Infrastructure Promotion Alliance (EVCIPA), 2020.
+Annual Development Report of China charging Infrastructure (in Chinese) http:
+//www.199it.com/archives/1012834.html.
+Harrison, G., Thiel, C., 2017. An exploratory policy analysis of electric vehicle sales
+competition and sensitivity to infrastructure in Europe. Technol. Forecast Soc.
+Change 114, 165–178.
+Higueras-Castillo, E., Molinillo, S., Coca-Stefaniak, J.A., Liebana-Cabanillas, F., 2019.
+Perceived Value and Customer Adoption of Electric and Hybrid Vehicles. Sustainability 11, 4956.
+Hu, Y., Wang, Z., Li, X., 2020a. Impact of policies on electric vehicle diffusion: an
+evolutionary game of small world network analysis. J. Clean Prod., 121703.
+Hu, Y., Wang, Z.Y., Li, X.R., 2020b. Impact of policies on electric vehicle diffusion: an
+evolutionary game of small world network analysis. J. Clean Prod. 265, 121703.
+Junquera, B., Moreno, B., Alvarez, R., 2016. Analyzing consumer attitudes towards
+electric vehicle purchasing intentions in Spain: technological limitations and vehicle conﬁdence. Technol. Forecast Soc. Change 109, 6–14.
+Khan, U., Yamamoto, T., Sato, H., 2020. Consumer preferences for hydrogen fuel cell
+vehicles in Japan. Transportation Research Part d-Transport and Environment 87.
+Kim, J., Seung, H., Lee, J., Ahn, J., 2020. Asymmetric preference and loss aversion
+for electric vehicles: the reference-dependent choice model capturing different
+preference directions. Energy Economics 86.
+Kim, S., Lee, K., Cho, J.K., Kim, C.O., 2011. Agent-based diffusion model for an automobile market with fuzzy TOPSIS-based product adoption process. Expert Syst.
+Appl. 38, 7270–7276.
+Li, J., Jiao, J., Tang, Y., 2019. An evolutionary analysis on the effect of government
+policies on electric vehicle diffusion in complex network. Energy Policy 129,
+1–12.
+Li, J., Jiao, J., Tang, Y., 2020a. Analysis of the impact of policies intervention on electric vehicles adoption considering information transmission-based on consumer
+network model. Energy Policy 144.
+Li, L., Wang, X., Lin, Y., Huang, X.J., 2018. A Decision Making Method for Improving
+Service Quality Based on Three-dimension Kano Model. Engineering Letters 26,
+415–423.
+
+216
+
+X. Huang, Y. Lin, F. Zhou et al.
+
+Sustainable Production and Consumption 28 (2021) 206–217
+
+Wang, S.Y., Li, J., Zhao, D.T., 2017. The impact of policy measures on consumer intention to adopt electric vehicles: evidence from China. Transportation Research
+Part a-Policy and Practice 105, 14–26.
+Watts, D.J., Strogatz, S.H., 1998. Collective dynamics of ‘small-world’ networks. Nature 393, 440–442.
+Wu, J.W., Liao, H., Wang, J.W., Chen, T.Q., 2019. The role of environmental concern
+in the public acceptance of autonomous electric vehicles: a survey from China.
+Transportation Research Part F-Traﬃc Psychology and Behaviour 60, 37–46.
+Yang, Y.P., Yan, H.B., Ma, T.J., 2015. On Customer Satisfaction of Battery Electric Vehicles Based on Kano Model: a Case Study in Shanghai. Integrated Uncertainty
+in Knowledge Modelling and Decision Making, Iukm 2015 9376, 350–361.
+Zhang, L., Yang, M., Zhao, Z., 2019. Game analysis of charging service fee based on
+beneﬁt of multi-party participants: a case study analysis in China. Sustainable
+Cities and Society 48.
+
+Zhao, Z., Zhang, L., Zhu, J., Li, S., Song, X., 2020. Pricing of private charge sharing
+service based on bilateral bargaining game. Sustainable Cities and Society 59.
+Zhou, F.L., Lim, M.K., He, Y.D., Lin, Y., Chen, S., 2019. End-of-life vehicle (ELV) recycling management: improving performance using an ISM approach. J Clean Prod
+228, 231–243.
+Zhuge, C.X., Wei, B.R., Dong, C.J., Shao, C.F., Shan, Y.L., 2019. Exploring the future
+electric vehicle market and its impacts with an agent-based spatial integrated
+framework: a case study of Beijing. China. J. Clean. Produc. 221, 710–737.
+Zhuge, C.X., Wei, B.R., Shao, C.F., Dong, C.J., Meng, M., Zhang, J., 2020. The potential
+inﬂuence of cost-related factors on the adoption of electric vehicle: an integrated micro-simulation approach. J Clean Prod 250, 14.
+
+217
+
+

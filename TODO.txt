@@ -1,0 +1,13 @@
+ustawić oczekiwaną długość życia auta
+ustalić stan początkowy aut
+ogarnąć rząd
+ogarnąć korporacje
+ogarnąć ładowarki
+ogarnąć wyliczanie czy EV są opłacalne
+
+
+
+Dane dotyczące elektromobilności
+Aktualna mapa ładowarek (albo współczynnik zagęszczenia)
+testy na danych historycznych
+
