@@ -1,8 +1,5 @@
+from .constants import CV as CV, EV as EV, PHEV as PHEV
 from _typeshed import Incomplete
-
-from .constants import CV as CV
-from .constants import EV as EV
-from .constants import PHEV as PHEV
 
 class Corporations:
     margin: Incomplete

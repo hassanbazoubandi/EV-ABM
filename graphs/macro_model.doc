@@ -1,7 +1,0 @@
-digraph {
-  layout=circo;
-    GC [label="Goverment\n&\nCar Producers" shape="box"]
-    Cus [label="Customers" shape="box"]
-    GC -> Cus
-    Cus -> GC [label="New Year"]
-}

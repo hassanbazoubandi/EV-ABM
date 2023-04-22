@@ -7,7 +7,7 @@ from .Cars import Car, Car_CV, Car_EV, Car_PHEV
 from .City import City
 from .constants import CV, EV, PHEV, oc_h, oc_p, year_bev
 from .Corporations import Corporations
-from .Custormer import Customer
+from .Customer import Customer
 from .Goverment import Goverment
 
 
