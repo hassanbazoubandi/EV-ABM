@@ -1,3 +1,4 @@
+
 ustawić oczekiwaną długość życia auta
 ustalić stan początkowy aut
 ogarnąć rząd
@@ -10,4 +11,22 @@ ogarnąć wyliczanie czy EV są opłacalne
 Dane dotyczące elektromobilności
 Aktualna mapa ładowarek (albo współczynnik zagęszczenia)
 testy na danych historycznych
+
+publiczne ładowarki:
+    https://www.plugshare.com
+
+spytać o:
+    ceny hybryd - uwzględnić scenariusz
+
+
+
+
+pomyśleć czy wyrzucić phev
+
+
+połącznei dwóch węzłów dla cost effective
+
+znaleść:
+    przebigi dla aut spalinowych i elektrycznych
+
 

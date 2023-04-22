@@ -10,3 +10,11 @@ rządowe scenariusze traktujemy jako badaną zmienną (Appendix A)
     Jest to ciekawe, że rozwijając oba parametry jest duży wzrost, a pojedyńcze niewielki.
     możliwe, że ładowarki dają stały powolny wzrost,
     a dotacje nie starczają dla wszystkich więc pomagają doraźnie
+
+
+
+kia niro -- auto w trzech wersjach można na nim robić testy
+
+jak zmiana cen paliw wplywa w trakcie symulacji na zmanę
+poszukac kodu 
+
