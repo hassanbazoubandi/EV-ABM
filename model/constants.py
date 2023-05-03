@@ -1,3 +1,5 @@
+from typing import Literal, NewType
+
 CV = "CV"
 EV = "EV"
 PHEV = "PHEV"
@@ -5,3 +7,5 @@ PHEV = "PHEV"
 oc_p = 1
 oc_h = 1
 year_bev = 1
+
+CarTypes = NewType("CarTypes", Literal[CV, EV, PHEV])

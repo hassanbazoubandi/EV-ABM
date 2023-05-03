@@ -4,8 +4,12 @@ from .Society import Society
 
 N = 100
 T = 100
-soc = Society(N, 0.1, 0.2, 0.0004)
+soc = Society(N, 0.01, 0.2, 0.0004, (100, 100), 10, 10)
 soc.go(T - 1)
-# print(soc.get_historical_states())
-plt.plot(soc.get_historical_states())
-plt.show()
+data = soc.get_historical_states()
+plt.plot(data["year"], data["CV"], label="CV")
+plt.plot(data["year"], data["EV"], label="EV")
+plt.plot(data["year"], data["PHEV"], label="PHEV")
+plt.legend()
+plt.savefig("./result.svg")
+# plt.show()

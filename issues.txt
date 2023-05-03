@@ -1,9 +1,7 @@
 czy rząd Polski też będie dofinansowywać jak chiński
     - rozwój ładowarek i dofinansowania do EV
     - w jaki sposób ma to działać
-czy nowe auto ma być kupowane tylko w momencie gdy stare  jest zbyt stare (raczej tak, ten model upraszcza, co nie jest problemem)
-kwestia automakerów
-stan początkowy?
+
 rządowe scenariusze traktujemy jako badaną zmienną (Appendix A)
     u nas można by patrzeć też na koszt prądu (może coś z elektrownią atomową?)
     - warunkiem kupna BEV jest alternatywa warunku ceny i dostępności ładowarek.

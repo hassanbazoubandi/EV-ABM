@@ -1,8 +1,8 @@
-from .constants import CV, EV, PHEV
+from .constants import CV, EV, PHEV, CarTypes
 
 
 class Car:
-    def __init__(self, release_year) -> None:
+    def __init__(self, release_year: int) -> None:
         self.release_year = release_year
         pass
 
@@ -14,7 +14,7 @@ class Car:
         raise Exception("")
 
     @property
-    def car_type(self):
+    def car_type(self) -> CarTypes:
         raise Exception("")
 
 
@@ -24,7 +24,7 @@ class Car_EV(Car):
         return 3
 
     @property
-    def car_type(self):
+    def car_type(self) -> CarTypes:
         return EV
 
 
@@ -34,7 +34,7 @@ class Car_CV(Car):
         return 10
 
     @property
-    def car_type(self):
+    def car_type(self) -> CarTypes:
         return CV
 
 
@@ -44,5 +44,5 @@ class Car_PHEV(Car):
         return 5
 
     @property
-    def car_type(self):
+    def car_type(self) -> CarTypes:
         return PHEV

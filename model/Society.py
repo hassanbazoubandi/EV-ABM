@@ -101,7 +101,7 @@ class Society:
             if cost_effective == PHEV:
                 customer.buy(PHEV, current_year)
                 continue
-            if self.public_charging_nerby(customer,self.nerby_radius):
+            if self.public_charging_nerby(customer):
                 if self.alpha < random():
                     customer.buy(EV, current_year)
                     continue

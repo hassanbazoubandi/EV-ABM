@@ -14,9 +14,19 @@
     },
     "cars": {
         "CV": {
-            "cost":1,
+            "cost":126900,
             "lifetime":1,
-            "range":1
+            "range":141
+        },
+        "PHEV": {
+            "cost":158500,
+            "lifetime":1,
+            "range":183
+        },
+        "EV": {
+            "cost":198900,
+            "lifetime":1,
+            "range":460
         }
     },
     "energy_cost": {

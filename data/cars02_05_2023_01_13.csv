@@ -1,0 +1,161 @@
+name,city,region,make,price,year,mileage,engine_capacity,fuel_type,price
+Ford Focus 1.6 Ambiente,Słupsk,Pomorskie,ford,2789,1998,238000,1596,petrol,2789
+Citroën C4 Picasso 2.0i Exclusive MCP,Kutno,Łódzkie,citroen,15900,2008,201000,1997,petrol,15900
+Volvo C30 2.0 Momentum,Kutno,Łódzkie,volvo,18900,2007,170000,1999,petrol,18900
+Audi A4 Allroad 2.0 TFSI Quattro S tronic,Kraków,Małopolskie,audi,173000,2019,22000,1984,petrol,173000
+Mazda 6 Kombi SKYACTIV-D 175 Drive i-ELOOP Nakama Intense,Słupca,Wielkopolskie,mazda,58500,2016,150000,2191,diesel,58500
+Audi S6 4.0 TFSI Quattro S tronic,Warszawa,Mazowieckie,audi,92888,2016,68000,3993,petrol,92888
+Volkswagen Golf,Lublin,Lubelskie,volkswagen,15600,2005,253000,1896,diesel,15600
+Volvo XC 60 D3 Momentum,Bielsko-Biała,Śląskie,volvo,73000,2014,235000,1984,diesel,73000
+Honda HR-V 1.5 Elegance (ADAS/Honda Connect+),Łódź,Łódzkie,honda,64000,2016,179300,1498,petrol,64000
+BMW Seria 4 M440i xDrive mHEV sport,Łódź,Łódzkie,bmw,288000,2020,32000,2998,petrol,288000
+Mercedes-Benz Klasa E,Września,Wielkopolskie,mercedes-benz,28000,2006,330000,2987,diesel,28000
+Mazda 5 2.0 CD Comfort,Leszno,Wielkopolskie,mazda,9200,2007,247900,1998,diesel,9200
+Citroën C3,Zgorzelec,Dolnośląskie,citroen,6900,2004,200000,1124,petrol,6900
+Skoda Octavia 2.0 TSI Ambition DSG,Sochaczew,Mazowieckie,skoda,64999,2018,180000,1984,petrol,64999
+Volkswagen Golf VII 1.6 TDI BMT Comfortline,Sochaczew,Mazowieckie,volkswagen,54999,2018,163000,1598,diesel,54999
+Ford KA 1.2 Titanium ASS EU6,Sosnowiec,Śląskie,ford,23400,2013,76400,1242,petrol,23400
+MINI Cooper S Coupe,Warszawa,Mazowieckie,mini,38000,2012,170000,1598,petrol,38000
+Porsche 911,Węgrzce,Małopolskie,porsche,198000,2004,127000,3596,petrol,198000
+Porsche Cayenne Standard,Węgrzce,Małopolskie,porsche,365000,2018,56000,2995,petrol,365000
+Audi A5,Węgrzce,Małopolskie,audi,225000,2019,23000,1984,petrol,225000
+Land Rover Discovery Sport,Węgrzce,Małopolskie,land-rover,186000,2019,51000,1997,petrol,186000
+Volvo XC 60 T6 GPF AWD R-Design,Węgrzce,Małopolskie,volvo,189900,2018,66593,1969,petrol,189900
+Mercedes-Benz GLS 350 d 4-Matic,Węgrzce,Małopolskie,mercedes-benz,289900,2016,84500,2987,diesel,289900
+Nissan Qashqai 1.3 DIG-T mHEV N-Connecta Xtronic,Zielona Góra,Lubuskie,nissan,164000,2023,5,1332,petrol,164000
+Volkswagen Tiguan 2.0 TDI DPF 4Motion BlueMotion Technology Cup Sport & Style,Gniezno,Wielkopolskie,volkswagen,56500,2015,194000,1968,diesel,56500
+BMW X6M,Rzeszów,Podkarpackie,bmw,470000,2021,42000,4395,petrol,470000
+Kia Sportage 1.7 CRDI M 2WD DCT,Piaseczno,Mazowieckie,kia,82900,2018,111000,1685,diesel,82900
+Mercedes-Benz Klasa C 200 4-Matic 9G-TRONIC,Tarnobrzeg,Podkarpackie,mercedes-benz,147500,2018,49000,1991,petrol,147500
+Alfa Romeo Giulietta 1.4 TB Progression,Radom,Mazowieckie,alfa-romeo,30500,2011,218582,1368,petrol,30500
+Mercedes-Benz GLA 200 7G-DCT AMG Line,Kraków,Małopolskie,mercedes-benz,123000,2019,34000,1595,petrol,123000
+Porsche Boxster S PDK,Gniezno,Wielkopolskie,porsche,219900,2014,110000,3436,petrol,219900
+Land Rover Discovery Sport 2.0 Si4 HSE,Gdańsk,Pomorskie,land-rover,179900,2019,70650,1997,petrol,179900
+Mazda 6 2.5 SkyPassion,Bielsko-Biała,Śląskie,mazda,114411,2018,54856,2488,petrol,114411
+Seat Alhambra 2.0 TDI Style DSG,Kraków,Małopolskie,seat,73900,2015,191200,1968,diesel,73900
+Opel Astra,Bytów,Pomorskie,opel,9200,2003,200000,1796,petrol-lpg,9200
+Dacia Duster 1.6 Laureate,Mława,Mazowieckie,dacia,33500,2010,125000,1598,petrol-lpg,33500
+Volkswagen Tiguan 2.0 TDI 4Mot R-Style DSG,Brzozów,Podkarpackie,volkswagen,63900,2013,193260,1968,diesel,63900
+Volkswagen Golf VIII 1.5 TSI EVO Life,Pabianice,Łódzkie,volkswagen,94900,2020,44000,1498,petrol,94900
+Skoda Superb 2.0 TDI Ambition DSG,Jankowice,Śląskie,skoda,51500,2015,199000,1968,diesel,51500
+Toyota C-HR,Miękinia,Dolnośląskie,toyota,82500,2018,50000,1197,petrol,82500
+BMW X3,Rzeszów,Podkarpackie,bmw,95000,2017,98229,1998,petrol,95000
+BMW X5 4.8i xDrive,Lublin,Lubelskie,bmw,62900,2007,281000,4799,petrol-lpg,62900
+BMW X6 xDrive30d M Sport,Sobótka,Dolnośląskie,bmw,205000,2017,162000,2993,diesel,205000
+Peugeot 308 1.6 HDi Trendy,Mielżyn,Wielkopolskie,peugeot,13900,2009,250000,1560,diesel,13900
+Hyundai I30 1.6 CRDi Comfort EU5,Częstochowa,Śląskie,hyundai,22900,2012,180000,1582,diesel,22900
+Ford Mondeo Turnier 2.0 TDCi Start-Stopp PowerShift-Aut Titanium,Bogatki,Mazowieckie,ford,49900,2015,196900,1997,diesel,49900
+Cupra Born 58kWh,Gdańsk,Pomorskie,cupra,199000,2022,8300,,electric,199000
+Toyota Yaris 1.6 Dynamic,Konstancin-Jeziorna,Mazowieckie,toyota,198900,2022,10,1618,petrol,198900
+Seat Leon 1.6 Stella,Łódź,Łódzkie,seat,7700,2002,304150,1598,petrol-lpg,7700
+Citroën C5 Aircross 1.5 BlueHDi Shine,Grudziądz,Kujawsko-pomorskie,citroen,89500,2019,33500,1499,diesel,89500
+BMW Seria 5 523i,Biała Podlaska,Lubelskie,bmw,33300,2007,180000,2497,petrol,33300
+Mazda CX-5 2.0 Skymotion,Stalowa Wola,Podkarpackie,mazda,63000,2012,176000,1998,petrol,63000
+BMW Seria 3 318d Sport Line,Krzeszów,Dolnośląskie,bmw,65000,2016,214000,1995,diesel,65000
+Renault Kadjar 1.5 dCi Energy Spring Edition Plus,Warszawa,Mazowieckie,renault,62700,2016,179400,1461,diesel,62700
+Mercedes-Benz GLE Coupe 350 d 4-Matic,Poznań,Wielkopolskie,mercedes-benz,249000,2018,97000,2987,diesel,249000
+Peugeot 307 2.0 HDi,Kraków,Małopolskie,peugeot,4900,2003,376660,1997,diesel,4900
+Citroën C4 1.6 16V SX,Ostrów Wielkopolski,Wielkopolskie,citroen,16500,2008,141000,1587,petrol,16500
+Ford Mondeo,Biała Podlaska,Lubelskie,ford,65000,2015,170000,1997,diesel,65000
+Seat Ibiza 1.2 TDI Ecomotive Reference,Dąbrowa Górnicza,Śląskie,seat,21000,2013,140000,1199,diesel,21000
+Ford Mondeo 2.0 TDCi Ambiente,Legnica,Dolnośląskie,ford,16900,2008,235000,1997,diesel,16900
+Skoda Fabia 1.2 12V Comfort,Zabrze,Śląskie,skoda,13999,2009,160000,1198,petrol,13999
+Volvo V40 D3 Momentum,Biskupice,Wielkopolskie,volvo,38500,2014,239000,1984,diesel,38500
+MINI Cooper S,Swadzim,Wielkopolskie,mini,174800,2023,11,1499,electric,174800
+BMW X7 M50i sport,Warszawa,Mazowieckie,bmw,439000,2019,88000,4395,petrol,439000
+Fiat Punto Evo 1.4 8V Dynamic,Ostrów Wielkopolski,Wielkopolskie,fiat,14999,2010,181258,1368,petrol,14999
+Skoda Kodiaq 2.0 TDI 4x4 Style DSG,Wrocław,Dolnośląskie,skoda,117000,2018,197000,1968,diesel,117000
+Ford Focus 1.5 EcoBoost Titanium,Zielona Góra,Lubuskie,ford,78900,2019,90400,1499,petrol,78900
+MINI Paceman,Gdynia,Pomorskie,mini,69000,2015,82500,1598,petrol,69000
+Audi Q7 3.0 TDI Quattro Tiptronic,Łomianki,Mazowieckie,audi,194340,2015,152000,2967,diesel,194340
+Audi A4 2.0 TDI 112g,Konin,Wielkopolskie,audi,69900,2016,190000,1968,diesel,69900
+Audi S4 4.2 Quattro Tiptr,Łapanów,Małopolskie,audi,49999,2007,220479,4163,petrol-lpg,49999
+Kia Picanto 1.0 Fifa World Cup Edition,Paniówki,Śląskie,kia,26500,2013,138000,998,petrol,26500
+Nissan Pickup,Bielsk Podlaski,Podlaskie,nissan,29900,2004,235000,2488,diesel,29900
+Opel Astra IV 1.6 CDTI Sport,Rzeszów,Podkarpackie,opel,49900,2017,154256,1598,diesel,49900
+Audi A6 2.0 TDI Multitronic,Jarocin,Wielkopolskie,audi,11000,2011,167452,1968,diesel,11000
+Audi A6,Tarnowskie Góry,Śląskie,audi,18000,1996,208000,2598,petrol-lpg,18000
+Mercedes-Benz CLS 350 BlueTEC 4-Matic,Szczecinek,Zachodniopomorskie,mercedes-benz,115000,2015,182000,2987,diesel,115000
+Jeep Renegade,Żary,Lubuskie,jeep,105000,2019,118891,1332,petrol,105000
+Opel Crossland X 1.6 CDTI Elite,Brody,Małopolskie,opel,34600,2017,122210,1560,diesel,34600
+Toyota Avensis,Lublin,Lubelskie,toyota,28000,2010,214977,2231,diesel,28000
+BMW Seria 3 320d,Katowice,Śląskie,bmw,44900,2012,247997,1995,diesel,44900
+Ford Focus 1.6 Ti-VCT FX Silver / Silver X,Myszków,Śląskie,ford,9500,2005,223000,1596,petrol,9500
+Ford Mondeo 1.6 Ambiente,Dąbrowa Górnicza,Śląskie,ford,21500,2008,114000,1596,petrol,21500
+BMW Seria 5 525d xDrive,Toruń,Kujawsko-pomorskie,bmw,70000,2013,260000,1995,diesel,70000
+Mercedes-Benz GLC Coupe 220 d 4-Matic,Sierpc,Mazowieckie,mercedes-benz,179900,2018,98000,2143,diesel,179900
+Volvo XC 60 D4 R-Design,Płock,Mazowieckie,volvo,133500,2020,110000,1969,diesel,133500
+Citroën C3,Moderówka,Podkarpackie,citroen,21900,2012,83000,1199,petrol,21900
+Porsche Cayenne S Diesel Platinum Edition,Sierpc,Mazowieckie,porsche,225900,2016,240000,4134,diesel,225900
+Nissan X-Trail 1.6 DCi N-Connecta 2WD EU6,Strzyżów,Podkarpackie,nissan,73000,2016,114000,1598,diesel,73000
+Ford Kuga,Kraków,Małopolskie,ford,177300,2021,21800,2483,hybrid,177300
+BMW Seria 5 530d xDrive Touring Modern Line,Rewal,Zachodniopomorskie,bmw,85000,2015,276000,2993,diesel,85000
+Opel Astra,Andrychów,Małopolskie,opel,53400,2018,158000,1364,petrol-lpg,53400
+Ford Fiesta 1.25 Champions Edition,Gdynia,Pomorskie,ford,21500,2008,150000,1242,petrol,21500
+Tesla Model S Performance,Piotrków Trybunalski,Łódzkie,tesla,135000,2013,136000,,electric,135000
+Mercedes-Benz GLA 200 d 4-Matic AMG Line,Poznań,Wielkopolskie,mercedes-benz,229800,2022,3050,1950,diesel,229800
+Audi A7 50 TDI mHEV Quattro Tiptronic,Pawłowice,Śląskie,audi,232900,2020,135000,2967,diesel,232900
+Honda HR-V 1.5 Elegance (ADAS),Łęknica,Lubuskie,honda,79700,2017,96000,1498,petrol,79700
+BMW Seria 3 318i,Ruda Śląska,Śląskie,bmw,19900,2009,265000,1995,petrol,19900
+Audi A6 3.0 TDI Quattro S tronic,Kępno,Wielkopolskie,audi,84500,2015,285375,2967,diesel,84500
+Jeep Wrangler 4.0 Sport,Konstancin-Jeziorna,Mazowieckie,jeep,48000,1999,117175,3964,petrol,48000
+Land Rover Range Rover Evoque 1.5 P160 mHEV S,Szczecin,Zachodniopomorskie,land-rover,154980,2021,31000,1497,petrol,154980
+Audi A3,Jedlicze,Podkarpackie,audi,3200,1997,371000,1896,diesel,3200
+Hyundai I30 1.6 CRDi Premium,Skierniewice,Łódzkie,hyundai,61499,2016,115000,1582,diesel,61499
+Audi A5 2.0 TDI Sport S tronic,Pawłowice,Śląskie,audi,109900,2018,195000,1968,diesel,109900
+Ford Mondeo,Płock,Mazowieckie,ford,31900,2011,204000,1997,diesel,31900
+Hyundai i40,Piaseczno,Mazowieckie,hyundai,43500,2012,130864,1591,petrol,43500
+Audi A4 Avant 1.6,Ostrowiec Świętokrzyski,Świętokrzyskie,audi,2999,1995,180000,1595,petrol,2999
+Mazda 323,Ostrowiec Świętokrzyski,Świętokrzyskie,mazda,3000,1996,250051,1840,petrol,3000
+BMW 5GT 530d xDrive,Warszawa,Mazowieckie,bmw,119900,2015,180000,2993,diesel,119900
+Ford Focus 1.0 EcoBoost ST-Line,Kórnik,Wielkopolskie,ford,60000,2017,18000,999,petrol,60000
+Subaru Legacy Kombi 3.0 H6 NAV,Wetlina,Podkarpackie,subaru,22900,2005,336000,3000,petrol,22900
+Mercedes-Benz Klasa E 220 d 4-Matic 9G-TRONIC,Kraków,Małopolskie,mercedes-benz,149000,2018,128000,1950,diesel,149000
+Citroën Xsara Picasso,Ostrowiec Świętokrzyski,Świętokrzyskie,citroen,3000,2003,275069,1749,petrol,3000
+Ford Mondeo 2.0 TDCi Titanium PowerShift,Olkusz,Małopolskie,ford,79900,2017,144500,1997,diesel,79900
+Mercedes-Benz Klasa A 220 4Matic 7G-DCT AMG Line,Lublin,Lubelskie,mercedes-benz,153000,2020,65000,1991,petrol,153000
+Audi A5 2.0 TDI,Konopiska,Śląskie,audi,68900,2012,171000,1968,diesel,68900
+Skoda Superb 1.6 TDI GreenLine,Lipnik,Zachodniopomorskie,skoda,74990,2016,99300,1598,diesel,74990
+Audi A3 1.9 TDI Ambiente,Luboń,Wielkopolskie,audi,11000,2003,259000,1896,diesel,11000
+Volkswagen Passat Variant 2.0 TDI DSG BlueMotion Technology Comfortline,Żory,Śląskie,volkswagen,63000,2013,157280,1968,diesel,63000
+Skoda Octavia 1.6 TDI Ambition,Jelenia Góra,Dolnośląskie,skoda,36800,2014,290000,1598,diesel,36800
+Opel Astra,Mielżyn,Wielkopolskie,opel,51900,2017,90000,1400,petrol,51900
+Dodge Challenger Automatik 392 Hemi Scat Pack Shaker,Ełk,Warmińsko-mazurskie,dodge,120000,2018,33200,6417,petrol,120000
+Volkswagen Golf,Ostrowiec Świętokrzyski,Świętokrzyskie,volkswagen,4500,1996,179793,1781,petrol,4500
+Fiat Panda 1.1 Active dla kobiet,Gdańsk,Pomorskie,fiat,9900,2009,70000,1108,petrol,9900
+BMW Seria 3 318i Touring Edition Exclusive,Ziębice,Dolnośląskie,bmw,27900,2010,192000,1995,petrol,27900
+Citroën C4 Picasso BlueHDi 150 EAT6 Exclusive,Białystok,Podlaskie,citroen,43900,2014,318000,1997,diesel,43900
+Opel Insignia 1.6 CDTI Exclusive S&S Eco,Przasnysz,Mazowieckie,opel,78499,2019,139000,1598,diesel,78499
+Volkswagen Passat 1.8 TSI BMT Comfortline DSG,Radom,Mazowieckie,volkswagen,82900,2017,121283,1798,petrol,82900
+BMW Seria 3 318ti,Ostrowiec Świętokrzyski,Świętokrzyskie,bmw,5500,2002,187857,1995,petrol,5500
+BMW Seria 3 318d DPF Touring Edition Sport,Lubin,Dolnośląskie,bmw,42900,2013,225825,1995,diesel,42900
+BMW i3,Warszawa,Mazowieckie,bmw,149900,2020,30650,,electric,149900
+Volvo V60,Warszawa,Mazowieckie,volvo,119000,2015,181000,2969,petrol,119000
+Volkswagen Tiguan 1.5 TSI EVO Life DSG,Radom,Mazowieckie,volkswagen,134900,2020,88497,1498,petrol,134900
+Toyota Auris 1.6 Active,Warszawa,Mazowieckie,toyota,49000,2015,140000,1598,petrol,49000
+BMW Seria 5 520d,Bolesławiec,Dolnośląskie,bmw,83500,2016,139000,1995,diesel,83500
+Renault Kadjar Energy TCe 130 Bose Edition,Niemodlin,Opolskie,renault,62500,2016,95473,1197,petrol,62500
+Citroën C4,Żórawina,Dolnośląskie,citroen,10800,2008,253000,1360,petrol,10800
+Ford Galaxy 2.0 TDCi Ghia,Gdynia,Pomorskie,ford,23899,2006,280000,1997,diesel,23899
+Volkswagen Passat 1.8 TSI BMT Highline DSG,Radom,Mazowieckie,volkswagen,89900,2017,120032,1798,petrol,89900
+Volkswagen Passat,Ostrowiec Świętokrzyski,Świętokrzyskie,volkswagen,5999,2003,163043,1984,petrol,5999
+Land Rover Range Rover Evoque 2.0 D180 mHEV R-Dynamic S,Świecino,Pomorskie,land-rover,194000,2019,51861,1999,diesel,194000
+Mercedes-Benz Klasa A 200 AMG Line 7G-DCT,Warszawa,Mazowieckie,mercedes-benz,146500,2018,59601,1332,petrol,146500
+Dodge Grand Caravan,Bielsko-Biała,Śląskie,dodge,74500,2018,137000,3605,petrol,74500
+DS Automobiles DS 7 Crossback 1.5 BlueHDi So Chic,Zduńska Wola,Łódzkie,ds-automobiles,97900,2018,91030,1499,diesel,97900
+Hyundai Coupe 2.0 GL,Ostrowiec Świętokrzyski,Świętokrzyskie,hyundai,5999,2002,129674,1975,petrol,5999
+Chevrolet Orlando 1.8 LS+,Mszana,Śląskie,chevrolet,33900,2011,107682,1796,petrol,33900
+Opel Mokka X 1.4 T Design Line S&S,Nowy Targ,Małopolskie,opel,58900,2018,68000,1364,petrol,58900
+Volkswagen Golf 2.0 TDI BMT GTD,Bystrzyca Kłodzka,Dolnośląskie,volkswagen,59500,2015,199500,1968,diesel,59500
+Ford Kuga 2.0 TDCi 4WD Titanium,Niwy,Świętokrzyskie,ford,59900,2014,146000,1997,diesel,59900
+Opel Meriva,Ostrowiec Świętokrzyski,Świętokrzyskie,opel,5999,2007,283155,1364,petrol,5999
+Audi SQ5 3.0 TFSI Quattro Tiptronic,Wrocław,Dolnośląskie,audi,119000,2014,138100,2995,petrol,119000
+Volkswagen Golf VII 1.4 TSI BMT Highline,Łódź,Łódzkie,volkswagen,49000,2014,172600,1395,petrol,49000
+Skoda Superb 2.0 TDI 4x4 Ambition DSG,Miejska Górka,Wielkopolskie,skoda,52900,2014,225500,1968,diesel,52900
+Volkswagen Tiguan,Kielce,Świętokrzyskie,volkswagen,67500,2017,199971,1968,diesel,67500
+Peugeot 308 SW BlueHDi 150 Automatik Stop & Start Allure,Kwidzyn,Pomorskie,peugeot,43800,2015,166700,1997,diesel,43800
+Hyundai I30 1.6 CRDi Classic,Brzegi,Mazowieckie,hyundai,38130,2016,232600,1582,diesel,38130
+Volvo S60 D2 Edition,Ostrołęka,Mazowieckie,volvo,23900,2011,200000,1560,diesel,23900
+Dacia Sandero Stepway 0.9 TCe Ambiance,Proszowice,Małopolskie,dacia,30500,2013,104000,898,petrol,30500
+BMW 3GT,Gorzkowice,Łódzkie,bmw,76000,2015,197550,1995,diesel,76000
+Volkswagen Multivan,Żary,Lubuskie,volkswagen,59000,2000,465000,2486,diesel,59000

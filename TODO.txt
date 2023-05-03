@@ -7,7 +7,6 @@ ogarnąć ładowarki
 ogarnąć wyliczanie czy EV są opłacalne
 
 
-
 Dane dotyczące elektromobilności
 Aktualna mapa ładowarek (albo współczynnik zagęszczenia)
 testy na danych historycznych
@@ -24,9 +23,27 @@ spytać o:
 pomyśleć czy wyrzucić phev
 
 
-połącznei dwóch węzłów dla cost effective
-
 znaleść:
     przebigi dla aut spalinowych i elektrycznych
+    oczekiwana długość życia auta
+    zagęszczenie ładowarek
+    
+pytania:
+    elektryczna Kia Niro ma większy zasięg niż hybrydowe
+    dojedzie z Wrocławia do Szczecina
+
+
+
+samar -- wiek aut 
+portale skierowane do aut elektrycznych
+
+
+
+wiek aut -- z podziałem na rodzaje (otomoto)
+cena aut
+zagęszczenie ładowarek
+proporcja zmian paliw -- modele (arfima?)
+spróbować dofitowac dane energii -- arfima
+dane do profili kierowców (otomoto)
 
 

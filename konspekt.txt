@@ -1,21 +1,18 @@
-generowanie WS - grafu ze spinsonami 
-o opini w sprawie EV, czy za, czy przeciw.
 W każdej  iteracji (odpowiadającej rokowi) idziemy 
-po każdym spinsonie w losowej kolejnosci i 
-sprawdzamy na nim (wedłóg grafu -- niekoniecznie
-wszystkie)
+po każdym agencie i 
+sprawdzamy na nim
 1. Czy potrzebuje nowego auta - czy stare auto 
-przekracza określony wiek kupna nowego (Możliwe kupno nowego auta, z powodu zmiany opinii? -- chyba nie)
-2. Czy BEV są kożystne cenowo wzór na CE
+przekracza określony wiek kupna nowego
+2. Jeżeli EV, lub PHEV są kożystne cenowo, agent kupuje odpowiednie
 3. Dostępność ładowarek - R&S 2003
-4. Wpływ społeczny - S&C 2016
-5. Innowacje technologiczne - S&C 2016
-(4 i 5 są równoległe, nie szeregowe)
+	Jeżeli nie ma blisko kup CV
+4. inne czynniki - Wpływ społeczny - S&C 2016 Innowacje technologiczne - S&C 2016
+	Jeżeli inne czynniki zadziałają kup EV
+wybierz między CV a PHEV
 
 Następnie ew. wybór samochodu następuje na podstawie 
-metody fuzzy TOPSIS (TOPSIS wybiera między BEV i PHEV lub PHEV i CV).
 Najpierw dane z 
-artykułu, później Polskie (Warszawa?).
+artykułu, później Polskie (Wrocław).
 
 Na koniec dwie rzeczy:
 I. Rząd i producenci odbierają feedback od 
@@ -26,12 +23,9 @@ rząd: - te scenariusze traktujemy jako badaną zmienną (Appendix A)
 	- dają dotacje
 	- stawiają stacje ładowania (czemu nie firmy zewnętrzne)
 II. Następnie uaktualniają się środowiska:
+	- cena
 	- systemowe - (system dotacji, stacje 
-ładujące, opinia o samochodach elektrycznych)
-A co za tym idzie:
-	- społeczne - (Wpływ społeczny 
-(spearsony?), obliczane są koszty, i oceniana 
-technologia)
+ładujące)
 
 
 Parametry:
