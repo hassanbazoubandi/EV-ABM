@@ -14,7 +14,7 @@ class City:
         self.charger_pos[:, 0] = self.charger_pos[:, 0] * city_size[0]
         self.charger_pos[:, 1] = self.charger_pos[:, 1] * city_size[1]
 
-    def is_nerby(self, customer, radius: float):
+    def count_nerby_chargers(self, customer, radius: float):
         pos = np.array(customer.home)
         return (((self.charger_pos - pos) ** 2).sum(1) < radius**2).sum()
 

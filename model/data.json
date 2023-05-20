@@ -1,36 +1,51 @@
 {
     "customers": {
-        "procfiles": {
-            "1": {
-                "mean":1
+        "profiles": {
+            "CV": {
+                "mean":15800
             },
-            "2": {
-                "mean":1
+            "PHEV": {
+                "mean":5030
             },
-            "3": {
-                "mean":1
+            "EV": {
+                "mean":7666
             }
         }
+    },
+    "units": {
+        "fuel_capasity":"l",
+        "battery_capasity":"kWh",
+        "distance": "km",
+        "power_consumption": "l/100km",
+        "fuel_consumption": "kWh/100km"
     },
     "cars": {
         "CV": {
             "cost":126900,
-            "lifetime":1,
-            "range":141
+            "lifetime":17,
+            "range":141,
+            "fuel_capasity":42,
+            "battery_capasity":0,
+            "power_consumption": null,
+            "fuel_consumption": 0
         },
         "PHEV": {
             "cost":158500,
-            "lifetime":1,
-            "range":183
+            "lifetime":8,
+            "range":183,
+            "fuel_capasity":37,
+            "battery_capasity":11.1,
+            "power_consumption": 0,
+            "fuel_consumption": 0
         },
         "EV": {
             "cost":198900,
-            "lifetime":1,
-            "range":460
+            "lifetime":7,
+            "range":460,
+            "fuel_capasity":0,
+            "battery_capasity":64.8,
+            "power_consumption": 0,
+            "fuel_consumption": null
         }
-    },
-    "energy_cost": {
-        "fuel":1,
-        "electric":1
     }
 }

@@ -1,12 +1,13 @@
-class Goverment:  # TODO do dokończenia
-    def __init__(self, society) -> None:
+class Goverment:
+    def __init__(self, society, energy_factor=1) -> None:
+        print("GOV to do!")
         self.society = society
-        pass
+        self.energy_factor = energy_factor
 
-    def get_subsidy(self) -> int:
+    def get_subsidy(self, c_type) -> int:
         return 1
 
-    def get_subsidy_val(self) -> int:
+    def get_subsidy_val(self, c_type) -> int:
         return 1
 
     def update(self):

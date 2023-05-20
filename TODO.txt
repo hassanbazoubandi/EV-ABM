@@ -27,10 +27,6 @@ znaleść:
     przebigi dla aut spalinowych i elektrycznych
     oczekiwana długość życia auta
     zagęszczenie ładowarek
-    
-pytania:
-    elektryczna Kia Niro ma większy zasięg niż hybrydowe
-    dojedzie z Wrocławia do Szczecina
 
 
 
@@ -41,9 +37,18 @@ portale skierowane do aut elektrycznych
 
 wiek aut -- z podziałem na rodzaje (otomoto)
 cena aut
+
 zagęszczenie ładowarek
 proporcja zmian paliw -- modele (arfima?)
 spróbować dofitowac dane energii -- arfima
+
 dane do profili kierowców (otomoto)
 
+
+
+zrobić krok mc na jeden m-c
+napisać, że wrocław jest reprezentatywny do skali kraju
+
+
+FARIMA -- też arfima
 

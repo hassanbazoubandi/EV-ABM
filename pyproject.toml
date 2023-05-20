@@ -23,6 +23,7 @@ requests = "^2.29.0"
 gdshortener = "^1.0.1"
 ipdb = "^0.13.13"
 tqdm = "^4.65.0"
+statsmodels = "^0.14.0"
 
 
 [build-system]
