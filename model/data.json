@@ -17,7 +17,8 @@
         "battery_capasity":"kWh",
         "distance": "km",
         "power_consumption": "l/100km",
-        "fuel_consumption": "kWh/100km"
+        "fuel_consumption": "kWh/100km",
+        "build_price": "PLN"
     },
     "cars": {
         "CV": {
@@ -47,5 +48,12 @@
             "power_consumption": 0,
             "fuel_consumption": null
         }
+    },
+    "charging_points": {
+        "build_price": 250000,
+        "cost_of_living": 0
+    },
+    "government": {
+        "year_subsidies_value": 2000000
     }
 }

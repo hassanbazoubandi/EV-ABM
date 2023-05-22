@@ -19,3 +19,7 @@ euro-PLN
 https://stooq.pl/q/d/?s=eurpln&c=0&d1=20150101&d2=20230508
 8.05.2023
 
+charging points price
+https://wallbox.pl/blog/jak-zarabiac-na-punktach-ladowania-samochodow-elektrycznych
+21.05.2023
+

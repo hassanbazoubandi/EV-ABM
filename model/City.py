@@ -9,8 +9,6 @@ class City:
             (initial_chargers, 2)
         )
         self.city_size = city_size
-        print(initial_chargers)
-        print(city_size)
         self.charger_pos[:, 0] = self.charger_pos[:, 0] * city_size[0]
         self.charger_pos[:, 1] = self.charger_pos[:, 1] * city_size[1]
 

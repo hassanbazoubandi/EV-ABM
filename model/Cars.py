@@ -8,9 +8,6 @@ with open("model/data.json", "r") as plik:
     data = json.load(plik)
     car_params = data["cars"]
 
-fuel_cost = 0
-energy_cost = 0
-print("TODO energy & fuel cost")
 
 
 class Car:
@@ -52,7 +49,7 @@ class Car_EV(Car):
         return (
             kwargs["energy_factor"]
             * car_params[EV]["power_consumption"]
-            * energy_cost
+            * kwargs["energy_price"].get_price(year, month)
             / 100
         )
 
@@ -64,7 +61,7 @@ class Car_CV(Car):
 
     @staticmethod
     def cost_per_km(year, month, **kwargs):
-        return car_params[CV]["fuel_consumption"] * fuel_cost / 100
+        return car_params[CV]["fuel_consumption"] * kwargs["fuel_price"].get_price(year, month) / 100
 
 
 class Car_PHEV(Car):
@@ -77,6 +74,6 @@ class Car_PHEV(Car):
         return (
             kwargs["energy_factor"]
             * car_params[PHEV]["power_consumption"]
-            * energy_cost
-            + car_params[PHEV]["fuel_consumption"] * fuel_cost
+            * kwargs["energy_price"].get_price(year, month)
+            + car_params[PHEV]["fuel_consumption"] * kwargs["fuel_price"].get_price(year, month)
         ) / 200

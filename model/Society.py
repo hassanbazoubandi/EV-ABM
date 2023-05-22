@@ -4,12 +4,13 @@ from typing import Dict, List, Tuple
 
 import pandas as pd
 
+from .Prices import Prices
 from .Cars import Car, Car_CV, Car_EV, Car_PHEV
 from .City import City
 from .constants import CV, EV, PHEV, CarTypes
 from .Corporations import Corporations
 from .Customer import Customer
-from .Goverment import Goverment
+from .Government import Abstract_Government
 from .Time import Time
 
 with open("model/initial_params.json", "r") as plik:
@@ -28,12 +29,15 @@ class Society:
         self,
         population: int,
         alpha: float,
+        government: Abstract_Government,
         corporation_margin: float,
         corporation_technological_progress: float,
         city_size: Tuple[int, int],
         nerby_radius: float,
         initial_public_chargers: int,
         initial_time: Tuple[int, int],
+        energy_prices_csv: str,
+        fuel_prices_csv: str,
     ) -> None:
         if alpha < 0 or alpha > 1:
             raise ValueError("Alpha parameter have to be float in [0, 1] interval")
@@ -49,7 +53,10 @@ class Society:
                     city_size,
                 )
             )
-        self.goverment = Goverment(None)
+        self.energy_price = Prices(energy_prices_csv)
+        self.fuel_price = Prices(fuel_prices_csv)
+        self.government = government
+        self.government.set_society(self)
         self.corporations = Corporations(
             corporation_margin, corporation_technological_progress
         )
@@ -103,18 +110,22 @@ class Society:
         for c_type in car_types:
             cost[c_type] = self.corporations.get_price(
                 c_type
-            ) - self.goverment.get_subsidy_val(c_type)
+            ) - self.government.get_subsidy_val(c_type)
 
         cost[CV] += (
             customers_params["profiles"][customer.profile]["mean"]
-            * Car_CV.cost_per_km(*self.time.get_current_date(year, month))
-            * car_params[CV]["lifetime"]
+            * Car_CV.cost_per_km(
+                *self.time.get_current_date(year, month),
+                fuel_price = self.fuel_price
+            ) * car_params[CV]["lifetime"]
         )
         cost[PHEV] += (
             customers_params["profiles"][customer.profile]["mean"]
             * Car_PHEV.cost_per_km(
                 *self.time.get_current_date(year, month),
-                energy_factor=self.goverment.energy_factor
+                energy_factor=self.government.energy_factor,
+                energy_price = self.energy_price,
+                fuel_price = self.fuel_price,
             )
             * car_params[PHEV]["lifetime"]
         )
@@ -122,7 +133,8 @@ class Society:
             customers_params["profiles"][customer.profile]["mean"]
             * Car_EV.cost_per_km(
                 *self.time.get_current_date(year, month),
-                energy_factor=self.goverment.energy_factor
+                energy_factor=self.government.energy_factor,
+                energy_price = self.energy_price,
             )
             * car_params[EV]["lifetime"]
         )
@@ -139,11 +151,11 @@ class Society:
             self._go(i)
         self._set_states()
         self.corporations.update(self.historical_states[-1])
-        self.goverment.update()
+        self.government.update()
 
     def _go(self, step: int):
-        current_year = step // 12
-        current_month = step % 12
+        current_year = (step - 1)// 12
+        current_month = (step - 1) % 12 + 1
         for customer in self.customers:
             if customer.have_working_car(current_year, current_month):
                 continue

@@ -1,5 +1,3 @@
-MODEL_FILE=model
-STUB_FILE=$(MODEL_FILE)/stub
 
 YOU:
 	echo "make"

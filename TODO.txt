@@ -1,54 +1,22 @@
 
-ustawić oczekiwaną długość życia auta
-ustalić stan początkowy aut
 ogarnąć rząd
-ogarnąć korporacje
-ogarnąć ładowarki
-ogarnąć wyliczanie czy EV są opłacalne
-
-
-Dane dotyczące elektromobilności
-Aktualna mapa ładowarek (albo współczynnik zagęszczenia)
-testy na danych historycznych
-
-publiczne ładowarki:
-    https://www.plugshare.com
-
-spytać o:
-    ceny hybryd - uwzględnić scenariusz
-
-
-
-
-pomyśleć czy wyrzucić phev
-
-
-znaleść:
-    przebigi dla aut spalinowych i elektrycznych
-    oczekiwana długość życia auta
-    zagęszczenie ładowarek
-
-
 
 samar -- wiek aut 
 portale skierowane do aut elektrycznych
 
 
-
-wiek aut -- z podziałem na rodzaje (otomoto)
-cena aut
-
-zagęszczenie ładowarek
 proporcja zmian paliw -- modele (arfima?)
 spróbować dofitowac dane energii -- arfima
 
-dane do profili kierowców (otomoto)
-
-
-
-zrobić krok mc na jeden m-c
 napisać, że wrocław jest reprezentatywny do skali kraju
 
 
 FARIMA -- też arfima
+
+Ilość PHEV mało sie zmienia:
+    - opłacalność nigdy nie wejdzie w PHEV,
+        bo cena za paliwo jest średnią z pozostałych i cena auta podobnie
+    - do opłacalności można dodać szum -- czy to am sens?
+
+
 

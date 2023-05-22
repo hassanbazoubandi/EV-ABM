@@ -1,10 +1,30 @@
+import os
 import matplotlib.pyplot as plt
 
 from .Society import Society
+from .Government import Government_Build_ChargingStation
+
 
 N = 100
 T = 100
-soc = Society(N, 0.01, 0.2, 0.0004, (100, 100), 10, 10, (2023, 5))
+get_full_path = lambda x: os.sep.join(["data", x])
+energy_prices = get_full_path("energy_price.csv")
+fuel_prices = get_full_path("fuel_price.csv")
+
+soc = Society(
+    population=N,
+    alpha=0.01,
+    government=Government_Build_ChargingStation(),
+    corporation_margin = 0.2,
+    corporation_technological_progress=0.0004,
+    city_size=(500, 500),
+    nerby_radius=10,
+    initial_public_chargers=100,
+    initial_time=(2023, 5),
+    energy_prices_csv=energy_prices,
+    fuel_prices_csv=fuel_prices,
+)
+
 soc.go(T - 1)
 data = soc.get_historical_states()
 plt.plot(data["year"], data["CV"], label="CV")
