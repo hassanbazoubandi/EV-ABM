@@ -7,8 +7,13 @@ from .constants import CV, EV, PHEV, CarTypes
 
 class Customer:
     def __init__(
-        self, car: Car, profile: CarTypes, city_size: Tuple[float, float]
+        self,
+        society: "Society",
+        car: Car,
+        profile: CarTypes,
+        city_size: Tuple[float, float],
     ) -> None:
+        self.society = society
         self.car = car
         self.profile = profile
         self._home = (
@@ -23,6 +28,7 @@ class Customer:
         return self.car.car_type
 
     def buy(self, car_type: CarTypes, current_year: int, current_month: int):
+        self.society.government.get_subsidy(car_type)
         if car_type == EV:
             self.car = Car_EV(current_year, current_month)
         elif car_type == CV:
@@ -47,5 +53,5 @@ class Customer:
             self.buy(car_type2, current_year, current_month)
 
     @property
-    def home(self):
+    def home(self) -> Tuple[float, float]:
         return self._home

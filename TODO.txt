@@ -1,17 +1,22 @@
 
-ogarnąć rząd
+
 
 samar -- wiek aut 
 portale skierowane do aut elektrycznych
 
+energia:
+    proporcja zmian paliw -- modele (arfima?)
+    spróbować dofitowac dane energii -- arfima
+    FARIMA -- też arfima
+    jako scenariusz 
+    jako scenariusze ustalone ceny
+    sprawdzić punkty graniczne
 
-proporcja zmian paliw -- modele (arfima?)
-spróbować dofitowac dane energii -- arfima
+
 
 napisać, że wrocław jest reprezentatywny do skali kraju
+    - dobrze przeskalowac (liczba mieszkańsów, powierzchnia i wymagana odległość od stacji ładowania)
 
-
-FARIMA -- też arfima
 
 Ilość PHEV mało sie zmienia:
     - opłacalność nigdy nie wejdzie w PHEV,
@@ -19,4 +24,11 @@ Ilość PHEV mało sie zmienia:
     - do opłacalności można dodać szum -- czy to am sens?
 
 
+zobaczyć co się stanie bez stacji ładowania (może kilka) -- WAŻNE
+ogarnąć rząd
+    - dodać inne scenariusze
+    założyć odgórnie dotacje
 
+
+
+dokładnie sprawdzić model, w szczególności kanty na wynikach

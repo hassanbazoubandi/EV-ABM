@@ -1,13 +1,16 @@
 import json
+import os
 from random import randint
 from typing import Literal
 
 from .constants import CV, EV, PHEV, CarTypes
 
-with open("model/data.json", "r") as plik:
+my_path = os.path.abspath(__file__).split(os.sep)
+my_path[-1] = "data.json"
+
+with open(os.sep.join(my_path), "r", encoding="utf-8") as plik:
     data = json.load(plik)
     car_params = data["cars"]
-
 
 
 class Car:
@@ -15,9 +18,9 @@ class Car:
         self, release_year: int | None = None, release_month: int | None = None
     ) -> None:
         if release_year is None:
-            release_year = -randint(0, self.lifetime - 1)
+            release_year = -randint(0, self.lifetime)
         if release_month is None:
-            release_month = randint(1, 12)
+            release_month = randint(0, 11)
         self.release_year = release_year
         self.release_month = release_month
 
@@ -27,7 +30,7 @@ class Car:
         )
 
     @property
-    def lifetime(self):
+    def lifetime(self) -> int:
         return car_params[self.car_type]["lifetime"]
 
     @property
@@ -35,7 +38,7 @@ class Car:
         raise Exception("")
 
     @staticmethod
-    def cost_per_km(year, month, **kwargs):
+    def cost_per_km(year, month, **kwargs) -> float:
         raise Exception("")
 
 
@@ -45,12 +48,12 @@ class Car_EV(Car):
         return EV
 
     @staticmethod
-    def cost_per_km(year, month, **kwargs):
+    def cost_per_km(year, month, **kwargs) -> float:
         return (
             kwargs["energy_factor"]
             * car_params[EV]["power_consumption"]
             * kwargs["energy_price"].get_price(year, month)
-            / 100
+            / (100 * 1000)
         )
 
 
@@ -60,8 +63,12 @@ class Car_CV(Car):
         return CV
 
     @staticmethod
-    def cost_per_km(year, month, **kwargs):
-        return car_params[CV]["fuel_consumption"] * kwargs["fuel_price"].get_price(year, month) / 100
+    def cost_per_km(year, month, **kwargs) -> float:
+        return (
+            car_params[CV]["fuel_consumption"]
+            * kwargs["fuel_price"].get_price(year, month)
+            / 100
+        )
 
 
 class Car_PHEV(Car):
@@ -70,10 +77,12 @@ class Car_PHEV(Car):
         return PHEV
 
     @staticmethod
-    def cost_per_km(year, month, **kwargs):
+    def cost_per_km(year, month, **kwargs) -> float:
         return (
             kwargs["energy_factor"]
             * car_params[PHEV]["power_consumption"]
             * kwargs["energy_price"].get_price(year, month)
-            + car_params[PHEV]["fuel_consumption"] * kwargs["fuel_price"].get_price(year, month)
+            / 1000
+            + car_params[PHEV]["fuel_consumption"]
+            * kwargs["fuel_price"].get_price(year, month)
         ) / 200

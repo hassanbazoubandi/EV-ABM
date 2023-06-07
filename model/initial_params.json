@@ -1,4 +1,24 @@
 {
+    "car_distribution_fake": {
+        "CV": 0.5,
+        "PHEV": 0.175,
+        "EV": 0.325
+    },
+    "car_distribution_data": {
+        "CV": 0.9736433585313174,
+        "PHEV": 0.007161177105831533,
+        "EV": 0.01919546436285097
+    },
+    "profiles_distribution_fake": {
+        "CV": 0.334,
+        "EV": 0.333,
+        "PHEV": 0.333
+    },
+    "profiles_distribution_data": {
+        "CV": 0.4407734881209503,
+        "EV": 0.028017008639308855,
+        "PHEV": 0.5312095032397408
+    },
     "car_distribution": {
         "CV": 0.9736433585313174,
         "PHEV": 0.007161177105831533,

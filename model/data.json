@@ -26,34 +26,29 @@
             "lifetime":17,
             "range":141,
             "fuel_capasity":42,
-            "battery_capasity":0,
+            "battery_capasity":1.32,
             "power_consumption": null,
-            "fuel_consumption": 0
+            "fuel_consumption": 4.1
         },
         "PHEV": {
             "cost":158500,
             "lifetime":8,
+            "lifetime2":15,
             "range":183,
             "fuel_capasity":37,
             "battery_capasity":11.1,
-            "power_consumption": 0,
-            "fuel_consumption": 0
+            "power_consumption": 17.9,
+            "fuel_consumption": 1
         },
         "EV": {
             "cost":198900,
             "lifetime":7,
+            "lifetime2":12,
             "range":460,
             "fuel_capasity":0,
             "battery_capasity":64.8,
-            "power_consumption": 0,
+            "power_consumption": 16.2,
             "fuel_consumption": null
         }
-    },
-    "charging_points": {
-        "build_price": 250000,
-        "cost_of_living": 0
-    },
-    "government": {
-        "year_subsidies_value": 2000000
     }
 }

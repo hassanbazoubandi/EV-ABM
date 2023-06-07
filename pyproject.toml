@@ -24,6 +24,10 @@ gdshortener = "^1.0.1"
 ipdb = "^0.13.13"
 tqdm = "^4.65.0"
 statsmodels = "^0.14.0"
+multiprocess = "^0.70.14"
+convert-jupyter = "^0.1.10"
+pytest = "^7.3.1"
+hypothesis = "^6.76.0"
 
 
 [build-system]
