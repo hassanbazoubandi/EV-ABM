@@ -10,7 +10,7 @@ class AbstractGovernment:
         raise Exception("")
 
     def set_society(self, society: type) -> None:
-        raise Exception("")
+        self.society = society
 
     def get_subsidy(self, c_type: CarTypes) -> int:
         raise Exception("")
@@ -27,9 +27,6 @@ class GovernmentBuildChargingStation(AbstractGovernment):
         self.new_chargers = new_chargers
         self.society = None
 
-    def set_society(self, society: type) -> None:
-        self.society = society
-
     def get_subsidy(self, c_type: CarTypes) -> int:
         return 0
 
@@ -43,14 +40,12 @@ class GovernmentBuildChargingStation(AbstractGovernment):
 
 
 class GovernmentProvidesSubsidies(AbstractGovernment):
-    def __init__(self, *, one_subsidity_level=30_000, year_subsidies=10**6) -> None:
+    def __init__(self, *, one_subsidity_level=30_000, year_subsidies=10**6, PHEV_sub_scaler = 1) -> None:
         self.year_subsidies = year_subsidies
+        self.PHEV_sub_scaler = PHEV_sub_scaler
         self.one_subsidity_level = one_subsidity_level
         self.budget = year_subsidies
         self.society = None
-
-    def set_society(self, society: type) -> None:
-        self.society = society
 
     def get_subsidy(self, c_type: CarTypes) -> int:
         sub = self.get_subsidy_val(c_type)
@@ -66,8 +61,8 @@ class GovernmentProvidesSubsidies(AbstractGovernment):
             )
         if c_type == PHEV:
             return (
-                self.one_subsidity_level
-                if self.one_subsidity_level > self.budget
+                self.one_subsidity_level * self.PHEV_sub_scaler
+                if self.one_subsidity_level * self.PHEV_sub_scaler > self.budget
                 else 0
             )
         return 0
@@ -80,16 +75,15 @@ class GovernmentProvidesSubsidies(AbstractGovernment):
 
 class GovernmentMixedStrategy(AbstractGovernment):
     def __init__(
-        self, *, one_subsidity_level=30_000, year_subsidies=5e5, new_chargers=10
+        self, *, one_subsidity_level=30_000, year_subsidies=5e5, new_chargers=10, PHEV_sub_scaler = 1
     ) -> None:
+        self.PHEV_sub_scaler = PHEV_sub_scaler
         self.year_subsidies = year_subsidies
         self.one_subsidity_level = one_subsidity_level
         self.new_chargers = new_chargers
         self.budget = year_subsidies
         self.society = None
 
-    def set_society(self, society: type) -> None:
-        self.society = society
 
     def get_subsidy(self, c_type: CarTypes) -> int:
         sub = self.get_subsidy_val(c_type)
@@ -98,9 +92,17 @@ class GovernmentMixedStrategy(AbstractGovernment):
 
     def get_subsidy_val(self, c_type: CarTypes) -> int:
         if c_type == EV:
-            return self.one_subsidity_level
+            return (
+                self.one_subsidity_level
+                if self.one_subsidity_level > self.budget
+                else 0
+            )
         if c_type == PHEV:
-            return self.one_subsidity_level
+            return (
+                self.one_subsidity_level * self.PHEV_sub_scaler
+                if self.one_subsidity_level * self.PHEV_sub_scaler > self.budget
+                else 0
+            )
         return 0
 
     def update(self, current_month: int):
@@ -114,9 +116,6 @@ class GovernmentCloseChargingStation(AbstractGovernment):
     def __init__(self, *, closing_factor=0.6) -> None:
         self.closing_factor = closing_factor
         self.society = None
-
-    def set_society(self, society: type) -> None:
-        self.society = society
 
     def get_subsidy(self, c_type: CarTypes) -> int:
         return 0

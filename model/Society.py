@@ -171,6 +171,7 @@ class Society:
         return cost
 
     def public_charging_nerby(self, customer: Customer) -> bool:
+        # print(self.city.count_nerby_chargers(customer, self.nerby_radius))
         return self.city.count_nerby_chargers(customer, self.nerby_radius) > 0
 
     def run(self, n_steps: int) -> None:
