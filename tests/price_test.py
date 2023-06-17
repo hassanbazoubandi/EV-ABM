@@ -19,14 +19,12 @@ FAKE_CONSTANT_VALUE = 10.22
 def constatnt_model(df: pd.DataFrame, year: int, month: int):
     last_year = df["year"].max()
     last_month = df[df["year"] == last_year]["month"].max()
-    # n = len(df)
     new_rows = []
     while last_year < year or last_month < month:
         last_month += 1
         if last_month == 13:
             last_year += 1
             last_month = 1
-        # n += 1
         new_rows.append(
             {
                 "year": last_year,
@@ -61,4 +59,3 @@ def test_Prices_no_model(year, month):
 )
 def test_Prices_constant_model(year, month):
     price = Prices(energy_price.copy(), constatnt_model, (time_horizont, 1))
-    # assert FAKE_CONSTANT_VALUE == price.get_price(year, month)

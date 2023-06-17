@@ -1,7 +1,8 @@
-from typing import Any, Dict, List, Tuple
+from typing import Dict, List, Tuple
 
 import matplotlib.pyplot as plt
 import numpy as np
+from matplotlib.axes._axes import Axes
 from pandas import DataFrame
 
 
@@ -20,16 +21,16 @@ def plot_check_by(
     values: Dict[
         str, Tuple[List[DataFrame], List[DataFrame], List[DataFrame], DataFrame]
     ],
-    axs: None | List[Any] = None,
+    axs: None | List[Axes] = None,
 ):
     if axs is None:
         _, axs = plt.subplots(nrows=3)
     for key in values:
         N = sum([df[0] for df in values[key]])
+        x = values[key][-1] / 12
         break
     N = N[0]
     for key in values:
-        x = values[key][-1] / 12
         for i in range(3):
             axs[i].plot(x, np.array(values[key][i]).mean(0) / N, label=key)
     return axs

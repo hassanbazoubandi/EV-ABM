@@ -3,14 +3,11 @@ import os
 from random import randint
 from typing import Literal
 
+from .common import get_data
 from .constants import CV, EV, PHEV, CarTypes
 
-my_path = os.path.abspath(__file__).split(os.sep)
-my_path[-1] = "data.json"
-
-with open(os.sep.join(my_path), "r", encoding="utf-8") as plik:
-    data = json.load(plik)
-    car_params = data["cars"]
+data = get_data()
+car_params = data["cars"]
 
 
 class Car:
@@ -42,21 +39,6 @@ class Car:
         raise Exception("")
 
 
-class Car_EV(Car):
-    @property
-    def car_type(self) -> CarTypes:
-        return EV
-
-    @staticmethod
-    def cost_per_km(year, month, **kwargs) -> float:
-        return (
-            kwargs["energy_factor"]
-            * car_params[EV]["power_consumption"]
-            * kwargs["energy_price"].get_price(year, month)
-            / (100 * 1000)
-        )
-
-
 class Car_CV(Car):
     @property
     def car_type(self) -> CarTypes:
@@ -80,9 +62,24 @@ class Car_PHEV(Car):
     def cost_per_km(year, month, **kwargs) -> float:
         return (
             kwargs["energy_factor"]
-            * car_params[PHEV]["power_consumption"]
+            * car_params[PHEV]["energy_consumption"]
             * kwargs["energy_price"].get_price(year, month)
-            / 1000
+            / 1000  # energy consumption in kWh, energy price in MWh
             + car_params[PHEV]["fuel_consumption"]
             * kwargs["fuel_price"].get_price(year, month)
         ) / 200
+
+
+class Car_EV(Car):
+    @property
+    def car_type(self) -> CarTypes:
+        return EV
+
+    @staticmethod
+    def cost_per_km(year, month, **kwargs) -> float:
+        return (
+            kwargs["energy_factor"]
+            * car_params[EV]["energy_consumption"]
+            * kwargs["energy_price"].get_price(year, month)
+            / (100 * 1000)  # energy consumption in kWh, energy price in MWh
+        )

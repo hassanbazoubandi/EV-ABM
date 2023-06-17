@@ -7,24 +7,18 @@ import pandas as pd
 
 from .Cars import Car, Car_CV, Car_EV, Car_PHEV
 from .City import City
+from .common import get_data, get_initial_params
 from .constants import CV, EV, PHEV, CarTypes
 from .Corporations import Corporations
 from .Customer import Customer
 from .Government import AbstractGovernment
-from .Prices import ConstatntPrice, Prices
+from .Prices import ConstatntPrice, Price, Prices
 from .Time import Time
 
-my_path = os.path.abspath(__file__).split(os.sep)
-my_path[-1] = "initial_params.json"
-
-with open(os.sep.join(my_path), "r", encoding="utf-8") as plik:
-    initial_params = json.load(plik)
-
-my_path[-1] = "data.json"
-with open(os.sep.join(my_path), "r", encoding="utf-8") as plik:
-    data = json.load(plik)
-    car_params = data["cars"]
-    customers_params = data["customers"]
+initial_params = get_initial_params()
+data = get_data()
+car_params = data["cars"]
+customers_params = data["customers"]
 
 car_types = [EV, PHEV, CV]
 
@@ -42,7 +36,7 @@ class Society:
         initial_public_chargers: int,
         energy_factor: float,
         *,
-        car_price_noise: None | Callable[[], float],
+        car_price_noise: None | Callable[[], float] | Callable[[], int],
         **kwargs,
     ) -> None:
         if alpha < 0 or alpha > 1:
@@ -51,7 +45,7 @@ class Society:
             raise ValueError(
                 "energy_factor parameter have to be float in [0, 1] interval"
             )
-        self.energy_factor = energy_factor
+        self.energy_factor = (1 + energy_factor**2) / (1 + energy_factor)
         self.alpha = alpha
         self.customers: List[Customer] = []
         self.nerby_radius = nerby_radius
@@ -85,8 +79,8 @@ class Society:
 
     def _set_unique_initial(self, **kwargs):
         self.time = Time(*kwargs["initial_time"])
-        self.energy_price = Prices(kwargs["energy_prices_csv"])
-        self.fuel_price = Prices(kwargs["fuel_prices_csv"])
+        self.energy_price: Price = Prices(kwargs["energy_prices_csv"])
+        self.fuel_price: Price = Prices(kwargs["fuel_prices_csv"])
 
     def _get_initial_profile(self) -> CarTypes:
         rdm = random()
@@ -146,7 +140,6 @@ class Society:
             float(customers_params["profiles"][customer.profile]["mean"])
             * Car_PHEV.cost_per_km(
                 *self.time.get_current_date(year, month),
-                # energy_factor=self.government.energy_factor,
                 energy_factor=self.energy_factor,
                 energy_price=self.energy_price,
                 fuel_price=self.fuel_price,
@@ -158,7 +151,6 @@ class Society:
             float(customers_params["profiles"][customer.profile]["mean"])
             * Car_EV.cost_per_km(
                 *self.time.get_current_date(year, month),
-                # energy_factor=self.government.energy_factor,
                 energy_factor=self.energy_factor,
                 energy_price=self.energy_price,
             )
@@ -167,11 +159,12 @@ class Society:
 
         for c_type in car_types:
             cost[c_type] /= int(car_params[c_type]["lifetime"])
+            if cost[c_type] < 0:
+                print(f"Woops! In this case annual cost of {c_type} is smaller then 0.")
             cost[c_type] = max(0, cost[c_type] + self.car_price_noise())
         return cost
 
     def public_charging_nerby(self, customer: Customer) -> bool:
-        # print(self.city.count_nerby_chargers(customer, self.nerby_radius))
         return self.city.count_nerby_chargers(customer, self.nerby_radius) > 0
 
     def run(self, n_steps: int) -> None:
@@ -196,7 +189,7 @@ class Society:
                 customer.buy(PHEV, current_year, current_month)
                 continue
             if self.public_charging_nerby(customer):
-                if self.alpha < random():
+                if random() < self.alpha:
                     customer.buy(EV, current_year, current_month)
                     continue
                 customer.choose(CV, PHEV, current_year, current_month)

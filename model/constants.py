@@ -1,9 +1,9 @@
 from typing import Literal
 
-CarTypes = Literal["CV", "EV", "PHEV"]
+CarTypes = Literal["CV", "BEV", "PHEV"]
 
 CV: CarTypes = "CV"
-EV: CarTypes = "EV"
+EV: CarTypes = "BEV"
 PHEV: CarTypes = "PHEV"
 
 price_col_names = ["year", "month", "price"]

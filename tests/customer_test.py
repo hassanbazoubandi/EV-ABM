@@ -1,9 +1,15 @@
-import pytest
 from typing import Tuple
-from model.Cars import Car, Car_EV, Car_CV, Car_PHEV
+
+import pytest
+
+from model.Cars import Car, Car_CV, Car_EV, Car_PHEV
+from model.constants import CV, EV, PHEV, CarTypes
 from model.Customer import Customer
-from model.Government import AbstractGovernment, GovernmentMixedStrategy, GovernmentBuildChargingStation, GovernmentProvidesSubsidies
-from model.constants import CarTypes, CV, EV, PHEV
+from model.Government import (AbstractGovernment,
+                              GovernmentBuildChargingStation,
+                              GovernmentMixedStrategy,
+                              GovernmentProvidesSubsidies)
+
 
 class Fake_Society:
     def __init__(self, gov: AbstractGovernment) -> None:
@@ -37,12 +43,12 @@ def test_init_customer(
 @pytest.mark.parametrize(
     "car, profile, today, is_working",
     (
-        (Car_EV(0,0), PHEV, (1, 10), True),
-        (Car_CV(0,0), EV, (1, 10), True),
-        (Car_PHEV(0,0), CV, (1, 10), True),
-        (Car_EV(0,0), PHEV, (100, 10), False),
-        (Car_CV(0,0), EV, (100, 10), False),
-        (Car_PHEV(0,0), CV, (100, 10), False),
+        (Car_EV(0, 0), PHEV, (1, 10), True),
+        (Car_CV(0, 0), EV, (1, 10), True),
+        (Car_PHEV(0, 0), CV, (1, 10), True),
+        (Car_EV(0, 0), PHEV, (100, 10), False),
+        (Car_CV(0, 0), EV, (100, 10), False),
+        (Car_PHEV(0, 0), CV, (100, 10), False),
     ),
 )
 def test_customer_have_working_car(
@@ -60,12 +66,12 @@ def test_customer_have_working_car(
 @pytest.mark.parametrize(
     "car, profile, new_type",
     (
-        (Car_EV(0,0), PHEV, CV),
-        (Car_CV(0,0), EV, CV),
-        (Car_PHEV(0,0), CV, EV),
-        (Car_EV(0,0), PHEV, PHEV),
-        (Car_CV(0,0), EV, EV),
-        (Car_PHEV(0,0), CV, PHEV),
+        (Car_EV(0, 0), PHEV, CV),
+        (Car_CV(0, 0), EV, CV),
+        (Car_PHEV(0, 0), CV, EV),
+        (Car_EV(0, 0), PHEV, PHEV),
+        (Car_CV(0, 0), EV, EV),
+        (Car_PHEV(0, 0), CV, PHEV),
     ),
 )
 def test_customer_new_car_buy(
@@ -79,19 +85,20 @@ def test_customer_new_car_buy(
     assert customer.get_car_type() == car.car_type
     customer.buy(new_type, 0, 0)
     assert customer.get_car_type() == new_type
-    
+
+
 @pytest.mark.parametrize(
     "car, profile, new_types, chosed",
     (
-        (Car_EV(0,0), PHEV, (CV, PHEV), PHEV),
-        (Car_EV(0,0), PHEV, (CV, EV), None),
-        (Car_EV(0,0), PHEV, (EV, PHEV), PHEV),
-        (Car_EV(0,0), EV, (CV, PHEV), PHEV),
-        (Car_EV(0,0), EV, (CV, EV), EV),
-        (Car_EV(0,0), EV, (EV, PHEV), EV),
-        (Car_EV(0,0), CV, (CV, PHEV), CV),
-        (Car_EV(0,0), CV, (CV, EV), CV),
-        (Car_EV(0,0), CV, (EV, PHEV), PHEV),
+        (Car_EV(0, 0), PHEV, (CV, PHEV), PHEV),
+        (Car_EV(0, 0), PHEV, (CV, EV), None),
+        (Car_EV(0, 0), PHEV, (EV, PHEV), PHEV),
+        (Car_EV(0, 0), EV, (CV, PHEV), PHEV),
+        (Car_EV(0, 0), EV, (CV, EV), EV),
+        (Car_EV(0, 0), EV, (EV, PHEV), EV),
+        (Car_EV(0, 0), CV, (CV, PHEV), CV),
+        (Car_EV(0, 0), CV, (CV, EV), CV),
+        (Car_EV(0, 0), CV, (EV, PHEV), PHEV),
     ),
 )
 def test_customer_new_car_choose(
@@ -104,11 +111,10 @@ def test_customer_new_car_choose(
     soc = Fake_Society(GovernmentMixedStrategy())
     customer = Customer(soc, car, profile, city_size)
     assert customer.get_car_type() == car.car_type
-    customer.choose(*new_types,0,0)
+    customer.choose(*new_types, 0, 0)
     if chosed is None:
-        assert (customer.get_car_type() == new_types[0]) or (customer.get_car_type() == new_types[1])
+        assert (customer.get_car_type() == new_types[0]) or (
+            customer.get_car_type() == new_types[1]
+        )
     else:
         assert customer.get_car_type() == chosed
-    
-
-

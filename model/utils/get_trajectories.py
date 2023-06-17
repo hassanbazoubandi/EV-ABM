@@ -1,4 +1,4 @@
-from typing import Callable, Dict, List, Tuple, Type
+from typing import Dict, List, Tuple, Type
 
 from multiprocess import Pool
 from pandas import DataFrame
@@ -6,8 +6,6 @@ from tqdm import tqdm
 
 from ..constants import CV, EV, PHEV
 from ..Society import Society
-
-# from .common_params import CommonParamsKwargs
 
 
 def get_trajectories(
@@ -80,21 +78,15 @@ def check_by(
             tmp_society_kwargs[param] = el
             if param == "government":
                 name = f"{el}".split(".")[-1].split(" ")[0]
-                ret[name] = get_trajectories(
-                    society_class,
-                    tmp_society_kwargs,
-                    T,
-                    MC,
-                    threads,
-                )
             else:
-                ret[f"{el}"] = get_trajectories(
-                    society_class,
-                    tmp_society_kwargs,
-                    T,
-                    MC,
-                    threads,
-                )
+                name = f"{el}"
+            ret[name] = get_trajectories(
+                society_class,
+                tmp_society_kwargs,
+                T,
+                MC,
+                threads,
+            )
     elif param.lower() == "society":
         for soc in tqdm(param_list):
             ret[f"{soc.__name__}"] = get_trajectories(

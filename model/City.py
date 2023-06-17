@@ -7,9 +7,9 @@ from .Customer import Customer
 
 class City:
     def __init__(self, city_size: Tuple[int, int], initial_chargers: int) -> None:
-        self.charger_pos = np.random.random(2 * initial_chargers).reshape(
-            (initial_chargers, 2)
-        )
+        self.charger_pos: np.ndarray | None = np.random.random(
+            2 * initial_chargers
+        ).reshape((initial_chargers, 2))
         self.city_size = city_size
         self.charger_pos[:, 0] = self.charger_pos[:, 0] * city_size[0]
         self.charger_pos[:, 1] = self.charger_pos[:, 1] * city_size[1]
@@ -33,6 +33,8 @@ class City:
         return self.charger_pos.shape[0]
 
     def close_charger(self, charger_number):
+        if self.charger_pos is None:
+            return
         if charger_number == 0 and self.count_chargers() == 1:
             self.charger_pos = None
         else:

@@ -8,7 +8,7 @@ from .constants import CV, EV, PHEV, CarTypes
 class Customer:
     def __init__(
         self,
-        society: "Society",
+        society: "Society",  # noqa
         car: Car,
         profile: CarTypes,
         city_size: Tuple[float, float],

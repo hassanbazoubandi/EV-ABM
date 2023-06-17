@@ -3,3 +3,6 @@
 **/.Rhistory
 **.Rdata
 **sandbox**
+.hypothesis/**
+TODO.txt
+articles/**

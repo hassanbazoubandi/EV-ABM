@@ -8,10 +8,10 @@ from .constants import price_col_names
 
 class Price:
     def __init__(self, *args) -> None:
-        ...
+        pass
 
     def get_price(self, year: int, month: int) -> float:
-        ...
+        raise Exception("")
 
 
 class Prices(Price):
@@ -31,7 +31,7 @@ class Prices(Price):
             )
 
         if predict_model is not None:
-            self.df = predict_model(self.df, *predict_to)
+            self.df = predict_model(self.df, predict_to[0], predict_to[1])  # noqa
         for col_name in price_col_names:
             if col_name not in self.df.columns:
                 raise AttributeError(
