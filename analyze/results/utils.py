@@ -24,7 +24,9 @@ def get_path_with(folder="model"):
 
 
 def save_in(name, folder="pictures", fig=None):
+    target = [get_path_with(folder), folder, name]
     if fig is None:
-        plt.savefig(os.sep.join([get_path_with(folder), folder, name]))
+        plt.savefig(os.sep.join(target), bbox_inches='tight')
     else:
-        fig.savefig(os.sep.join([get_path_with(folder), folder, name]))
+        fig.savefig(os.sep.join(target), bbox_inches='tight')
+    print(f"saved as: {target}")

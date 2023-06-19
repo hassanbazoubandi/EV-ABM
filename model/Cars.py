@@ -26,6 +26,9 @@ class Car:
             year - self.release_year + (month - self.release_month) / 12 < self.lifetime
         )
 
+    def age(self, year: int, month: int):
+        return year - self.release_year + (month - self.release_month) / 12
+    
     @property
     def lifetime(self) -> int:
         return car_params[self.car_type]["lifetime"]

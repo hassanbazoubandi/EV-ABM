@@ -4,16 +4,19 @@ import matplotlib.pyplot as plt
 import numpy as np
 from matplotlib.axes._axes import Axes
 from pandas import DataFrame
+from ..constants import CV, PHEV, EV
 
-
-def plot_intervals(x, y: List[List[float]], ax=None, color=None, alpha=0.3, **kwargs):
+def plot_intervals(x, y: List[List[float]], ax=None, color=None, alpha=0.3, xlabel=None, **kwargs):
     Y = np.array(y)
     if ax is None:
         ax = plt.subplot(1, 1, 1)
     Y_min = Y.min(0)
     Y_max = Y.max(0)
     ax.fill_between(x, Y_min, Y_max, Y_min <= Y_max, color=color, alpha=alpha)
-    ax.plot(x, Y.mean(0), color=color, **kwargs)
+    if xlabel is not None:
+        ax.set_xlabel(xlabel)
+    # ax.plot(x, Y.mean(0), color=color, **kwargs)
+    ax.plot(x, np.median(Y, axis=0), color=color, **kwargs)   
     return ax
 
 

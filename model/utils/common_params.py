@@ -19,6 +19,6 @@ cpk = {
 }
 
 common_params = {
-    "T": 12 * 25,
+    "T": 12 * 15,
     "kwargs": cpk,
 }

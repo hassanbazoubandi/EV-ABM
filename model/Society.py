@@ -36,7 +36,7 @@ class Society:
         initial_public_chargers: int,
         energy_factor: float,
         *,
-        car_price_noise: None | Callable[[], float] | Callable[[], int],
+        car_price_noise: None | Callable[[], float],
         **kwargs,
     ) -> None:
         if alpha < 0 or alpha > 1:
@@ -47,12 +47,13 @@ class Society:
             )
         self.energy_factor = (1 + energy_factor**2) / (1 + energy_factor)
         self.alpha = alpha
-        self.customers: List[Customer] = []
         self.nerby_radius = nerby_radius
         if car_price_noise is None:
-            self.car_price_noise = lambda: 0
+            self.car_price_noise = lambda: 0.0
         else:
             self.car_price_noise = car_price_noise
+
+        self.customers: List[Customer] = []
         for _ in range(population):
             self.customers.append(
                 Customer(
@@ -65,6 +66,7 @@ class Society:
 
         self.government = government
         self.government.set_society(self)
+
         self.corporations = Corporations(
             corporation_margin, corporation_technological_progress
         )
@@ -103,9 +105,9 @@ class Society:
         self.historical_states.append(self.state.copy())
 
     def get_historical_states(self) -> pd.DataFrame:
-        df = pd.DataFrame(self.historical_states)
-        df["year"] = df.index
-        return df
+        df_historical_data = pd.DataFrame(self.historical_states)
+        df_historical_data["year"] = df_historical_data.index
+        return df_historical_data
 
     def _get_initial_car(self) -> Car:
         rdm = random()
@@ -169,8 +171,8 @@ class Society:
 
     def run(self, n_steps: int) -> None:
         for i in range(1, n_steps + 1):
-            current_year = (i) // 12
-            current_month = (i) % 12
+            current_year = i // 12
+            current_month = i % 12
             self._set_states()
             self._run(current_year, current_month)
             self.corporations.update(self.historical_states[-1], current_month)

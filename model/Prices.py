@@ -22,24 +22,24 @@ class Prices(Price):
         predict_to: Tuple[int, int] | None = None,
     ) -> None:
         if isinstance(data_file, str):
-            self.df = pd.read_csv(data_file)
+            self.df_price = pd.read_csv(data_file)
         elif isinstance(data_file, pd.DataFrame):
-            self.df = data_file
+            self.df_price = data_file
         else:
             raise AttributeError(
                 f"data_file must have str or pd.DataFrame type not {type(data_file)}"
             )
 
         if predict_model is not None:
-            self.df = predict_model(self.df, predict_to[0], predict_to[1])  # noqa
+            self.df_price = predict_model(self.df_price, predict_to[0], predict_to[1])  # noqa
         for col_name in price_col_names:
-            if col_name not in self.df.columns:
+            if col_name not in self.df_price.columns:
                 raise AttributeError(
                     f"Prices data have to have {price_col_names} columns."
                 )
 
     def get_price(self, year: int, month: int) -> float:
-        ret = self.df[(self.df["year"] == year) & (self.df["month"] == month)][
+        ret = self.df_price[(self.df_price["year"] == year) & (self.df_price["month"] == month)][
             "price"
         ].mean()
         if isnan(ret):

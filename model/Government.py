@@ -1,15 +1,14 @@
 from random import random
-from typing import Type
 
 from .constants import CV, EV, PHEV, CarTypes
 
-DEFLAUT_ONE_SUB_LEVEL = 80_000
+DEFLAUT_ONE_SUB_LEVEL = 83_000
 DEFLAUT_PHEV_SUB_SCALER = 0.1
 DEFLAUT_YEAR_SUBS = 1_000_000
 DEFLAUT_NEW_CHARGERS = 10
 
 
-def get_subsidity_val(
+def _get_subsidity_val(
     budget: int,
     sub_val: int,
     car_type: CarTypes,
@@ -43,6 +42,24 @@ class AbstractGovernment:
 
     def update(self, current_month: int):
         raise Exception("")
+
+
+
+class GovernmentNoSubsidies(AbstractGovernment):
+    def __init__(self, **kwargs) -> None:
+        self.society: None | type = None
+
+    def set_society(self, society: "Society") -> None:  # noqa
+        self.society = society
+
+    def get_subsidy(self, c_type: CarTypes) -> int:
+        return 0
+
+    def get_subsidy_val(self, c_type: CarTypes) -> int:
+        return 0
+
+    def update(self, current_month: int):
+        pass
 
 
 class GovernmentBuildChargingStation(AbstractGovernment):
@@ -82,7 +99,7 @@ class GovernmentProvidesSubsidies(AbstractGovernment):
         return sub
 
     def get_subsidy_val(self, c_type: CarTypes) -> int:
-        return get_subsidity_val(
+        return _get_subsidity_val(
             self.budget, self.one_subsidity_level, c_type, 1, self.PHEV_sub_scaler, 0
         )
 
@@ -114,7 +131,7 @@ class GovernmentMixedStrategy(AbstractGovernment):
         return sub
 
     def get_subsidy_val(self, c_type: CarTypes) -> int:
-        return get_subsidity_val(
+        return _get_subsidity_val(
             self.budget, self.one_subsidity_level, c_type, 1, self.PHEV_sub_scaler, 0
         )
 

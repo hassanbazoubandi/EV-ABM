@@ -12,5 +12,6 @@ from .Government import (
     GovernmentCloseChargingStation,
     GovernmentMixedStrategy,
     GovernmentProvidesSubsidies,
-    )
+    GovernmentNoSubsidies,
+)
 from .Society import Society, SocietyConstantsEnergyPrices

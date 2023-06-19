@@ -17,6 +17,4 @@ poetry run black $1
 fill "ISORT" "*"
 poetry run isort $1
 fill "MYPY" "*"
-poetry run mypy model
-fill "PYLINT" "*"
-poetry run pylint model
+poetry run mypy $2
