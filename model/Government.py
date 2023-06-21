@@ -1,3 +1,16 @@
+"""
+Government represent type of one model agent. 
+Government are responsible for introduce seted government strategy.
+Actually are implemented:
+- GovernmentBuildChargingStation
+- GovernmentProvidesSubsidies
+- GovernmentMixedStrategy
+- GovernmentNoSubsidies
+- GovernmentCloseChargingStation
+  
+Any of them inherit for class AbstractGovernment (like abstract class).
+To check other strategies it is advisable to create a corresponding class inheriting from A
+"""
 from random import random
 
 from .constants import CV, EV, PHEV, CarTypes
@@ -27,20 +40,51 @@ def _get_subsidity_val(
 
 
 class AbstractGovernment:
+    """Abstract class of government.
+    """    
     def __init__(self, **kwargs) -> None:
         self.society: None | type = None
         raise Exception("")
 
     def set_society(self, society: "Society") -> None:  # noqa
+        """
+            Set society, this field may be useful
+            in updating changing Society state,
+            e.g., building new public chargers.
+
+        Args:
+            society (Society): Society class
+        """        
         self.society = society
 
     def get_subsidy(self, c_type: CarTypes) -> int:
+        """Method responsible for determining the value of subsidies and subtracting them from the budget.
+
+        Args:
+            c_type (CarTypes): car type BEV, PHEV or CV
+
+        Returns:
+            int: value of subsidity
+        """        
         raise Exception("")
 
     def get_subsidy_val(self, c_type: CarTypes) -> int:
+        """Method responsible for determining the value of subsidies.
+
+        Args:
+            c_type (CarTypes): car type BEV, PHEV or CV
+
+        Returns:
+            int: value of subsidity
+        """        
         raise Exception("")
 
     def update(self, current_month: int):
+        """Method called at the end of each time step. 
+
+        Args:
+            current_month (int): integer value with range from 0 to 11 inclusive.
+        """        
         raise Exception("")
 
 

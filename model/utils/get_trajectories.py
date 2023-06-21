@@ -27,7 +27,7 @@ def get_trajectories(
     EVs = [df[EV] for df in ret]
     PHEVs = [df[PHEV] for df in ret]
     year = ret[0]["year"]
-    return (CVs, PHEVs, EVs, year)
+    return (CVs, EVs, PHEVs, year)
 
 
 def get_trajectories_one_thread(

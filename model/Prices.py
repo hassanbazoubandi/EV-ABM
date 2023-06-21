@@ -1,3 +1,10 @@
+"""
+Price is responsible for fuel and energy prices. 
+In the default society "SocietyConstantsEnergyPrices" (see Society)
+is used class ConstatntPrice and are constants prices.
+Howeover model is ready for implement function wich estimate future prices (class Prices).
+Both of them (ConstatntPrice, Prices) inherit for class Price.
+"""
 from math import isnan
 from typing import Callable, Tuple
 

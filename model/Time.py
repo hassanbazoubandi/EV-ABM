@@ -1,3 +1,7 @@
+"""
+Time is responsible for converting time from model time to real time.
+This is especially true for variable fuel and energy prices
+"""
 from typing import Tuple
 
 

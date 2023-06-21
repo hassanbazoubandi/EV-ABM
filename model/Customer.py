@@ -1,3 +1,14 @@
+"""
+Customer represent type of one model agent. 
+Customers are agents whose status will be counted and analyzed.
+Any Customer instance has indyvidual set of fields.
+- procfile -- mean annual mileage
+- home -- place in City
+- car -- see class Car
+
+The customer is also responsible for the mechanism for buying a car
+and for choosing between two types.
+"""
 from random import random
 from typing import Tuple
 

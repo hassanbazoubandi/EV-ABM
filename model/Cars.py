@@ -1,7 +1,9 @@
-import json
-import os
+"""
+Cars, as a customer field, are responsible for type (BEV, PHEV, CV),
+age and cost per km.
+Any car type has own class witch inherit for class Car (like abstract class).
+"""
 from random import randint
-from typing import Literal
 
 from .common import get_data
 from .constants import CV, EV, PHEV, CarTypes

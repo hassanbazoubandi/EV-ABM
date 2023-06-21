@@ -77,12 +77,7 @@ class Society:
             EV: 0,
         }
         self.historical_states: List[Dict[CarTypes, int]] = []
-        self._set_unique_initial(**kwargs)
 
-    def _set_unique_initial(self, **kwargs):
-        self.time = Time(*kwargs["initial_time"])
-        self.energy_price: Price = Prices(kwargs["energy_prices_csv"])
-        self.fuel_price: Price = Prices(kwargs["fuel_prices_csv"])
 
     def _get_initial_profile(self) -> CarTypes:
         rdm = random()
@@ -199,6 +194,31 @@ class Society:
             customer.buy(CV, current_year, current_month)
 
 
+class SocietyVariableEnergyPrices(Society):
+    def __init__(
+        self,
+        population: int,
+        alpha: float,
+        government: AbstractGovernment,
+        corporation_margin: float,
+        corporation_technological_progress: float,
+        city_size: Tuple[int, int],
+        nerby_radius: float,
+        initial_public_chargers: int,
+        energy_factor: float,
+        *,
+        car_price_noise: None | Callable[[], float],
+        initial_time: Tuple[int, int]=(0,0),
+        energy_prices_csv: str = "",
+        fuel_prices_csv: str = "",
+        **kwargs,
+    ) -> None:
+        super().__init__(population, alpha, government, corporation_margin, corporation_technological_progress, city_size, nerby_radius, initial_public_chargers, energy_factor, car_price_noise=car_price_noise, **kwargs)
+        self.time = Time(initial_time)
+        self.energy_price: Price = Prices(energy_prices_csv)
+        self.fuel_price: Price = Prices(fuel_prices_csv)
+
+
 class SocietyConstantsEnergyPrices(Society):
     def __init__(
         self,
@@ -226,12 +246,8 @@ class SocietyConstantsEnergyPrices(Society):
             nerby_radius,
             initial_public_chargers,
             car_price_noise=car_price_noise,
-            energy_price=energy_price,
-            fuel_price=fuel_price,
             **kwargs,
         )
-
-    def _set_unique_initial(self, **kwargs):
         self.time = Time(0, 0)
-        self.energy_price = ConstatntPrice(kwargs["energy_price"])
-        self.fuel_price = ConstatntPrice(kwargs["fuel_price"])
+        self.energy_price = ConstatntPrice(energy_price)
+        self.fuel_price = ConstatntPrice(fuel_price)

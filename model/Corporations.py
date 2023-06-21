@@ -1,3 +1,7 @@
+"""
+Corporation represent type of one model agent. 
+Corporations are responsible for auto prices and their changes.
+"""
 from typing import Dict
 
 from .common import get_data

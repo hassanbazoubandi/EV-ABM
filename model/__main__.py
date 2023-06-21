@@ -2,28 +2,42 @@
 # coding: utf-8
 import matplotlib.pyplot as plt
 
-from model import (CV, EV, PHEV, Car_EV, GovernmentBuildChargingStation,
-                   GovernmentMixedStrategy, GovernmentProvidesSubsidies,
-                   SocietyConstantsEnergyPrices)
+from model import (
+    CV,
+    EV,
+    PHEV,
+    GovernmentBuildChargingStation,
+    GovernmentMixedStrategy,
+    GovernmentProvidesSubsidies,
+    SocietyConstantsEnergyPrices,
+    GovernmentNoSubsidies,
+)
+
 from model.utils import check_by, common_params, plot_check_by
 
-plt.style.use("dark_background")
-plt.rc("grid", alpha=0.3)
-MC = 8
+plt.rc('text', usetex=True)
+plt.rc('grid', color='magenta', alpha=1, linewidth=1.5)
+plt.rc('figure', facecolor='white')
 
-N: int = common_params["kwargs"]["population"]
+MC = 200
+
+
 T: int = common_params["T"]
 param = "government"
 
 param_list = [
     GovernmentBuildChargingStation(),
-    GovernmentMixedStrategy(PHEV_sub_scaler=0.1),
-    GovernmentProvidesSubsidies(PHEV_sub_scaler=0.1),
+    GovernmentMixedStrategy(),
+    GovernmentProvidesSubsidies(),
+    GovernmentNoSubsidies()
 ]
-name = "main_by_gov.png"
+name = "example_main_by_gov.png"
 
-
-print(common_params["kwargs"])
+title = "Results by different Government strategies."
+print("{")
+for key in common_params["kwargs"]:
+    print(f"    {key}: {common_params['kwargs'][key]}")
+print("}")
 
 
 values = check_by(
@@ -36,11 +50,10 @@ values = check_by(
     4,
 )
 
-
-fig, axs = plt.subplots(nrows=3)
+fig, axs = plt.subplots(nrows=3, figsize=(8, 8))
 plot_check_by(values, axs)
 
-fig.set_facecolor("white")
+fig.suptitle(title, fontsize=16, y=1)
 
 for ax in axs:
     ax.set_xlabel("Year")
@@ -55,6 +68,7 @@ fig.legend(
         "Government build charging station",
         "Government mixed strategy",
         "Government provides subsidies",
+        "Baseline Government "
     ],
     title=param.replace("_", " "),
     bbox_to_anchor=(17 / 16, -0.22),
@@ -62,47 +76,4 @@ fig.legend(
     ncol=len(param),
 )
 
-plt.plot()
-
-# EV jest typowe dla MC przy pierwszych krokach symulacji.
-# Przez nowość prawdopodobnie EV jest ponad stan infrastruktury.
-#
-
-
-# fig, axs = plt.subplots(nrows=3, figsize=(10, 9))
-
-# plot_intervals(
-#     year / 12,
-#     [trajectory / N for trajectory in CVs],
-#     ax=axs[0],
-#     color="c",
-#     label="CV",
-#     alpha=0.3,
-# )
-# plot_intervals(
-#     year / 12,
-#     [trajectory / N for trajectory in EVs],
-#     ax=axs[1],
-#     color="m",
-#     label="EV",
-#     alpha=0.3,
-# )
-# plot_intervals(
-#     year / 12,
-#     [trajectory / N for trajectory in PHEVs],
-#     ax=axs[2],
-#     color="y",
-#     label="PHEV",
-#     alpha=0.3,
-# )
-
-
-# axs[0].legend()
-# axs[1].legend()
-# axs[2].legend()
-
-# axs[0].set_title("CV")
-# axs[1].set_title("EV")
-# axs[2].set_title("PHEV")
-
-# fig.suptitle("constatnt prices, government build chargers stations", fontsize=16)
+plt.savefig(name, bbox_inches='tight')

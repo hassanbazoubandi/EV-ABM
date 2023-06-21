@@ -1,3 +1,8 @@
+"""
+The city creates the environment of the model.
+City is responsible for set initial public chargers,
+add new, remove old and count all nearby to checked Customer.
+"""
 from typing import Tuple
 
 import numpy as np

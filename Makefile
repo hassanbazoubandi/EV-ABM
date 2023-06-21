@@ -1,12 +1,12 @@
 
 YOU:
-	echo "make"
+	echo "make commands are:\n - "lint" run linters\n - "run" "
 
 lint:
 	bash lint.sh . model
 
 run:
-	poetry run python3 -m model
+	python3 -m model
 
 scrap_om:
 	python3 -m otomoto-crawler

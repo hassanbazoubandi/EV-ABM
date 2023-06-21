@@ -4,7 +4,9 @@ import matplotlib.pyplot as plt
 import numpy as np
 from matplotlib.axes._axes import Axes
 from pandas import DataFrame
-from ..constants import CV, PHEV, EV
+
+from ..constants import CV, EV, PHEV
+
 
 def plot_intervals(x, y: List[List[float]], ax=None, color=None, alpha=0.3, xlabel=None, **kwargs):
     Y = np.array(y)
