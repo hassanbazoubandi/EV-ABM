@@ -5,10 +5,12 @@ import pytest
 from model.Cars import Car, Car_CV, Car_EV, Car_PHEV
 from model.constants import CV, EV, PHEV, CarTypes
 from model.Customer import Customer
-from model.Government import (AbstractGovernment,
-                              GovernmentBuildChargingStation,
-                              GovernmentMixedStrategy,
-                              GovernmentProvidesSubsidies)
+from model.Government import (
+    AbstractGovernment,
+    GovernmentBuildChargingStation,
+    GovernmentMixedStrategy,
+    GovernmentProvidesSubsidies,
+)
 
 
 class Fake_Society:

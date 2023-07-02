@@ -8,16 +8,15 @@ from model import (
     PHEV,
     GovernmentBuildChargingStation,
     GovernmentMixedStrategy,
+    GovernmentNoSubsidies,
     GovernmentProvidesSubsidies,
     SocietyConstantsEnergyPrices,
-    GovernmentNoSubsidies,
 )
-
 from model.utils import check_by, common_params, plot_check_by
 
-plt.rc('text', usetex=True)
-plt.rc('grid', color='magenta', alpha=1, linewidth=1.5)
-plt.rc('figure', facecolor='white')
+plt.rc("text", usetex=True)
+plt.rc("grid", color="magenta", alpha=1, linewidth=1.5)
+plt.rc("figure", facecolor="white")
 
 MC = 200
 
@@ -29,7 +28,7 @@ param_list = [
     GovernmentBuildChargingStation(),
     GovernmentMixedStrategy(),
     GovernmentProvidesSubsidies(),
-    GovernmentNoSubsidies()
+    GovernmentNoSubsidies(),
 ]
 name = "example_main_by_gov.png"
 
@@ -68,7 +67,7 @@ fig.legend(
         "Government build charging station",
         "Government mixed strategy",
         "Government provides subsidies",
-        "Baseline Government "
+        "Baseline Government ",
     ],
     title=param.replace("_", " "),
     bbox_to_anchor=(17 / 16, -0.22),
@@ -76,4 +75,4 @@ fig.legend(
     ncol=len(param),
 )
 
-plt.savefig(name, bbox_inches='tight')
+plt.savefig(name, bbox_inches="tight")

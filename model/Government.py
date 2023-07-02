@@ -55,8 +55,8 @@ def _get_subsidy_val(
 
 
 class AbstractGovernment:
-    """Abstract class of government.
-    """    
+    """Abstract class of government."""
+
     def __init__(self, **kwargs) -> None:
         self.society: None | type = None
         self.budget = 0
@@ -70,7 +70,7 @@ class AbstractGovernment:
 
         Args:
             society (Society): Society class
-        """        
+        """
         self.society = society
 
     def get_subsidy(self, c_type: CarTypes) -> int:
@@ -94,11 +94,11 @@ class AbstractGovernment:
 
         Returns:
             int: value of subsidy
-        """        
+        """
         raise Exception("")
 
     def update(self, current_month: int):
-        """Method called at the end of each time step. 
+        """Method called at the end of each time step.
 
         Args:
             current_month (int): integer value with range from 0 to 11 inclusive.
@@ -106,11 +106,11 @@ class AbstractGovernment:
         raise Exception("")
 
 
-
 class GovernmentNoSubsidies(AbstractGovernment):
-    """This class extend AbstractGovernment for model 
+    """This class extend AbstractGovernment for model
     This class represent base scenario where government does not give subsidies.
-    """    
+    """
+
     def __init__(self, **kwargs) -> None:
         self.society: None | type = None
 
@@ -126,11 +126,11 @@ class GovernmentNoSubsidies(AbstractGovernment):
 
         Returns:
             int: value of subsidy
-        """        
+        """
         return 0
 
     def update(self, current_month: int):
-        """Method called at the end of each time step. 
+        """Method called at the end of each time step.
         In this scenario do nothing.
 
         Args:
@@ -140,9 +140,10 @@ class GovernmentNoSubsidies(AbstractGovernment):
 
 
 class GovernmentBuildChargingStation(AbstractGovernment):
-    """This class extend AbstractGovernment for model 
+    """This class extend AbstractGovernment for model
     This class represent pure scenario where government build charging stations.
-    """    
+    """
+
     def __init__(self, *, new_chargers: int = DEFLAUT_NEW_CHARGERS) -> None:
         self.new_chargers = new_chargers
         self.society = None
@@ -159,11 +160,11 @@ class GovernmentBuildChargingStation(AbstractGovernment):
 
         Returns:
             int: value of subsidy
-        """        
+        """
         return 0
 
     def update(self, current_month: int):
-        """Method called at the end of each time step. 
+        """Method called at the end of each time step.
         In this scenario build new charging stations in city.
 
         Args:
@@ -175,9 +176,10 @@ class GovernmentBuildChargingStation(AbstractGovernment):
 
 
 class GovernmentProvidesSubsidies(AbstractGovernment):
-    """This class extend AbstractGovernment for model 
+    """This class extend AbstractGovernment for model
     This class represent pure scenario where government gives subsidy.
-    """    
+    """
+
     def __init__(
         self,
         *,
@@ -190,7 +192,6 @@ class GovernmentProvidesSubsidies(AbstractGovernment):
         self.one_subsidy_level = one_subsidy_level
         self.budget = year_subsidies
         self.society = None
-
 
     def get_subsidy_val(self, c_type: CarTypes) -> int:
         """Method responsible for determining the value of subsidies.
@@ -206,9 +207,9 @@ class GovernmentProvidesSubsidies(AbstractGovernment):
         )
 
     def update(self, current_month: int):
-        """Method called at the end of each time step. 
+        """Method called at the end of each time step.
         In this scenario renews budget.
-        
+
         Args:
             current_month (int): integer value with range from 0 to 11 inclusive.
         """
@@ -218,10 +219,11 @@ class GovernmentProvidesSubsidies(AbstractGovernment):
 
 
 class GovernmentMixedStrategy(AbstractGovernment):
-    """This class extend AbstractGovernment for model 
+    """This class extend AbstractGovernment for model
     This class represent mixed scenario where government both gives subsidy and build charging stations.
     By default half subsidy budget and build half count of new charging stations compared to pure strategies.
-    """    
+    """
+
     def __init__(
         self,
         *,
@@ -237,7 +239,6 @@ class GovernmentMixedStrategy(AbstractGovernment):
         self.budget = year_subsidies
         self.society = None
 
-
     def get_subsidy_val(self, c_type: CarTypes) -> int:
         """Method responsible for determining the value of subsidies.
 
@@ -252,7 +253,7 @@ class GovernmentMixedStrategy(AbstractGovernment):
         )
 
     def update(self, current_month: int):
-        """Method called at the end of each time step. 
+        """Method called at the end of each time step.
         In this scenario renews budget and build new charging stations in city.
 
         Args:
@@ -265,10 +266,10 @@ class GovernmentMixedStrategy(AbstractGovernment):
 
 
 class GovernmentCloseChargingStation(AbstractGovernment):
-    """This class extend AbstractGovernment for model 
+    """This class extend AbstractGovernment for model
     This class represent scenario where government close charging stations.
-    """    
-    
+    """
+
     def __init__(self, *, closing_factor: float = 0.6) -> None:
         self.closing_factor = closing_factor
         self.society = None
@@ -285,7 +286,7 @@ class GovernmentCloseChargingStation(AbstractGovernment):
         return 0
 
     def update(self, current_month: int):
-        """Method called at the end of each time step. 
+        """Method called at the end of each time step.
         In this scenario close charging stations in city, any with closing_factor probability.
 
         Args:

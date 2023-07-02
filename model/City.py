@@ -13,14 +13,15 @@ from .Customer import Customer
 class City:
     """
     City manages chargers in the model
-    """    
+    """
+
     def __init__(self, city_size: Tuple[int, int], initial_chargers: int) -> None:
         """City manages chargers in the model.
 
         Args:
             city_size (Tuple[int, int]): City sizes. Model assume rectangle city.
             initial_chargers (int): Count of initial chargers.
-        """        
+        """
         self.charger_pos: np.ndarray | None = np.random.random(
             2 * initial_chargers
         ).reshape((initial_chargers, 2))
@@ -32,12 +33,12 @@ class City:
         """Get number of charges in radius of customer home.
 
         Args:
-            customer (Customer): Customer to count chargers near him 
-            radius (float): If a charger is within a radius of the customer, it is considered a charger nearby. 
+            customer (Customer): Customer to count chargers near him
+            radius (float): If a charger is within a radius of the customer, it is considered a charger nearby.
 
         Returns:
             int: Number of loaders near the customer.
-        """        
+        """
         pos = np.array(customer.home)
         return (((self.charger_pos - pos) ** 2).sum(1) < radius**2).sum()
 
@@ -46,7 +47,7 @@ class City:
 
         Args:
             new_chargers (int): Number of new chargers to build.
-        """        
+        """
         new_charges_pos = np.random.random(2 * new_chargers).reshape((new_chargers, 2))
         new_charges_pos[:, 0] = new_charges_pos[:, 0] * self.city_size[0]
         new_charges_pos[:, 1] = new_charges_pos[:, 1] * self.city_size[1]
@@ -60,7 +61,7 @@ class City:
 
         Returns:
             int: Number of public chargers.
-        """        
+        """
         if self.charger_pos is None:
             return 0
         return self.charger_pos.shape[0]
@@ -70,7 +71,7 @@ class City:
 
         Args:
             charger_number (int): Position charger to close.
-        """        
+        """
         if self.charger_pos is None:
             return
         if charger_number == 0 and self.count_chargers() == 1:

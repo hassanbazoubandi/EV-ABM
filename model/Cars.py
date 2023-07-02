@@ -13,8 +13,8 @@ car_params = data["cars"]
 
 
 class Car:
-    """Like abstract class for car from model.
-    """    
+    """Like abstract class for car from model."""
+
     def __init__(
         self, release_year: int | None = None, release_month: int | None = None
     ) -> None:
@@ -42,7 +42,7 @@ class Car:
 
         Returns:
             bool: True if car is operational (age < lifetime), False in other case.
-        """        
+        """
         return (
             year - self.release_year + (month - self.release_month) / 12 < self.lifetime
         )
@@ -56,9 +56,9 @@ class Car:
 
         Returns:
             float: Age of the car in years.
-        """        
+        """
         return year - self.release_year + (month - self.release_month) / 12
-    
+
     @property
     def lifetime(self) -> int:
         """Get car lifetime.
@@ -67,7 +67,7 @@ class Car:
 
         Returns:
             int: Car lifetime.
-        """        
+        """
         return car_params[self.car_type]["lifetime"]
 
     @property
@@ -76,7 +76,7 @@ class Car:
 
         Returns:
             CarTypes: Car type.
-        """        
+        """
         raise Exception("")
 
     @staticmethod
@@ -90,7 +90,7 @@ class Car:
 
         Returns:
             float: Return cost per km.
-        """        
+        """
         raise Exception("")
 
 
@@ -115,7 +115,7 @@ class Car_CV(Car):
 
         Returns:
             float: Return cost per km.
-        """        
+        """
         return (
             car_params[CV]["fuel_consumption"]
             * kwargs["fuel_price"].get_price(year, month)
@@ -143,11 +143,11 @@ class Car_PHEV(Car):
             year (int): Current year.
             month (int): Current month.
         Kwargs:
-            energy_factor (float): 
+            energy_factor (float):
 
         Returns:
             float: Return cost per km.
-        """        
+        """
         return (
             kwargs["energy_factor"]
             * car_params[PHEV]["energy_consumption"]
@@ -165,7 +165,7 @@ class Car_EV(Car):
 
         Returns:
             CarTypes: EV
-        """        
+        """
         return EV
 
     @staticmethod

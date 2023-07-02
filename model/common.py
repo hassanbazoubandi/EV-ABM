@@ -10,7 +10,7 @@ def get_initial_params(initial_params_file="initial_params.json") -> dict:
 
     Returns:
         dict: Initial params
-    """    
+    """
     my_path = os.path.abspath(__file__).split(os.sep)
     my_path[-1] = initial_params_file
     with open(os.sep.join(my_path), "r", encoding="utf-8") as plik:
@@ -26,7 +26,7 @@ def get_data(data_file="data.json") -> dict:
 
     Returns:
         dict: Model params.
-    """    
+    """
     my_path = os.path.abspath(__file__).split(os.sep)
     my_path[-1] = data_file
     with open(os.sep.join(my_path), "r", encoding="utf-8") as plik:

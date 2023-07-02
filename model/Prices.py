@@ -23,9 +23,10 @@ class Price:
 
 class Prices(Price):
     """
-        Class implemented class Price for model.
-        Class can be used for non-constant-price scenarios.
-    """    
+    Class implemented class Price for model.
+    Class can be used for non-constant-price scenarios.
+    """
+
     def __init__(
         self,
         data_file: str | pd.DataFrame,
@@ -45,7 +46,7 @@ class Prices(Price):
         Raises:
             AttributeError: data_file must have str or pd.DataFrame.
             AttributeError: f"Prices data have to have ["year", "month", "price"] columns.
-        """    
+        """
         if isinstance(data_file, str):
             self.df_price = pd.read_csv(data_file)
         elif isinstance(data_file, pd.DataFrame):
@@ -56,7 +57,9 @@ class Prices(Price):
             )
 
         if predict_model is not None:
-            self.df_price = predict_model(self.df_price, predict_to[0], predict_to[1])  # noqa
+            self.df_price = predict_model(
+                self.df_price, predict_to[0], predict_to[1]
+            )  # noqa
         for col_name in price_col_names:
             if col_name not in self.df_price.columns:
                 raise AttributeError(
@@ -75,10 +78,10 @@ class Prices(Price):
 
         Returns:
             float: _description_
-        """        
-        ret = self.df_price[(self.df_price["year"] == year) & (self.df_price["month"] == month)][
-            "price"
-        ].mean()
+        """
+        ret = self.df_price[
+            (self.df_price["year"] == year) & (self.df_price["month"] == month)
+        ]["price"].mean()
         if isnan(ret):
             raise KeyError(f"{year}.{month} price is not defined")
         return ret
@@ -86,15 +89,16 @@ class Prices(Price):
 
 class ConstatntPrice(Price):
     """
-        Class implemented class Price for model.
-        Class can be used for constant-price scenarios.
-    """    
+    Class implemented class Price for model.
+    Class can be used for constant-price scenarios.
+    """
+
     def __init__(self, price: float) -> None:
         """Class for model with constant price.
 
         Args:
             price (float): Price value
-        """        
+        """
         self.price = price
 
     def get_price(self, *args) -> float:
@@ -102,5 +106,5 @@ class ConstatntPrice(Price):
 
         Returns:
             float: price
-        """        
+        """
         return self.price

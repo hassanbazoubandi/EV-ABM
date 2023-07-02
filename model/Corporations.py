@@ -21,14 +21,15 @@ def in_money(value: float) -> float:
 
     Returns:
         float: Cut value.
-    """    
+    """
     return int(value * 100) / 100
 
 
 class Corporations:
     """
     Corporation is an agent of the model responsible for car cost changes.
-    """    
+    """
+
     def __init__(self, margin: float, technological_progress: float) -> None:
         """Corporation is an agent of the model responsible for car cost changes.
         Car prices are read from data.json, and price = valid_json[c_type]["cost"]
@@ -36,7 +37,7 @@ class Corporations:
         Args:
             margin (float): Cost is counted with corporation margin.
             technological_progress (float): Parameter responsible for cost decreases.
-        """        
+        """
         self.margin = margin
         self.technological_progress = technological_progress
         self.car_costs: Dict[CarTypes, float] = {
@@ -53,11 +54,11 @@ class Corporations:
 
         Returns:
             float: The current price of a c_type car.
-        """        
+        """
         return in_money((1 + self.margin) * self.car_costs[c_type])
 
     def update(self, current_state: Dict[CarTypes, int], current_month: int) -> None:
-        """Method called at the end of each time step. 
+        """Method called at the end of each time step.
 
         Args:
             current_state (Dict[CarTypes, int]): Current numbers of different types of cars.
@@ -75,4 +76,3 @@ class Corporations:
         self.car_costs[PHEV] = (self.car_costs[EV] + self.car_costs[CV]) / 2
         for key in self.car_costs:
             self.car_costs[key] = in_money(self.car_costs[key])
-

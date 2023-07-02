@@ -109,7 +109,7 @@ def test_GPS_build(initial_chargers: int):
     "one_subsidity_level, n_annual_subsidies",
     (
         (10_000, 3),
-        (10, 12),    
+        (10, 12),
     ),
 )
 def test_GM_subsid(one_subsidity_level: int, n_annual_subsidies: int):
@@ -188,16 +188,16 @@ def test_GM_build(initial_chargers: int, new_chargers: int):
 @pytest.mark.parametrize(
     "budget, sub_val, car_type, EV_scalar, PHEV_scalar, CV_scalar, val",
     (
-        *[(1e5, 100, c_type, 1,1,1, 100) for c_type in [CV, PHEV, EV]],
-        (1e5, 100, CV, 1/2,1,1, 100),
-        (1e5, 100, CV, 1,1/2,1, 100),
-        (1e5, 100, CV, 1,1,1/2, 50),
-        (1e5, 100, PHEV, 1/2,1,1, 100),
-        (1e5, 100, PHEV, 1,1/2,1, 50),
-        (1e5, 100, PHEV, 1,1,1/2, 100),
-        (1e5, 100, EV, 1/2,1,1, 50),
-        (1e5, 100, EV, 1,1/2,1, 100),
-        (1e5, 100, EV, 1,1,1/2, 100),
+        *[(1e5, 100, c_type, 1, 1, 1, 100) for c_type in [CV, PHEV, EV]],
+        (1e5, 100, CV, 1 / 2, 1, 1, 100),
+        (1e5, 100, CV, 1, 1 / 2, 1, 100),
+        (1e5, 100, CV, 1, 1, 1 / 2, 50),
+        (1e5, 100, PHEV, 1 / 2, 1, 1, 100),
+        (1e5, 100, PHEV, 1, 1 / 2, 1, 50),
+        (1e5, 100, PHEV, 1, 1, 1 / 2, 100),
+        (1e5, 100, EV, 1 / 2, 1, 1, 50),
+        (1e5, 100, EV, 1, 1 / 2, 1, 100),
+        (1e5, 100, EV, 1, 1, 1 / 2, 100),
     ),
 )
 def test_get_subsidity_val(
@@ -209,5 +209,6 @@ def test_get_subsidity_val(
     CV_scalar: float,
     val: float,
 ):
-    assert val == _get_subsidity_val(budget, sub_val, car_type, EV_scalar, PHEV_scalar, CV_scalar)
-
+    assert val == _get_subsidity_val(
+        budget, sub_val, car_type, EV_scalar, PHEV_scalar, CV_scalar
+    )

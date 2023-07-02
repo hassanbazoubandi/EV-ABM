@@ -78,7 +78,6 @@ class Society:
         }
         self.historical_states: List[Dict[CarTypes, int]] = []
 
-
     def _get_initial_profile(self) -> CarTypes:
         rdm = random()
         if rdm < initial_params["profiles_distribution"][CV]:
@@ -208,12 +207,24 @@ class SocietyVariableEnergyPrices(Society):
         energy_factor: float,
         *,
         car_price_noise: None | Callable[[], float],
-        initial_time: Tuple[int, int]=(0,0),
+        initial_time: Tuple[int, int] = (0, 0),
         energy_prices_csv: str = "",
         fuel_prices_csv: str = "",
         **kwargs,
     ) -> None:
-        super().__init__(population, alpha, government, corporation_margin, corporation_technological_progress, city_size, nerby_radius, initial_public_chargers, energy_factor, car_price_noise=car_price_noise, **kwargs)
+        super().__init__(
+            population,
+            alpha,
+            government,
+            corporation_margin,
+            corporation_technological_progress,
+            city_size,
+            nerby_radius,
+            initial_public_chargers,
+            energy_factor,
+            car_price_noise=car_price_noise,
+            **kwargs,
+        )
         self.time = Time(initial_time)
         self.energy_price: Price = Prices(energy_prices_csv)
         self.fuel_price: Price = Prices(fuel_prices_csv)

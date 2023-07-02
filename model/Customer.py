@@ -17,16 +17,17 @@ from .constants import CV, EV, PHEV, CarTypes
 
 
 class Customer:
-    """Customer represent type of one model agent. 
-        Customers are agents whose status will be counted and analyzed.
-        Any Customer instance has indyvidual set of fields.
-        - procfile -- mean annual mileage
-        - home -- place in City
-        - car -- see class Car
+    """Customer represent type of one model agent.
+    Customers are agents whose status will be counted and analyzed.
+    Any Customer instance has indyvidual set of fields.
+    - procfile -- mean annual mileage
+    - home -- place in City
+    - car -- see class Car
 
-        The customer is also responsible for the mechanism for buying a car
-        and for choosing between two types.
-    """    
+    The customer is also responsible for the mechanism for buying a car
+    and for choosing between two types.
+    """
+
     def __init__(
         self,
         society: "Society",  # noqa
@@ -34,14 +35,14 @@ class Customer:
         profile: CarTypes,
         city_size: Tuple[float, float],
     ) -> None:
-        """Customer represent type of one model agent. 
+        """Customer represent type of one model agent.
             Customers are agents whose status will be counted and analyzed.
 
         Args:
             society (Society): society
             profile (CarTypes): Customer profile (average annual mileage)
             city_size (Tuple[float, float]): City size to random draw home place.
-        """    
+        """
         self.society = society
         self.car = car
         self.profile = profile
@@ -60,7 +61,7 @@ class Customer:
 
         Returns:
             bool: True if customers car is working, False in other case.
-        """             
+        """
         return self.car.is_operational(year, month)
 
     def get_car_type(self) -> CarTypes:
@@ -68,7 +69,7 @@ class Customer:
 
         Returns:
             CarTypes: Customers car type.
-        """        
+        """
         return self.car.car_type
 
     def buy(self, car_type: CarTypes, current_year: int, current_month: int):
@@ -78,7 +79,7 @@ class Customer:
             car_type (CarTypes): Type of car to buy.
             year (int): Current year.
             month (int): Current month.
-        """        
+        """
         self.society.government.get_subsidy(car_type)
         if car_type == EV:
             self.car = Car_EV(current_year, current_month)
@@ -101,7 +102,7 @@ class Customer:
             car_type2 (CarTypes): Second car type to buy.
             current_year (int): Current year.
             current_month (int): Current month.
-        """    
+        """
         if self.profile in (car_type1, car_type2):
             self.buy(self.profile, current_year, current_month)
         elif self.profile in (CV, EV):
@@ -117,5 +118,5 @@ class Customer:
 
         Returns:
             Tuple[float, float]: Position of customer's house.
-        """        
+        """
         return self._home
