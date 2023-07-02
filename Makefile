@@ -1,6 +1,6 @@
 
 YOU:
-	echo "make commands are:\n - "lint" run linters\n - "run" "
+	echo "make commands are:\n - \"lint\" run linters\n - \"run\" run example trajectory\n - \"scrap_om\" initial otomoto crowler to downloada actual data\n - \"generate_figs\" run model with different parameters and save results to \"pictures\" folder"
 
 lint:
 	bash lint.sh . model

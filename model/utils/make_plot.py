@@ -5,7 +5,6 @@ import numpy as np
 from matplotlib.axes._axes import Axes
 from pandas import DataFrame
 
-from ..constants import CV, EV, PHEV
 
 
 def plot_intervals(x, y: List[List[float]], ax=None, color=None, alpha=0.3, xlabel=None, **kwargs):
@@ -17,7 +16,6 @@ def plot_intervals(x, y: List[List[float]], ax=None, color=None, alpha=0.3, xlab
     ax.fill_between(x, Y_min, Y_max, Y_min <= Y_max, color=color, alpha=alpha)
     if xlabel is not None:
         ax.set_xlabel(xlabel)
-    # ax.plot(x, Y.mean(0), color=color, **kwargs)
     ax.plot(x, np.median(Y, axis=0), color=color, **kwargs)   
     return ax
 

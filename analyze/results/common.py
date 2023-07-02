@@ -10,7 +10,8 @@ MC = 200
 T = common_params["T"]
 
 plt.rc('text', usetex=True)
-plt.rc('grid', color='magenta', alpha=0.1, linewidth=1.5)
+# plt.rc('grid', color='magenta', alpha=0.1, linewidth=1.5)
+plt.rc('grid', color=(255/256,140/256,0), alpha=0.1, linewidth=1.5)
 plt.rc('figure', facecolor='white')
 
 def common_final_settings(axs: list[Axes]):
