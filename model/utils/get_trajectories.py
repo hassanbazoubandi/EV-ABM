@@ -70,7 +70,7 @@ def _get_trajectories_multi_threads(
     threads: int,
 ) -> List[DataFrame]:
     pool = Pool(threads)
-    pickled_function = lambda args: _get_trajectories_one_thread(*args)
+    pickled_function = lambda args: _get_trajectories_one_thread(*args)  # noqa
     args_list = [[society_class, society_kwargs, T, MC // threads]] * threads
     args_list[-1][-1] = MC - (threads - 1) * (MC // threads)
     _ret = pool.map(pickled_function, args_list)
