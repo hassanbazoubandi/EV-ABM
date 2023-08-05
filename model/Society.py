@@ -1,5 +1,3 @@
-import json
-import os
 from random import random
 from typing import Callable, Dict, List, Tuple
 
@@ -76,6 +74,7 @@ class Society:
             PHEV: 0,
             EV: 0,
         }
+        self.time = Time(0, 0)
         self.historical_states: List[Dict[CarTypes, int]] = []
 
     def _get_initial_profile(self) -> CarTypes:
@@ -225,7 +224,7 @@ class SocietyVariableEnergyPrices(Society):
             car_price_noise=car_price_noise,
             **kwargs,
         )
-        self.time = Time(initial_time)
+        self.time = Time(*initial_time)
         self.energy_price: Price = Prices(energy_prices_csv)
         self.fuel_price: Price = Prices(fuel_prices_csv)
 
@@ -259,6 +258,5 @@ class SocietyConstantsEnergyPrices(Society):
             car_price_noise=car_price_noise,
             **kwargs,
         )
-        self.time = Time(0, 0)
         self.energy_price = ConstatntPrice(energy_price)
         self.fuel_price = ConstatntPrice(fuel_price)

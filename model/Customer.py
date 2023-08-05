@@ -1,5 +1,5 @@
 """
-Customer represent type of one model agent. 
+Customer represent type of one model agent.
 Customers are agents whose status will be counted and analyzed.
 Any Customer instance has indyvidual set of fields.
 - procfile -- mean annual mileage

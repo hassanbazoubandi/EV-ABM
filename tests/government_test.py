@@ -8,7 +8,7 @@ from model.Government import (
     GovernmentBuildChargingStation,
     GovernmentMixedStrategy,
     GovernmentProvidesSubsidies,
-    _get_subsidity_val,
+    _get_subsidy_val,
 )
 
 CITY_SIZE = (100, 100)
@@ -51,16 +51,16 @@ def test_GBCS_build(initial_chargers: int, new_chargers: int):
 
 
 @pytest.mark.parametrize(
-    "one_subsidity_level, n_annual_subsidies",
+    "one_subsidy_level, n_annual_subsidies",
     (
         (10_000, 3),
         (100, 30),
     ),
 )
-def test_GPS_subsid(one_subsidity_level: int, n_annual_subsidies: int):
+def test_GPS_subsid(one_subsidy_level: int, n_annual_subsidies: int):
     gov = GovernmentProvidesSubsidies(
-        one_subsidity_level=one_subsidity_level,
-        year_subsidies=n_annual_subsidies * one_subsidity_level,
+        one_subsidy_level=one_subsidy_level,
+        year_subsidies=n_annual_subsidies * one_subsidy_level,
         PHEV_sub_scaler=1,
     )
 
@@ -70,9 +70,9 @@ def test_GPS_subsid(one_subsidity_level: int, n_annual_subsidies: int):
         if i % 12 == 1:
             for _ in range(n_annual_subsidies):
                 if random.random() < 1 / 2:
-                    assert gov.get_subsidy(EV) == one_subsidity_level
+                    assert gov.get_subsidy(EV) == one_subsidy_level
                 else:
-                    assert gov.get_subsidy(PHEV) == one_subsidity_level
+                    assert gov.get_subsidy(PHEV) == one_subsidy_level
             assert gov.get_subsidy(CV) == 0
             assert gov.get_subsidy(EV) == 0
             assert gov.get_subsidy(PHEV) == 0
@@ -93,7 +93,7 @@ def test_GPS_subsid(one_subsidity_level: int, n_annual_subsidies: int):
 )
 def test_GPS_build(initial_chargers: int):
     gov = GovernmentProvidesSubsidies(
-        one_subsidity_level=10_000,
+        one_subsidy_level=10_000,
         year_subsidies=40_000,
         PHEV_sub_scaler=1,
     )
@@ -106,16 +106,16 @@ def test_GPS_build(initial_chargers: int):
 
 
 @pytest.mark.parametrize(
-    "one_subsidity_level, n_annual_subsidies",
+    "one_subsidy_level, n_annual_subsidies",
     (
         (10_000, 3),
         (10, 12),
     ),
 )
-def test_GM_subsid(one_subsidity_level: int, n_annual_subsidies: int):
+def test_GM_subsid(one_subsidy_level: int, n_annual_subsidies: int):
     gov = GovernmentMixedStrategy(
-        one_subsidity_level=one_subsidity_level,
-        year_subsidies=n_annual_subsidies * one_subsidity_level,
+        one_subsidy_level=one_subsidy_level,
+        year_subsidies=n_annual_subsidies * one_subsidy_level,
         PHEV_sub_scaler=1,
     )
 
@@ -124,9 +124,9 @@ def test_GM_subsid(one_subsidity_level: int, n_annual_subsidies: int):
         if i % 12 == 1:
             for _ in range(n_annual_subsidies):
                 if random.random() < 1 / 2:
-                    assert gov.get_subsidy(EV) == one_subsidity_level
+                    assert gov.get_subsidy(EV) == one_subsidy_level
                 else:
-                    assert gov.get_subsidy(PHEV) == one_subsidity_level
+                    assert gov.get_subsidy(PHEV) == one_subsidy_level
             assert gov.get_subsidy(CV) == 0
             assert gov.get_subsidy(EV) == 0
             assert gov.get_subsidy(PHEV) == 0
@@ -139,16 +139,16 @@ def test_GM_subsid(one_subsidity_level: int, n_annual_subsidies: int):
 
 
 @pytest.mark.parametrize(
-    "one_subsidity_level, n_annual_subsidies",
+    "one_subsidy_level, n_annual_subsidies",
     (
         (10_000, 3),
         (100, 9),
     ),
 )
-def test_GM_subsid_dont_stack(one_subsidity_level: int, n_annual_subsidies: int):
+def test_GM_subsid_dont_stack(one_subsidy_level: int, n_annual_subsidies: int):
     gov = GovernmentMixedStrategy(
-        one_subsidity_level=one_subsidity_level,
-        year_subsidies=n_annual_subsidies * one_subsidity_level,
+        one_subsidy_level=one_subsidy_level,
+        year_subsidies=n_annual_subsidies * one_subsidy_level,
         PHEV_sub_scaler=1,
     )
 
@@ -157,9 +157,9 @@ def test_GM_subsid_dont_stack(one_subsidity_level: int, n_annual_subsidies: int)
         gov.update(i % 12)
     for _ in range(n_annual_subsidies):
         if random.random() < 1 / 2:
-            assert gov.get_subsidy(EV) == one_subsidity_level
+            assert gov.get_subsidy(EV) == one_subsidy_level
         else:
-            assert gov.get_subsidy(PHEV) == one_subsidity_level
+            assert gov.get_subsidy(PHEV) == one_subsidy_level
     assert gov.get_subsidy(CV) == 0
     assert gov.get_subsidy(EV) == 0
     assert gov.get_subsidy(PHEV) == 0
@@ -209,6 +209,6 @@ def test_get_subsidity_val(
     CV_scalar: float,
     val: float,
 ):
-    assert val == _get_subsidity_val(
+    assert val == _get_subsidy_val(
         budget, sub_val, car_type, EV_scalar, PHEV_scalar, CV_scalar
     )

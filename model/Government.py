@@ -1,5 +1,5 @@
 """
-Government represent type of one model agent. 
+Government represent type of one model agent.
 Government are responsible for introduce seted government strategy.
 Actually are implemented:
 - GovernmentBuildChargingStation
@@ -7,7 +7,7 @@ Actually are implemented:
 - GovernmentMixedStrategy
 - GovernmentNoSubsidies
 - GovernmentCloseChargingStation
-  
+
 Any of them inherit for class AbstractGovernment (like abstract class).
 To check other strategies it is advisable to create a corresponding class inheriting from A
 """
@@ -51,7 +51,7 @@ def _get_subsidy_val(
     }
     if budget < sub_val * scalars[car_type]:
         return 0
-    return sub_val * scalars[car_type]
+    return int(sub_val * scalars[car_type])
 
 
 class AbstractGovernment:
@@ -62,7 +62,7 @@ class AbstractGovernment:
         self.budget = 0
         raise Exception("")
 
-    def set_society(self, society: "Society") -> None:  # noqa
+    def set_society(self, society) -> None:
         """
             Set society. Society field may be useful
             in updating changing Society state,

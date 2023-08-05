@@ -1,5 +1,4 @@
 import os
-from typing import Tuple
 
 import pandas as pd
 from hypothesis import given
@@ -59,3 +58,4 @@ def test_Prices_no_model(year, month):
 )
 def test_Prices_constant_model(year, month):
     price = Prices(energy_price.copy(), constatnt_model, (time_horizont, 1))
+    assert FAKE_CONSTANT_VALUE == price.get_price(year, month)

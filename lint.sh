@@ -13,8 +13,13 @@ fill() {
 }
 
 fill "BLACK" "*"
-poetry run black $1
+poetry run black .
 fill "ISORT" "*"
-poetry run isort $1
+poetry run isort .
 fill "MYPY" "*"
-poetry run mypy $2
+poetry run mypy model
+poetry run mypy tests
+poetry run mypy analyze
+fill "FLAKE8" "*"
+poetry run flake8 model
+poetry run flake8 tests

@@ -17,6 +17,7 @@ from model.Customer import Customer
 )
 def test_city_initial(shape, initial_chargers):
     city = City(shape, initial_chargers)
+    assert city.charger_pos is not None
     assert city.count_chargers() == initial_chargers
     assert ((city.charger_pos[:, 0] > 0) * (city.charger_pos[:, 0] < shape[0])).all()
     assert ((city.charger_pos[:, 1] > 0) * (city.charger_pos[:, 1] < shape[1])).all()
@@ -36,6 +37,7 @@ def test_build(shape, initial, increase):
     for i in range(1, 10):
         city.build_new(increase)
         assert city.count_chargers() == initial + i * increase
+    assert city.charger_pos is not None
     assert ((city.charger_pos[:, 0] > 0) * (city.charger_pos[:, 0] < shape[0])).all()
     assert ((city.charger_pos[:, 1] > 0) * (city.charger_pos[:, 1] < shape[1])).all()
 
@@ -97,9 +99,10 @@ def test_count_close_to(
     city_size = (100, 100)
     chargers_loc = tuple(chargers_loc)
     city = City(city_size, len(chargers_loc))
+    assert city.charger_pos is not None
     for i, loc in enumerate(chargers_loc):
         city.charger_pos[i, 0] = loc[0]
         city.charger_pos[i, 1] = loc[1]
-    customer = Customer(None, None, None, city_size)
+    customer = Customer(None, None, None, city_size)  # type: ignore
     customer._home = customer_pos
     assert city.count_nerby_chargers(customer, radius) == nearby_chargers

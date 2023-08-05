@@ -1,5 +1,5 @@
 """
-Corporation represent type of one model agent. 
+Corporation represent type of one model agent.
 Corporations are responsible for auto prices and their changes.
 Model assume technological progress which influence to electric cars cost decreases.
 """

@@ -1,5 +1,5 @@
 """
-Price is responsible for fuel and energy prices. 
+Price is responsible for fuel and energy prices.
 In the default society "SocietyConstantsEnergyPrices" (see Society)
 is used class ConstatntPrice and are constants prices.
 Howeover model is ready for implement function wich estimate future prices (class Prices).
@@ -57,6 +57,10 @@ class Prices(Price):
             )
 
         if predict_model is not None:
+            if predict_to is None:
+                raise AttributeError(
+                    "predict_model and predict_to must be both None or neither."
+                )
             self.df_price = predict_model(
                 self.df_price, predict_to[0], predict_to[1]
             )  # noqa
