@@ -24,41 +24,40 @@ The raw dataset compiles comprehensive information on **1,682** public charging 
 
 ## Files
 
-**code**：传统模型以及深度模型进行基于UrbanEV数据集的Distribution时序预测的相关代码以及提供部分模块化功能
+**code**: Code for distribution time-series prediction using traditional models and deep learning models based on the UrbanEV dataset, including several modularized functions.
 
-* `baselines.py`: three traditional forecasting methods，i.e. the last observation (LO), Auto-regressive (AR), and Auto-regressive Integrated Moving Average(ARIMA) model. 以及The six deep learning models代码，i.e. fully connected neural network (FCNN), Long Short-Term Memory (LSTM), Graph Convolutional Network (GCN), GCN-LSTM, Attention-Based Spatial-Temporal Graph Convolutional Network (ASTGCN)
-* `exp.bat`|`exp.sh`: Distribution时序预测的脚本文件
-* `init_env.bat`|`init_env.sh`: 创建能运行基于UrbanEV数据集的时序预测的虚拟环境
-* `main.py`: 主函数文件
-* `parse.py`: 这个文件提供了一个命令行接口，用于配置时空电动车充电需求预测模型的训练参数。
-* `preprocess.py`: 将`./data/dataset`文件夹下的数据转换成基于Transformer的时序模型能够训练并预测的数据
-* `train.py`: 模型训练文件
-* `utils.py`: 与Urban数据集预测相关的封装好的功能，e.g. 时序交叉验证数据划分、时序数据集准备
+* `baselines.py`: Includes three traditional forecasting methods (Last Observation, Auto-regressive (AR), and ARIMA) and six deep learning models (Fully Connected Neural Network (FCNN), Long Short-Term Memory (LSTM), Graph Convolutional Network (GCN), GCN-LSTM, Attention-Based Spatial-Temporal Graph Convolutional Network (ASTGCN)).
+* `exp.bat`|`exp.sh`: Scripts for distribution time-series prediction.
+* `init_env.bat`|`init_env.sh`: Scripts to create a virtual environment for running time-series predictions based on the UrbanEV dataset.
+* `main.py`: Main script file.
+* `parse.py`: Provides a command-line interface to configure training parameters for spatiotemporal EV charging demand prediction models.
+* `preprocess.py`: Converts data in the `./data/dataset` folder into a format suitable for training and predicting with Transformer-based time-series models.
+* `train.py`: Model training script.
+* `utils.py`: Utility functions related to the UrbanEV dataset predictions, e.g., time-series cross-validation and dataset preparation.
 
-**data**: zone-level的Urban数据集，经过异常值检测、0值判断等等，最后总共包括275个区域，1362个充电站，17532个充电桩。
+**data**: Zone-level data of the UrbanEV dataset, which has been cleaned through outlier detection, zero-value checks, etc., and includes data from **275 zones**, **1,362 charging stations**, and **17,532 charging piles**.
 
-* `adj.csv`: 邻接矩阵
+* `adj.csv`: Adjacency matrix.
 * `duration.csv`: Hourly EV charging duration (Unit: hour).
 * `e_price.csv`: Electricity price (Unit: Yuan/kWh).
-* `inf.csv`: Important information of the 1362 charging stations, including coordinates and charging capacities.
-* `occupancy.csv`: Hourly EV charging occupancy  rate (Unit: %).
+* `inf.csv`: Key information about the 1,362 charging stations, including coordinates and charging capacities.
+* `occupancy.csv`: Hourly EV charging occupancy rate (Unit: %).
 * `s_price.csv`: Service price (Unit: Yuan/kWh).
 * `volume.csv`: Hourly EV charging volume (Unit: kWh).
-* `weather_airport.csv`: 归一化后的Weather data collected from the meteorological station at Bao'an Airport (Shenzhen) ，.
-* `weather_central.csv`: 归一化后的Weather data collected from Futian Meteorological Station located in the city centre area of Shenzhen.
-* `weather_header.csv`: Descriptions of the table headers presented in `weather_airport.csv` and `weather_central.csv`.
-* `zone_dist.csv`: 275个区域之间的距离矩阵
+* `weather_airport.csv`: Normalized weather data from the meteorological station at Bao'an Airport (Shenzhen).
+* `weather_central.csv`: Normalized weather data from Futian Meteorological Station in the city center of Shenzhen.
+* `weather_header.csv`: Descriptions of the table headers in `weather_airport.csv` and `weather_central.csv`.
+* `zone_dist.csv`: Distance matrix between the 275 zones.
 
-**code_transformer**:基于Transformer结构模型进行基于UrbanEV数据集的Distribution时序预测的相关代码，以下是部分与基于UranEV数据集预测相关的核心文件及文件夹的解释：
+**code_transformer**: Code for distribution time-series prediction using Transformer-based models on the UrbanEV dataset. Below are explanations for some core files and directories related to UrbanEV prediction:
 
-* `dataset/st-evcdp` 该目录下存放预测用到的数据文件，数据文件可以通过`../code/preprocess.py`生成
-* `exp.bat`|`exp.sh`: 用于基于Transformer的模型进行Distribution时序预测的脚本文件
+* `dataset/st-evcdp`: Contains data files used for predictions, which can be generated through `../code/preprocess.py`.
+* `exp.bat`|`exp.sh`: Scripts for distribution time-series prediction using Transformer-based models.
 
-## Enviroment Requirement
 
-该部分为基于UrbanEV的时序预测所需虚拟环境的搭建，使用的python版本为3.8，torch版本为2.4.1.  假设你的路径是项目的根目录
+## Environment Requirements
 
-以下是相关的执行命令:
+This section outlines the setup for the virtual environment required for time-series prediction based on UrbanEV, using Python 3.8 and PyTorch 2.4.1. Assuming your working directory is the project root directory, here are the relevant commands:
 
 ### Windows
 
@@ -74,11 +73,11 @@ cd code
 ./init_env.sh
 ```
 
-由于PyG Temporal 目前停止维护，因此在运行`ASTGCN`时序预测实验中会出现ModuleNotFoundError: No module named 'torch_geometric.utils.to_dense_adj'。需要将`from torch_geometric.utils.to_dense_adj import to_dense_adj` 改为 `from torch_geometric.utils import to_dense_adj`,见[pyg-#9023 (reply in thread)](https://github.com/pyg-team/pytorch_geometric/discussions/9023#discussioncomment-8813817)
+Due to the discontinuation of PyG Temporal, you may encounter a ModuleNotFoundError: No module named 'torch_geometric.utils.to_dense_adj' when running ASTGCN experiments. To resolve this, change from torch_geometric.utils.to_dense_adj import to_dense_adj to from torch_geometric.utils import to_dense_adj. See[pyg-#9023 (reply in thread)](https://github.com/pyg-team/pytorch_geometric/discussions/9023#discussioncomment-8813817) for more details.
 
 ## Run Distribution Prediction on the UrbanEV dataset
 
-假设你的路径是项目的根目录
+Assuming your working directory is the project root directory
 
 ### Simple Example
 
