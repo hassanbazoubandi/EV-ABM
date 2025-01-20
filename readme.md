@@ -1,6 +1,6 @@
 # UrbanEV
 
-UrbanEV is an open dataset of EV charging space availability and electricity use in Shenzhen, China.
+UrbanEV is an open dataset of EV charging space availability and electricity use in Shenzhen, China. This project is dedicated to the public domain using the [CC0 1.0 Universal License](LICENSE). For more information, see [Creative Commons - CC0](https://creativecommons.org/publicdomain/zero/1.0/).
 
 <!-- >Qu, H., Kuang, H., Li, J., & You, L. (2023). A physics-informed and attention-based graph learning approach for regional electric vehicle charging demand prediction. IEEE Transactions on Intellgent Transportation Systems. [Paper in IEEE Explore](https://ieeexplore.ieee.org/document/10539613) [Paper in arXiv](https://arxiv.org/abs/2309.05259) -->
 
@@ -8,7 +8,7 @@ UrbanEV is an open dataset of EV charging space availability and electricity use
 
 ``` -->
 
-Author: Haohao Qu (haohao.qu@connect.polyu.hk)
+Author: Han Li (lihan76@mail2.sysu.edu.cn), Haohao Qu (haohao.qu@connect.polyu.hk)
 
 ## Updates
 
