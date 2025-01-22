@@ -4,8 +4,6 @@ import argparse
 def parse_args():
     parser = argparse.ArgumentParser(description="Go Spatio-temporal EV Charging Demand Prediction!")
 
-    # 
-
     parser.add_argument('--device', type=int, default=0, help="CUDA.")
     parser.add_argument('--seed', type=int, default=42, help="Random seed.")
     parser.add_argument('--seq_l', type=int, default=12, help="The sequence length of input data.")
@@ -19,7 +17,6 @@ def parse_args():
     parser.add_argument('--fold', type=int, default=0, help="The current fold number for training data")
     parser.add_argument('--pred_type', type=str, default='region', help="Prediction at node or regional level")
     parser.add_argument('--feat', type=str, default='occ', help="Which feature to use for prediction")
-
 
     parser.add_argument('--is_train', action='store_true', default=True)
     # parser.add_argument('--is_train', action='store_true', default=False)

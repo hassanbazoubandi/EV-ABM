@@ -2,8 +2,11 @@
 
 **/.idea/
 
-/checkpoints/
+/checkpoints/*
+!/checkpoints/.gitkeep
 
-/code-transformers/dataset/UrbanEV/
+/code-transformer/dataset/UrbanEV/*
+!/code-transformer/dataset/UrbanEV/.gitkeep
 
-result/
+result/*
+!result/.gitkeep

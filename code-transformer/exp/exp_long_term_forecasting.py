@@ -9,7 +9,6 @@ import os
 import time
 import warnings
 import numpy as np
-from utils.dtw_metric import accelerated_dtw
 import pandas
 
 warnings.filterwarnings('ignore')
@@ -190,9 +189,6 @@ class Exp_Long_Term_Forecast(Exp_Basic):
 
         preds = []
         trues = []
-        # folder_path = './test_results/' + setting + '/'
-        # if not os.path.exists(folder_path):
-        #     os.makedirs(folder_path)
 
         self.model.eval()
         with torch.no_grad():
@@ -231,14 +227,6 @@ class Exp_Long_Term_Forecast(Exp_Basic):
 
                 preds.append(pred)
                 trues.append(true)
-                # if i % 20 == 0:
-                #     input = batch_x.detach().cpu().numpy()
-                #     if test_data.scale and self.args.inverse:
-                #         shape = input.shape
-                #         input = test_data.inverse_transform(input.reshape(shape[0] * shape[1], -1)).reshape(shape)
-                #     gt = np.concatenate((input[0, :, -1], true[0, :, -1]), axis=0)
-                #     pd = np.concatenate((input[0, :, -1], pred[0, :, -1]), axis=0)
-                #     visual(gt, pd, os.path.join(folder_path, str(i) + '.pdf'))
 
         preds = np.concatenate(preds, axis=0)
         trues = np.concatenate(trues, axis=0)
@@ -248,46 +236,17 @@ class Exp_Long_Term_Forecast(Exp_Basic):
         print('test shape:', preds.shape, trues.shape)
 
         # result save
-        output_dir = '../result'
-        if args.add_feat != 'None':
-            output_dir += '/' + 'abaltion_exp'
-        else:
-            output_dir += '/' + 'main_exp'
-            if args.pred_type == 'region':
-                output_dir += '/' + 'region'
-            else:
-                output_dir += '/' + 'node'
+        output_dir = '../result' + '/' + 'main_exp' + '/' + 'region'
         os.makedirs(output_dir, exist_ok=True)
-
-        # dtw calculation
-        if self.args.use_dtw:
-            dtw_list = []
-            manhattan_distance = lambda x, y: np.abs(x - y)
-            for i in range(preds.shape[0]):
-                x = preds[i].reshape(-1,1)
-                y = trues[i].reshape(-1,1)
-                if i % 100 == 0:
-                    print("calculating dtw iter:", i)
-                d, _, _, _ = accelerated_dtw(x, y, dist=manhattan_distance)
-                dtw_list.append(d)
-            dtw = np.array(dtw_list).mean()
-        else:
-            dtw = 'not calculated'
-
 
         result_list = []
 
         output_no_noise = metric(preds, trues,args)
-        # if args.pred_type != 'region':
-        #     plot_and_save_node_predictions(preds[:,-1,:], trues[:,-1,:],output_dir,args)
         result_list.append(output_no_noise)
-        result_df = pandas.DataFrame(result_list, columns=['MSE', 'RMSE', 'MAPE', 'RAE', 'MAE', 'R2'])
+        result_df = pandas.DataFrame(result_list, columns=['MSE', 'RMSE', 'MAPE', 'RAE', 'MAE'])
         result_df['model_name'] = args.model
         result_df['pre_len'] = args.pred_len
-        result_df['fold'] = args.fold  # 记录fold编号
-        result_df['add_feat'] = str(args.add_feat)
-        result_df['node'] = args.pred_type
-        result_df['feat'] = args.feat
+        result_df['fold'] = args.fold
         csv_file = output_dir + '/' + f'results.csv'
 
         # Append the result if the file exists, otherwise create a new file

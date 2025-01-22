@@ -1,7 +1,7 @@
 def print_args(args):
     print("\033[1m" + "Basic Config" + "\033[0m")
     print(f'  {"Task Name:":<20}{args.task_name:<20}{"Is Training:":<20}{args.is_training:<20}')
-    print(f'  {"Model ID:":<20}{args.model_id:<20}{"Model:":<20}{args.model:<20}')
+    print(f'  {"Model:":<20}{args.model:<20}')
     print()
 
     print("\033[1m" + "Data Loader" + "\033[0m")
@@ -16,16 +16,6 @@ def print_args(args):
         print(f'  {"Seq Len:":<20}{args.seq_len:<20}{"Label Len:":<20}{args.label_len:<20}')
         print(f'  {"Pred Len:":<20}{args.pred_len:<20}{"Seasonal Patterns:":<20}{args.seasonal_patterns:<20}')
         print(f'  {"Inverse:":<20}{args.inverse:<20}')
-        print()
-
-    if args.task_name == 'imputation':
-        print("\033[1m" + "Imputation Task" + "\033[0m")
-        print(f'  {"Mask Rate:":<20}{args.mask_rate:<20}')
-        print()
-
-    if args.task_name == 'anomaly_detection':
-        print("\033[1m" + "Anomaly Detection Task" + "\033[0m")
-        print(f'  {"Anomaly Ratio:":<20}{args.anomaly_ratio:<20}')
         print()
 
     print("\033[1m" + "Model Parameters" + "\033[0m")

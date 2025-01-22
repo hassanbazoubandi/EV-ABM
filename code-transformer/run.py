@@ -22,8 +22,8 @@ if __name__ == '__main__':
     parser.add_argument('--task_name', type=str, required=True, default='long_term_forecast',
                         help='task name, options:[long_term_forecast, short_term_forecast, imputation, classification, anomaly_detection]')
     parser.add_argument('--is_training', type=int, required=True, default=0, help='status')
-    parser.add_argument('--model_id', type=str, required=True, default='test', help='model id')
-    parser.add_argument('--model', type=str, required=True, default='Autoformer',
+    # parser.add_argument('--model_id', type=str, required=True, default='test', help='model id')
+    parser.add_argument('--model', type=str, required=True, default='Time',
                         help='model name, options: [Autoformer, Transformer, TimesNet]')
 
     # data loader
@@ -71,17 +71,17 @@ if __name__ == '__main__':
     parser.add_argument('--embed', type=str, default='timeF',
                         help='time features encoding, options:[timeF, fixed, learned]')
     parser.add_argument('--activation', type=str, default='gelu', help='activation')
-    parser.add_argument('--channel_independence', type=int, default=1,
-                        help='0: channel dependence 1: channel independence for FreTS model')
-    parser.add_argument('--decomp_method', type=str, default='moving_avg',
-                        help='method of series decompsition, only support moving_avg or dft_decomp')
+    # parser.add_argument('--channel_independence', type=int, default=1,
+    #                     help='0: channel dependence 1: channel independence for FreTS model')
+    # parser.add_argument('--decomp_method', type=str, default='moving_avg',
+    #                     help='method of series decompsition, only support moving_avg or dft_decomp')
     parser.add_argument('--use_norm', type=int, default=1, help='whether to use normalize; True 1 False 0')
-    parser.add_argument('--down_sampling_layers', type=int, default=0, help='num of down sampling layers')
-    parser.add_argument('--down_sampling_window', type=int, default=1, help='down sampling window size')
-    parser.add_argument('--down_sampling_method', type=str, default=None,
-                        help='down sampling method, only support avg, max, conv')
-    parser.add_argument('--seg_len', type=int, default=48,
-                        help='the length of segmen-wise iteration of SegRNN')
+    # parser.add_argument('--down_sampling_layers', type=int, default=0, help='num of down sampling layers')
+    # parser.add_argument('--down_sampling_window', type=int, default=1, help='down sampling window size')
+    # parser.add_argument('--down_sampling_method', type=str, default=None,
+    #                     help='down sampling method, only support avg, max, conv')
+    # parser.add_argument('--seg_len', type=int, default=48,
+    #                     help='the length of segmen-wise iteration of SegRNN')
 
     # optimization
     parser.add_argument('--num_workers', type=int, default=1, help='data loader num workers')
@@ -106,43 +106,40 @@ if __name__ == '__main__':
                         help='hidden layer dimensions of projector (List)')
     parser.add_argument('--p_hidden_layers', type=int, default=2, help='number of hidden layers in projector')
 
-    # metrics (dtw)
-    parser.add_argument('--use_dtw', type=bool, default=False,
-                        help='the controller of using dtw metric (dtw is time consuming, not suggested unless necessary)')
-
     # Augmentation
-    parser.add_argument('--augmentation_ratio', type=int, default=0, help="How many times to augment")
+    # parser.add_argument('--augmentation_ratio', type=int, default=0, help="How many times to augment")
     parser.add_argument('--seed', type=int, default=42, help="Randomization seed")
-    parser.add_argument('--jitter', default=False, action="store_true", help="Jitter preset augmentation")
+    # parser.add_argument('--jitter', default=False, action="store_true", help="Jitter preset augmentation")
     parser.add_argument('--scaling', default=False, action="store_true", help="Scaling preset augmentation")
-    parser.add_argument('--permutation', default=False, action="store_true",
-                        help="Equal Length Permutation preset augmentation")
-    parser.add_argument('--randompermutation', default=False, action="store_true",
-                        help="Random Length Permutation preset augmentation")
-    parser.add_argument('--magwarp', default=False, action="store_true", help="Magnitude warp preset augmentation")
-    parser.add_argument('--timewarp', default=False, action="store_true", help="Time warp preset augmentation")
-    parser.add_argument('--windowslice', default=False, action="store_true", help="Window slice preset augmentation")
-    parser.add_argument('--windowwarp', default=False, action="store_true", help="Window warp preset augmentation")
-    parser.add_argument('--rotation', default=False, action="store_true", help="Rotation preset augmentation")
-    parser.add_argument('--spawner', default=False, action="store_true", help="SPAWNER preset augmentation")
-    parser.add_argument('--dtwwarp', default=False, action="store_true", help="DTW warp preset augmentation")
-    parser.add_argument('--shapedtwwarp', default=False, action="store_true", help="Shape DTW warp preset augmentation")
-    parser.add_argument('--wdba', default=False, action="store_true", help="Weighted DBA preset augmentation")
-    parser.add_argument('--discdtw', default=False, action="store_true",
-                        help="Discrimitive DTW warp preset augmentation")
-    parser.add_argument('--discsdtw', default=False, action="store_true",
-                        help="Discrimitive shapeDTW warp preset augmentation")
-    parser.add_argument('--extra_tag', type=str, default="", help="Anything extra")
+    # parser.add_argument('--permutation', default=False, action="store_true",
+    #                     help="Equal Length Permutation preset augmentation")
+    # parser.add_argument('--randompermutation', default=False, action="store_true",
+    #                     help="Random Length Permutation preset augmentation")
+    # parser.add_argument('--magwarp', default=False, action="store_true", help="Magnitude warp preset augmentation")
+    # parser.add_argument('--timewarp', default=False, action="store_true", help="Time warp preset augmentation")
+    # parser.add_argument('--windowslice', default=False, action="store_true", help="Window slice preset augmentation")
+    # parser.add_argument('--windowwarp', default=False, action="store_true", help="Window warp preset augmentation")
+    # parser.add_argument('--rotation', default=False, action="store_true", help="Rotation preset augmentation")
+    # parser.add_argument('--spawner', default=False, action="store_true", help="SPAWNER preset augmentation")
+    # parser.add_argument('--dtwwarp', default=False, action="store_true", help="DTW warp preset augmentation")
+    # parser.add_argument('--shapedtwwarp', default=False, action="store_true", help="Shape DTW warp preset augmentation")
+    # parser.add_argument('--wdba', default=False, action="store_true", help="Weighted DBA preset augmentation")
+    # parser.add_argument('--discdtw', default=False, action="store_true",
+    #                     help="Discrimitive DTW warp preset augmentation")
+    # parser.add_argument('--discsdtw', default=False, action="store_true",
+    #                     help="Discrimitive shapeDTW warp preset augmentation")
+    # parser.add_argument('--extra_tag', type=str, default="", help="Anything extra")
 
     # TimeXer
     parser.add_argument('--patch_len', type=int, default=12, help='patch length')
 
     #exp_setting
     parser.add_argument('--pred_len', type=int, default=3, help='prediction sequence length')
-    parser.add_argument('--pred_type', type=str, default='region', help="进行节点或者区域性的预测")
-    parser.add_argument('--add_feat', type=str, default=None, help="是否使用额外特征进行预测")
-    parser.add_argument('--fold', type=int, default=0, help="当前使用第几折数据训练")
-    parser.add_argument('--feat', type=str, default='occ', help="使用什么数据进行预测")
+    parser.add_argument('--pred_type', type=str, default='region', help="Type of prediction: node-level or region-level")
+    parser.add_argument('--add_feat', type=str, default=None, help="Whether to use additional features for prediction")
+    parser.add_argument('--fold', type=int, default=0, help="The fold number of data to train with")
+    parser.add_argument('--feat', type=str, default='occ', help="The type of data to use for prediction")
+
 
 
     args = parser.parse_args()

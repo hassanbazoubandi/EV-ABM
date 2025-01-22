@@ -49,16 +49,8 @@ def MAPE(pred, true):
 def MSPE(pred, true):
     return np.mean(np.square((pred - true) / true))
 
-def R2(true, pred):
-    return r2_score(true, pred)
-
 def metric(pred, true,args):
-    if args.feat == 'occ':
-        eps = 2e-2
-    elif args.feat == 'duration':
-        eps = 0.1
-    else:
-        eps = 0.75
+    eps = 2e-2
     true = true[:,-1,:]
     pred = pred[:,-1,:]
     MAPE_true = true.copy()
@@ -70,15 +62,11 @@ def metric(pred, true,args):
     mae = mean_absolute_error(true, pred)
     mse = mean_squared_error(true, pred)
     rmse = np.sqrt(mse)
-    r2 = r2_score(MAPE_pred, MAPE_true,multioutput='variance_weighted')
-    # r2 = r2_score(MAPE_pred, MAPE_true)
-    # rae = np.sum(abs(pred - true)) / np.sum(abs(np.mean(true) - true))
     rae = np.sum(abs(MAPE_pred - MAPE_true)) / np.sum(abs(np.mean(MAPE_true) - MAPE_true))
     print('MAPE: {}'.format(mape))
     print('MAE:{}'.format(mae))
     print('MSE:{}'.format(mse))
     print('RMSE:{}'.format(rmse))
-    print('R2:{}'.format(r2))
     print(('RAE:{}'.format(rae)))
-    output_list = [mse, rmse, mape, rae, mae, r2]
+    output_list = [mse, rmse, mape, rae, mae]
     return output_list

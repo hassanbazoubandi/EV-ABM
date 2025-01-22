@@ -16,9 +16,6 @@ class Lo:
         """
         Use the latest observed value as the prediction for the next time step.
         """
-        save_dir = '../result/main_exp/pred_files'
-        os.makedirs(save_dir, exist_ok=True)
-        pred_file = os.path.join(save_dir, f'{self.args.model}_feat-{self.args.feat}_pred_len-{self.pred_len}_fold-{self.args.fold}.npy')
         time_len, node = test_occ.shape
         preds = np.zeros((time_len, node))
 
@@ -29,8 +26,6 @@ class Lo:
                 else:
                     preds[i, j] = test_occ[i - self.pred_len, j]
 
-        np.save(pred_file, preds)
-        print("Prediction file saved")
         return preds
 
 
@@ -50,9 +45,6 @@ class Ar:
         """
         Perform predictions using the AR model.
         """
-        save_dir = '../result/main_exp/pred_files'
-        os.makedirs(save_dir, exist_ok=True)
-        pred_file = os.path.join(save_dir, f'{self.args.model}_feat-{self.args.feat}_pred_len-{self.pred_len}_fold-{self.args.fold}.npy')
         time_len, node = test_occ.shape
         train_valid_occ = train_valid_occ[:-self.pred_len, :]
         preds = np.zeros((time_len, node))
@@ -69,20 +61,12 @@ class Ar:
                 pred = model_fitted.predict(start=start, end=end)
                 preds[i, j] = pred[0]  # Ensure single value is assigned
 
-        np.save(pred_file, preds)
-        print("Prediction file saved")
         return preds
 
 class Arima:
     def __init__(self, pred_len, args, p=1, d=1, q=1):
         """
         Initialize the ARIMA model parameters.
-
-        Args:
-            pred_len (int): Prediction horizon length.
-            p (int): The order of the autoregressive part (AR component).
-            d (int): The degree of differencing (I component), used to make the time series stationary.
-            q (int): The order of the moving average part (MA component).
         """
         self.pred_len = pred_len
         self.args = args
@@ -91,12 +75,6 @@ class Arima:
         self.q = q
 
     def predict(self, train_valid_occ, test_occ):
-        """
-        Perform predictions using the ARIMA model.
-        """
-        save_dir = '../result/main_exp/pred_files'
-        os.makedirs(save_dir, exist_ok=True)
-        pred_file = os.path.join(save_dir, f'{self.args.model}_feat-{self.args.feat}_pred_len-{self.pred_len}_fold-{self.args.fold}.npy')
         time_len, node = test_occ.shape
         train_valid_occ = train_valid_occ[:-self.pred_len, :]
         preds = np.zeros((time_len, node))
@@ -116,9 +94,6 @@ class Arima:
                 pred = model_fitted.predict(start=start, end=end)
                 preds[i, j] = pred[0]  # Ensure single value is assigned
 
-        # Save prediction file
-        np.save(pred_file, preds)
-        print("Prediction file saved")
         return preds
 
 

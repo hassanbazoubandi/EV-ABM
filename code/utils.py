@@ -168,20 +168,19 @@ def metrics(test_pre, test_real,args):
     MAPE_test_pre = test_pre.copy()
     MAPE_test_real[np.where(MAPE_test_real <= eps)] = np.abs(MAPE_test_real[np.where(MAPE_test_real <= eps)]) + eps
     MAPE_test_pre[np.where(MAPE_test_real <= eps)] = np.abs(MAPE_test_pre[np.where(MAPE_test_real <= eps)]) + eps
+
     MAPE = mean_absolute_percentage_error(MAPE_test_real, MAPE_test_pre)
     MAE = mean_absolute_error(test_real, test_pre)
     MSE = mean_squared_error(test_real, test_pre)
     RMSE = np.sqrt(MSE)
-    R2 = r2_score(test_real, test_pre,multioutput='variance_weighted')
-
     RAE = np.sum(abs(MAPE_test_pre - MAPE_test_real)) / np.sum(abs(np.mean(MAPE_test_real) - MAPE_test_real))
+
     print('MAPE: {}'.format(MAPE))
     print('MAE:{}'.format(MAE))
     print('MSE:{}'.format(MSE))
     print('RMSE:{}'.format(RMSE))
-    print('R2:{}'.format(R2))
     print(('RAE:{}'.format(RAE)))
-    output_list = [MSE, RMSE, MAPE, RAE, MAE, R2]
+    output_list = [MSE, RMSE, MAPE, RAE, MAE]
     return output_list
 
 

@@ -5,9 +5,6 @@ import numpy as np
 import utils
 import pandas as pd
 
-from preprocess import output_dir
-
-
 def training(args, net, optim, loss_func, train_loader, valid_loader, fold):
         valid_loss = 1000
         net.train()
@@ -118,25 +115,14 @@ def test(args, test_loader, occ,net,scaler='None'):
     result_list.append(output_no_noise)
 
     # Adding model name, pre_l and metrics and so on to DataFrame
-    result_df = pd.DataFrame(result_list, columns=['MSE', 'RMSE', 'MAPE', 'RAE', 'MAE', 'R2'])
+    result_df = pd.DataFrame(result_list, columns=['MSE', 'RMSE', 'MAPE', 'RAE', 'MAE'])
     result_df['model_name'] = args.model
     result_df['pre_len'] = args.pre_len
     result_df['fold'] = args.fold 
-    result_df['add_feat'] = str(args.add_feat)
-    result_df['node'] = args.pred_type
-    result_df['feat'] = args.feat
 
     # Save the results in a CSV file
-    output_dir  = '../result'
-    if args.add_feat != 'None':
-        output_dir += '/' + 'abaltion_exp'
-    else:
-        output_dir += '/' + 'main_exp'
-        if args.pred_type == 'region':
-            output_dir += '/' + 'region'
-        else:
-            output_dir += '/' + 'node'
-    os.makedirs(output_dir,exist_ok=True)
+    output_dir = '../result' + '/' + 'main_exp' + '/' + 'region'
+    os.makedirs(output_dir, exist_ok=True)
     csv_file = output_dir + '/' + f'results.csv'
 
     # Append the result if the file exists, otherwise create a new file

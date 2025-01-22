@@ -1,4 +1,3 @@
-# 使用模型在数据集上跑实验，包括时序预测、消融实验等
 import utils
 import torch
 from parse import parse_args
@@ -22,7 +21,7 @@ if __name__ == "__main__":
 
     # Initialize and train model
     net = utils.load_net(args, np.array(adj), device, feat)
-    # 时序交叉验证
+
     train_feat, valid_feat, test_feat, train_extra_feat, valid_extra_feat, test_extra_feat,scaler = split_cv(args,
                                                                                                    time,
                                                                                                    feat,
