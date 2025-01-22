@@ -8,6 +8,10 @@ UrbanEV is an open dataset of EV charging space availability and electricity use
 
 ``` -->
 
+## Contact
+
+If you have any questions regarding this dataset, feel free to reach out.
+
 Author: Han Li (lihan76@mail2.sysu.edu.cn), Haohao Qu (haohao.qu@connect.polyu.hk)
 
 ## Updates
@@ -63,7 +67,7 @@ This section outlines the setup for the virtual environment required for time-se
 
 ```shell
 cd code
-./init_env.bat
+init_env.bat
 ```
 
 ### Linux
@@ -104,7 +108,7 @@ python run.py --task_name long_term_forecast --is_training 1 --root_path ./datas
 ```shell
 cd code
 conda activate UrbanEV
-./exp.bat
+exp.bat
 ```
 
 **Linux**
@@ -125,7 +129,7 @@ conda activate UrbanEV
 python preprocess.py
 cd ..
 cd code-transformer
-./exp.bat
+exp.bat
 ```
 
 **Linux**
@@ -138,5 +142,14 @@ cd ..
 cd code-transformer
 ./exp.sh
 ```
+
+## Acknowledgement
+
+The project is based on the following time series forecasting repositories, from which you can explore more about the models and methods by clicking on the respective links:
+
+* Time Series Library (TSLib)：[https://github.com/thuml/Time-Series-Library](https://github.com/thuml/Time-Series-Library).
+* PyG Temporal: [https://github.com/benedekrozemberczki/pytorch_geometric_temporal](https://github.com/benedekrozemberczki/pytorch_geometric_temporal)
+
+
 
 More updates will be posed in the near future! Thank you for your interest.
