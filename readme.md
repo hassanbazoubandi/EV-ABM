@@ -93,7 +93,7 @@ conda activate UrbanEV
 python main.py --model=fcnn --pre_len=3 --fold=1 --pred_type=region --add_feat=None --feat occ --epoch 1
 ```
 
-**Traansformer-based model**
+**Transformer-based model**
 
 ```shell
 cd code-transformer
