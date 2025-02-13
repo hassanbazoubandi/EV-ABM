@@ -44,14 +44,14 @@ The raw dataset compiles comprehensive information on **1,682** public charging 
 * `adj.csv`: Adjacency matrix.
 * `duration.csv`: Hourly EV charging duration (Unit: hour).
 * `e_price.csv`: Electricity price (Unit: Yuan/kWh).
-* `inf.csv`: Key information about the 1,362 charging stations, including coordinates and charging capacities.
+* `inf.csv`: Key information about the 275 zones, including coordinates and charging capacities.
 * `occupancy.csv`: Hourly EV charging occupancy rate (Unit: %).
 * `s_price.csv`: Service price (Unit: Yuan/kWh).
 * `volume.csv`: Hourly EV charging volume (Unit: kWh).
-* `weather_airport.csv`: Normalized weather data from the meteorological station at Bao'an Airport (Shenzhen).
-* `weather_central.csv`: Normalized weather data from Futian Meteorological Station in the city center of Shenzhen.
+* `weather_airport.csv`: Weather data from the meteorological station at Bao'an Airport (Shenzhen). These are the raw data collected, and it is recommended to use the **Max-Min** method for normalization.
+* `weather_central.csv`: Weather data from Futian Meteorological Station in the city center of Shenzhen.
 * `weather_header.csv`: Descriptions of the table headers in `weather_airport.csv` and `weather_central.csv`.
-* `zone_dist.csv`: Distance matrix between the 275 zones.
+* `dist.csv`: Distance matrix between the 275 zones.
 
 **code_transformer**: Code for distribution time-series prediction using Transformer-based models on the UrbanEV dataset. Below are explanations for some core files and directories related to UrbanEV prediction:
 
