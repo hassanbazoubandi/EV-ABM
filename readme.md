@@ -50,7 +50,7 @@ The raw dataset compiles comprehensive information on **1,682** public charging 
 * `volume.csv`: Hourly EV charging volume (Unit: kWh).
 * `weather_airport.csv`: Weather data from the meteorological station at Bao'an Airport (Shenzhen). These are the raw data collected, and it is recommended to use the **Max-Min** method for normalization.
 * `weather_central.csv`: Weather data from Futian Meteorological Station in the city center of Shenzhen.
-* `weather_header.csv`: Descriptions of the table headers in `weather_airport.csv` and `weather_central.csv`.
+* `weather_header.txt`: Descriptions of the table headers in `weather_airport.csv` and `weather_central.csv`.
 * `dist.csv`: Distance matrix between the 275 zones.
 
 **code_transformer**: Code for distribution time-series prediction using Transformer-based models on the UrbanEV dataset. Below are explanations for some core files and directories related to UrbanEV prediction:
