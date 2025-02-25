@@ -44,7 +44,7 @@ The raw dataset compiles comprehensive information on **1,682** public charging 
 * `adj.csv`: Adjacency matrix.
 * `duration.csv`: Hourly EV charging duration (Unit: hour).
 * `e_price.csv`: Electricity price (Unit: Yuan/kWh).
-* `inf.csv`: Key information about the 275 zones, including coordinates ,charging capacities, area (Unit: m<sup>2</sup>), perimeter (Unit: m).
+* `inf.csv`: Key information about the 275 zones, including coordinates, charging capacities, area (Unit: m^2), and perimeter (Unit: m).
 * `occupancy.csv`: Hourly EV charging occupancy rate (Unit: %).
 * `s_price.csv`: Service price (Unit: Yuan/kWh).
 * `volume.csv`: Hourly EV charging volume (Unit: kWh).
