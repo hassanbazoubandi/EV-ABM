@@ -52,6 +52,7 @@ The raw dataset compiles comprehensive information on **1,682** public charging 
 * `weather_central.csv`: Weather data from Futian Meteorological Station in the city center of Shenzhen.
 * `weather_header.txt`: Descriptions of the table headers in `weather_airport.csv` and `weather_central.csv`.
 * `dist.csv`: Distance matrix between the 275 zones.
+* `poi.csv`: Points of Interest categorized into three types: `food and beverage services`, `business and residential`, and `lifestyle services`. The coordinates used are based on the `WGS84` coordinate system.
 
 **code_transformer**: Code for distribution time-series prediction using Transformer-based models on the UrbanEV dataset. Below are explanations for some core files and directories related to UrbanEV prediction:
 
