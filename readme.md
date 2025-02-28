@@ -39,7 +39,7 @@ The raw dataset compiles comprehensive information on **1,682** public charging 
 * `train.py`: Model training script.
 * `utils.py`: Utility functions related to the UrbanEV dataset predictions, e.g., time-series cross-validation and dataset preparation.
 
-**data**: Zone-level data of the UrbanEV dataset, which has been cleaned through outlier detection, zero-value checks, etc., and includes data from **275 zones**, **1,362 charging stations**, and **17,532 charging piles**.
+**data**:  5-minute and 1-hour resolution region-level data of the UrbanEV dataset, which has been cleaned through outlier detection, zero-value checks, etc., and includes data from **275 zones**, **1,362 charging stations**, and **17,532 charging piles**.
 
 * `adj.csv`: Adjacency matrix.
 * `duration.csv`: Hourly EV charging duration (Unit: hour).
@@ -51,7 +51,7 @@ The raw dataset compiles comprehensive information on **1,682** public charging 
 * `weather_airport.csv`: Weather data from the meteorological station at Bao'an Airport (Shenzhen). These are the raw data collected, and it is recommended to use the **Max-Min** method for normalization.
 * `weather_central.csv`: Weather data from Futian Meteorological Station in the city center of Shenzhen.
 * `weather_header.txt`: Descriptions of the table headers in `weather_airport.csv` and `weather_central.csv`.
-* `dist.csv`: Distance matrix between the 275 zones.
+* `distance.csv`: Distance matrix between the 275 zones.
 * `poi.csv`: Points of Interest categorized into three types: `food and beverage services`, `business and residential`, and `lifestyle services`. The coordinates used are based on the `WGS84` coordinate system.
 
 **code_transformer**: Code for distribution time-series prediction using Transformer-based models on the UrbanEV dataset. Below are explanations for some core files and directories related to UrbanEV prediction:
