@@ -41,6 +41,7 @@ The raw dataset compiles comprehensive information on **1,682** public charging 
 
 **data**:  5-minute and 1-hour resolution region-level data of the UrbanEV dataset, which has been cleaned through outlier detection, zero-value checks, etc., and includes data from **275 zones**, **1,362 charging stations**, and **17,532 charging piles**.
 
+* `5-minutes.zip`: To facilitate more detailed predictive analyses, the 5-minute resolution region-level datasets are made available, providing comprehensive access to time-series data at multiple granularities.
 * `adj.csv`: Adjacency matrix.
 * `duration.csv`: Hourly EV charging duration (Unit: hour).
 * `e_price.csv`: Electricity price (Unit: Yuan/kWh).
