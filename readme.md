@@ -104,7 +104,7 @@ conda activate UrbanEV
 python run.py --task_name long_term_forecast --is_training 1 --root_path ./dataset/UrbanEV/ --data_path occ-e.csv --model_id st-evcdp_12_3 --model TimeXer --data custom --features M --seq_len 12 --label_len 12 --e_layers 1 --factor 1 --enc_in 608 --dec_in 608 --c_out 304 --d_model 512 --d_ff 512 --des Exp --batch_size 32 --learning_rate 0.001 --itr 1 --train_epochs 1 --pred_len 3 --pred_type region --add_feat None --fold 3 --feat occ
 ```
 
-### Tradditional and Deep Learning Model
+### Traditional and Deep Learning Model
 
 **Windows**
 
