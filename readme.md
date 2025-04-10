@@ -6,13 +6,13 @@ UrbanEV is an open dataset of EV charging space availability and electricity use
 
  If this project is helpful to your research, please cite our papers:
 
->Li, H., Qu, H., Tan, X. et al. (2025). UrbanEV: An Open Benchmark Dataset for Urban Electric Vehicle Charging Demand Prediction. Scientific Data. [Paper in Spring Nature](https://doi.org/10.1038/s41597-025-04874-4)
+> Li, H., Qu, H., Tan, X. et al. (2025). UrbanEV: An Open Benchmark Dataset for Urban Electric Vehicle Charging Demand Prediction. Scientific Data. [Paper in Spring Nature](https://doi.org/10.1038/s41597-025-04874-4)
 
->Qu, H., Kuang, H., Li, J., & You, L. (2023). A physics-informed and attention-based graph learning approach for regional electric vehicle charging demand prediction. IEEE Transactions on Intellgent Transportation Systems. [Paper in IEEE Explore](https://ieeexplore.ieee.org/document/10539613) [Paper in arXiv](https://arxiv.org/abs/2309.05259)
+> Qu, H., Kuang, H., Li, J., & You, L. (2023). A physics-informed and attention-based graph learning approach for regional electric vehicle charging demand prediction. IEEE Transactions on Intellgent Transportation Systems. [Paper in IEEE Explore](https://ieeexplore.ieee.org/document/10539613) [Paper in arXiv](https://arxiv.org/abs/2309.05259)
 
->Kuang, H., Zhang, X., Qu, H., and You, L., and Zhu, R. and Li, J. (2024). Unravelling the effect of electricity price on electric vehicle charging behavior: A case study in Shenzhen, China. Sustainable Cities and Society. [DOI](https://doi.org/10.1016/j.scs.2024.105836)
+> Kuang, H., Zhang, X., Qu, H., and You, L., and Zhu, R. and Li, J. (2024). Unravelling the effect of electricity price on electric vehicle charging behavior: A case study in Shenzhen, China. Sustainable Cities and Society. [DOI](https://doi.org/10.1016/j.scs.2024.105836)
 
->Haohao Qu, Han Li, Linlin You, Rui Zhu, Jinyue Yan, Paolo Santi, Carlo Ratti, Chau Yuen. (2024) ChatEV: Predicting electric vehicle charging demand as natural language processing. Transportation Research Part D: Transport and Environment. [Paper in TRD](https://doi.org/10.1016/j.trd.2024.104470) [Code in Github](https://github.com/Quhaoh233/ChatEV)
+> Haohao Qu, Han Li, Linlin You, Rui Zhu, Jinyue Yan, Paolo Santi, Carlo Ratti, Chau Yuen. (2024) ChatEV: Predicting electric vehicle charging demand as natural language processing. Transportation Research Part D: Transport and Environment. [Paper in TRD](https://doi.org/10.1016/j.trd.2024.104470) [Code in Github](https://github.com/Quhaoh233/ChatEV)
 
 ```shell
 @article{li2025urbanev,
@@ -58,23 +58,31 @@ UrbanEV is an open dataset of EV charging space availability and electricity use
 
 If you have any questions regarding this dataset, feel free to reach out.
 
-Author: Han Li (lihan76@mail2.sysu.edu.cn), Haohao Qu (haohao.qu@connect.polyu.hk)
+Author: Han Li [lihan76@mail2.sysu.edu.cn](lihan76@mail2.sysu.edu.cn), Haohao Qu [haohao.qu@connect.polyu.hk](haohao.qu@connect.polyu.hk)
 
 ## Updates
 
 * January 19, 2025: Uploaded code and data for distribution prediction based on UrbanEV.
-
-* March 17, 2025: Published the dataset on Dryad https://doi.org/10.5061/dryad.np5hqc04z.
-
-* March 28, 2025: The paper "UrbanEV: An Open Benchmark Dataset for Urban Electric Vehicle Charging Demand Prediction" was published in Scientific Data.
+* March 17, 2025: Published the dataset on [Data in Dryad](https://doi.org/10.5061/dryad.np5hqc04z).
+* March 28, 2025: The paper "UrbanEV: An Open Benchmark Dataset for Urban Electric Vehicle Charging Demand Prediction" was published in Scientific Data. [Paper in Spring Nature](https://doi.org/10.1038/s41597-025-04874-4)
 
 ## Data Description
 
-The raw dataset compiles comprehensive information on **1,682** public charging stations and **24,798** public charging piles, covering a time period from **1 September 2022 to 28 February 2023 with hourly granularity**, enabling the exploration of short-, mid-, and long-term forecasting scenarios. Specifically, it provides three types of charging data (occupancy, duration, and volume), four dynamic factors (electricity price, service price, weather conditions, and time of day), three spatial attributes (adjacency, distance, and coordinates), and four static coefficients (point of interest, area, pile number, and station number). You can download the raw data from [Google Drive Link](https://drive.google.com/drive/folders/1VUgdb8uNgmtvO93BHBK_OrSxjndrF-48?usp=sharing).
+The UrbanEV dataset was developed to meet the urgent need for understanding and forecasting electric vehicle (EV) charging demand in urban environments. As global EV adoption accelerates, efficient charging infrastructure management is crucial for ensuring grid stability and enhancing user experience. Collected from public EV charging stations in Shenzhen, China — a leading city in vehicle electrification — the dataset covers a six-month period (**September 1, 2022, to February 28, 2023**), capturing seasonal variations in charging patterns. To ensure data quality, the raw records underwent meticulous preprocessing, including the extraction of key information (availability status, rated power, and fees), anomaly removal, and missing value imputation via forward and backward filling. Outliers identified by the IQR method were replaced with adjacent valid values. The data was aggregated both temporally (hourly) and spatially (by traffic zones), with variance tests and zero-value filtering applied to exclude low-activity regions.The final dataset includes:
 
- After applying various data processing techniques, the dataset is refined to **1,362** charging stations and **17,532** charging piles, making it well-suited for charging demand prediction. Additionally, the data is organized into traffic zones, offering a new perspective on regional EV charging patterns. You can find the zone-level data in `./data/dataset/`
+* **Charging data**: occupancy, duration, and volume
+* **Environmental context**: weather conditions
+* **Spatial features**: adjacency matrices, distances
+* **Static attributes**: Points of Interest, area size, and road length
 
-![avatar](figs/map.png) Figure 1. Spatial distribution of 1,682 public charging stations and 24,798 charging piles in the UrbanEV dataset.
+## Data Access
+
+All datasets related to UrbanEV have been made publicly available on  **[Dryad](https://doi.org/10.5061/dryad.np5hqc04z)** .This includes:
+
+* Preprocessed **zone-level data** at both **hourly** and **5-minute** resolution (**1,362** charging stations with **17,532** charging piles)
+* **Raw station-level data** at **5-minute** resolution (before preprocessing) (**1,682** charging stations with **24,798** charging piles)
+
+![avatar](figs/map.png) Figure 1. Spatial distribution of **1,682** public charging stations and **24,798** charging piles in the UrbanEV dataset.
 
 ## Files
 
@@ -89,9 +97,9 @@ The raw dataset compiles comprehensive information on **1,682** public charging 
 * `train.py`: Model training script.
 * `utils.py`: Utility functions related to the UrbanEV dataset predictions, e.g., time-series cross-validation and dataset preparation.
 
-**data**:  5-minute and 1-hour resolution region-level data of the UrbanEV dataset, which has been cleaned through outlier detection, zero-value checks, etc., and includes data from **275 zones**, **1,362 charging stations**, and **17,532 charging piles**.
+**data**:  5-minute and 1-hour resolution zone-level data of the UrbanEV dataset, which has been cleaned through outlier detection, zero-value checks, etc., and includes data from **275 zones**, **1,362 charging stations**, and **17,532 charging piles**.
 
-* `5-minutes.zip`: To facilitate more detailed predictive analyses, the 5-minute resolution region-level datasets are made available, providing comprehensive access to time-series data at multiple granularities.
+* `5-minutes.zip`: To facilitate more detailed predictive analyses, the 5-minute resolution zone-level datasets are made available, providing comprehensive access to time-series data at multiple granularities.
 * `adj.csv`: Adjacency matrix.
 * `duration.csv`: Hourly EV charging duration (Unit: hour).
 * `e_price.csv`: Electricity price (Unit: Yuan/kWh).
@@ -111,19 +119,18 @@ The raw dataset compiles comprehensive information on **1,682** public charging 
 * `dataset/st-evcdp`: Contains data files used for predictions, which can be generated through `../code/preprocess.py`.
 * `exp.bat`|`exp.sh`: Scripts for distribution time-series prediction using Transformer-based models.
 
-
 ## Environment Requirements
 
 This section outlines the setup for the virtual environment required for time-series prediction based on UrbanEV, using Python 3.8 and PyTorch 2.4.1. Assuming your working directory is the project root directory, here are the relevant commands:
 
-### Windows
+Windows
 
 ```shell
 cd code
 init_env.bat
 ```
 
-### Linux
+Linux
 
 ```shell
 cd code
@@ -138,7 +145,7 @@ Assuming your working directory is the project root directory
 
 ### Simple Example
 
-**Traditional and deep learning-based model**
+Traditional and deep learning-based model
 
 ```shell
 cd code
@@ -146,7 +153,7 @@ conda activate UrbanEV
 python main.py --model=fcnn --pre_len=3 --fold=1 --pred_type=region --add_feat=None --feat occ --epoch 1
 ```
 
-**Transformer-based model**
+Transformer-based model
 
 ```shell
 cd code-transformer
@@ -156,7 +163,7 @@ python run.py --task_name long_term_forecast --is_training 1 --root_path ./datas
 
 ### Traditional and Deep Learning Model
 
-**Windows**
+Windows
 
 ```shell
 cd code
@@ -164,7 +171,7 @@ conda activate UrbanEV
 exp.bat
 ```
 
-**Linux**
+Linux
 
 ```shell
 cd code
@@ -174,7 +181,7 @@ conda activate UrbanEV
 
 ### Transformer-based Model
 
-**Windows**
+Windows
 
 ```shell
 cd code
@@ -185,7 +192,7 @@ cd code-transformer
 exp.bat
 ```
 
-**Linux**
+Linux
 
 ```shell
 cd code
@@ -202,7 +209,5 @@ The project is based on the following time series forecasting repositories, from
 
 * Time Series Library (TSLib)：[https://github.com/thuml/Time-Series-Library](https://github.com/thuml/Time-Series-Library).
 * PyG Temporal: [https://github.com/benedekrozemberczki/pytorch_geometric_temporal](https://github.com/benedekrozemberczki/pytorch_geometric_temporal)
-
-
 
 More updates will be posed in the near future! Thank you for your interest.
