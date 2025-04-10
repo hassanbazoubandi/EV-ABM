@@ -82,6 +82,8 @@ All datasets related to UrbanEV have been made publicly available on  **[Dryad](
 * Preprocessed **zone-level data** at both **hourly** and **5-minute** resolution (**1,362** charging stations with **17,532** charging piles)
 * **Raw station-level data** at **5-minute** resolution (before preprocessing) (**1,682** charging stations with **24,798** charging piles)
 
+The data directory of this GitHub repository contains the preprocessed zone-level dataset used in [Paper in Spring Nature](https://doi.org/10.1038/s41597-025-04874-4)
+
 ![avatar](figs/map.png) Figure 1. Spatial distribution of **1,682** public charging stations and **24,798** charging piles in the UrbanEV dataset.
 
 ## Files
@@ -97,9 +99,8 @@ All datasets related to UrbanEV have been made publicly available on  **[Dryad](
 * `train.py`: Model training script.
 * `utils.py`: Utility functions related to the UrbanEV dataset predictions, e.g., time-series cross-validation and dataset preparation.
 
-**data**:  5-minute and 1-hour resolution zone-level data of the UrbanEV dataset, which has been cleaned through outlier detection, zero-value checks, etc., and includes data from **275 zones**, **1,362 charging stations**, and **17,532 charging piles**.
+**data**:  1-hour resolution zone-level data of the UrbanEV dataset, which has been cleaned through outlier detection, zero-value checks, etc., and includes data from **275 zones**, **1,362 charging stations**, and **17,532 charging piles**.
 
-* `5-minutes.zip`: To facilitate more detailed predictive analyses, the 5-minute resolution zone-level datasets are made available, providing comprehensive access to time-series data at multiple granularities.
 * `adj.csv`: Adjacency matrix.
 * `duration.csv`: Hourly EV charging duration (Unit: hour).
 * `e_price.csv`: Electricity price (Unit: Yuan/kWh).
