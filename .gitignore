@@ -10,3 +10,5 @@ code-transformer/dataset/UrbanEV/*
 
 result/main_exp/region/*
 !result/main_exp/region/.gitkeep
+
+.SynologyWorkingDirectory

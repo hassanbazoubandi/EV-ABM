@@ -56,16 +56,15 @@ def read_data(args):
     """
 
     # Load datasets
-    occ = pd.read_csv(r'../data/occupancy.csv', header=0, index_col=0)
-    duration = pd.read_csv(r'../data/duration.csv', header=0, index_col=0)
-    volume = pd.read_csv(r'../data/volume.csv', header=0, index_col=0)
-    e_price = pd.read_csv(r'../data/e_price.csv', index_col=0, header=0).values
-    s_price = pd.read_csv(r'../data/s_price.csv', index_col=0, header=0).values
-    adj = pd.read_csv('../data/adj.csv', header=0, index_col=0)
-    adj.columns = adj.columns.astype(float).astype(int).astype(str)
+    inf = pd.read_csv('../data/inf.csv', header=0, index_col=None)
+    occ = pd.read_csv('../data/occupancy.csv', header=0, index_col=0)
+    duration = pd.read_csv('../data/duration.csv', header=0, index_col=0)
+    volume = pd.read_csv('../data/volume.csv', header=0, index_col=0)
+    e_price = pd.read_csv('../data/e_price.csv', index_col=0, header=0).values
+    s_price = pd.read_csv('../data/s_price.csv', index_col=0, header=0).values
+    adj = pd.read_csv('../data/adj.csv', header=0, index_col=None)
     adj.index = adj.columns
-    adj = adj.loc[occ.columns,occ.columns]
-    adj.to_csv('../data/adj_filter.csv')
+
     time = pd.to_datetime(occ.index)
 
     feat = occ
@@ -74,7 +73,12 @@ def read_data(args):
     elif args.feat == 'volume':
         feat = volume
 
-    # Normalize e_price and s_price data
+    # Normalize
+    charge_count_dict = dict(zip(inf['TAZID'].astype(str), inf['charge_count']))
+    for col in occ.columns:
+        charge_count = charge_count_dict[col]
+        occ[col] = occ[col] / charge_count
+
     price_scaler = MinMaxScaler(feature_range=(0, 1))
     e_price = price_scaler.fit_transform(e_price)
     s_price = price_scaler.fit_transform(s_price)
