@@ -114,6 +114,7 @@ The data directory of this GitHub repository contains the preprocessed zone-leve
 * `weather_header.txt`: Descriptions of the table headers in `weather_airport.csv` and `weather_central.csv`.
 * `distance.csv`: Distance matrix between the 275 zones.
 * `poi.csv`: Points of Interest categorized into three types: `food and beverage services`, `business and residential`, and `lifestyle services`. The coordinates used are based on the `WGS84` coordinate system.
+* Notes: Our occupancy data is gathered from an availability perspective, while the duration and volume data is collected from a utilization standpoint. Specifically, the occupancy data records all unavailable or busy charging piles. In contrast, the duration and volume data only account for the piles actively providing electricity. You can select the data according to your research purpose.
 
 **code_transformer**: Code for distribution time-series prediction using Transformer-based models on the UrbanEV dataset. Below are explanations for some core files and directories related to UrbanEV prediction:
 
