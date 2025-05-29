@@ -188,13 +188,6 @@ def metrics(test_pre, test_real,args):
     return output_list
 
 
-def filter_nodes(occ, zero_threshold=0.1, variance_threshold=1e-3):
-    zero_ratio = np.mean(occ == 0, axis=0)
-    var_occ = np.var(occ, axis=0)
-    remove_indices = (zero_ratio > zero_threshold) | (var_occ < variance_threshold)
-    return remove_indices
-
-
 def split_cv(args,time, feat,train_ratio=0.8, valid_ratio=0.1, test_ratio=0.1,extra_feat='None'):
     """
     Split dataset based on time for time-series rolling cross-validation.

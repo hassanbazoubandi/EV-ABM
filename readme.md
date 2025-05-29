@@ -141,69 +141,91 @@ cd code
 
 Due to the discontinuation of PyG Temporal, you may encounter a ModuleNotFoundError: No module named 'torch_geometric.utils.to_dense_adj' when running ASTGCN experiments. To resolve this, change from torch_geometric.utils.to_dense_adj import to_dense_adj to from torch_geometric.utils import to_dense_adj. See[pyg-#9023 (reply in thread)](https://github.com/pyg-team/pytorch_geometric/discussions/9023#discussioncomment-8813817) for more details.
 
-## Run Distribution Prediction on the UrbanEV dataset
+## Run Distribution Prediction on the UrbanEV Dataset
 
-Assuming your working directory is the project root directory
-
-### Simple Example
-
-Traditional and deep learning-based model
+All commands below assume your working directory is the **project root**. Start each session in the root directory. Some commands require moving into subdirectories (e.g., `cd code`, `cd code-transformer`) — you can return to the root using:
 
 ```shell
-cd code
-conda activate UrbanEV
-python main.py --model=fcnn --pre_len=3 --fold=1 --pred_type=region --add_feat=None --feat occ --epoch 1
-```
-
-Transformer-based model
-
-```shell
-cd code-transformer
-conda activate UrbanEV
-python run.py --task_name long_term_forecast --is_training 1 --root_path ./dataset/UrbanEV/ --data_path occ-e.csv --model_id st-evcdp_12_3 --model TimeXer --data custom --features M --seq_len 12 --label_len 12 --e_layers 1 --factor 1 --enc_in 608 --dec_in 608 --c_out 304 --d_model 512 --d_ff 512 --des Exp --batch_size 32 --learning_rate 0.001 --itr 1 --train_epochs 1 --pred_len 3 --pred_type region --add_feat None --fold 3 --feat occ
-```
-
-### Traditional and Deep Learning Model
-
-Windows
-
-```shell
-cd code
-conda activate UrbanEV
-exp.bat
-```
-
-Linux
-
-```shell
-cd code
-conda activate UrbanEV
-./exp.sh
-```
-
-### Transformer-based Model
-
-Windows
-
-```shell
-cd code
-conda activate UrbanEV
-python preprocess.py
 cd ..
-cd code-transformer
-exp.bat
 ```
 
-Linux
+Do this as needed before running the next block.
+
+---
+
+### Step 1: Environment Setup
+
+```shell
+conda activate UrbanEV
+```
+
+---
+
+### Step 2: Preprocess Data (Only Once Needed)
 
 ```shell
 cd code
-conda activate UrbanEV
 python preprocess.py
-cd ..
-cd code-transformer
-./exp.sh
 ```
+
+> **Note:** Ensure data preprocessing is completed before running any models. `TimeXer` and `TimeNet` use different scripts than the other models.
+
+---
+
+### Step 3: Run Models
+
+#### A. Statistical & Deep Learning Models (`ar`, `arima`, `fcnn`, `lstm`, `gcn`, `gcnlstm`, `astgcn`)
+
+**Example (Single Run):**
+
+```shell
+cd code
+python main.py --model=fcnn --pre_len=3 --fold=1 --pred_type=region --add_feat=None --epoch 1
+```
+
+**To run all experiments:**
+
+Run the appropriate script based on your operating system:
+
+* **Linux:**
+
+  ```shell
+  cd code
+  ./exp.sh
+  ```
+* **Windows:**
+
+  ```shell
+  cd code
+  ./exp.bat
+  ```
+
+#### B. SOTA Time Series Models (`TimeXer`, `TimeNet`)
+
+**Example (Single Run):**
+
+```shell
+cd code-transformer
+python run.py --model TimeXer --seq_len 12 --label_len 12 --train_epochs 1 --pred_len 3 --fold 3
+```
+
+**To run all experiments:**
+
+Run the appropriate script based on your operating system:
+
+* **Linux:**
+
+  ```shell
+  cd code-transformer
+  ./exp.sh
+  ```
+* **Windows:**
+
+  ```shell
+  cd code-transformer
+  ./exp.bat
+  ```
+
 
 ## Acknowledgement
 

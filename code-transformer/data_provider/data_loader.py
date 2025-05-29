@@ -11,7 +11,7 @@ warnings.filterwarnings('ignore')
 class Dataset_Custom(Dataset):
     def __init__(self, args, root_path, flag='train', size=None,
                  features='S', data_path='ETTh1.csv',
-                 target='OT', scale=False, timeenc=0, freq='h', seasonal_patterns=None,fold='None',total_fold='None'):
+                 target='OT', scale=False, timeenc=0, freq='h',fold='None',total_fold='None'):
         # size [seq_len, label_len, pred_len]
         self.args = args
         # info
@@ -30,10 +30,7 @@ class Dataset_Custom(Dataset):
 
         self.features = features
         self.target = target
-        if args.feat != 'occ':
-            self.scale = True
-        else:
-            self.scale = False
+        self.scale = scale
         self.timeenc = timeenc
         self.freq = freq
 
