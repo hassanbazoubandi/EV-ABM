@@ -180,7 +180,7 @@ python preprocess.py
 
 ```shell
 cd code
-python main.py --model=fcnn --pre_len=3 --fold=1 --pred_type=region --add_feat=None --epoch 1
+python main.py --model fcnn --seq_len 12 --pre_len 3 --fold 1 --epoch 20
 ```
 
 **To run all experiments:**
