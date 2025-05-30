@@ -206,7 +206,7 @@ Run the appropriate script based on your operating system:
 
 ```shell
 cd code-transformer
-python run.py --model TimeXer --seq_len 12 --label_len 12 --train_epochs 1 --pred_len 3 --fold 3
+python run.py --model TimeXer --seq_len 12 --train_epochs 1 --pred_len 3 --fold 3
 ```
 
 **To run all experiments:**
