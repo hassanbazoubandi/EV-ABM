@@ -28,7 +28,7 @@ def print_args(args):
     print()
 
     print("\033[1m" + "Run Parameters" + "\033[0m")
-    print(f'  {"Train Epochs:":<20}{args.train_epochs:<20}{"Batch Size:":<20}{args.batch_size:<20}')
+    print(f'  {"Train Epochs:":<20}{args.epoch:<20}{"Batch Size:":<20}{args.batch_size:<20}')
     print(f'  {"Patience:":<20}{args.patience:<20}{"Learning Rate:":<20}{args.learning_rate:<20}')
     print(f'  {"Loss:":<20}{args.loss:<20}')
     print(f'  {"Lradj:":<20}{args.lradj:<20}{"Use Amp:":<20}{args.use_amp:<20}')

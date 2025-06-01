@@ -105,11 +105,13 @@ class Dataset_Custom(Dataset):
         r_begin = s_end - self.label_len
         r_end = r_begin + self.label_len + self.pred_len
 
+        if r_end > len(self.data_y):
+            raise IndexError(f"Invalid index: {index}, r_end={r_end}, len(data_y)={len(self.data_y)}")
+
         seq_x = self.data_x[s_begin:s_end]
         seq_y = self.data_y[r_begin:r_end]
         seq_x_mark = self.data_stamp[s_begin:s_end]
         seq_y_mark = self.data_stamp[r_begin:r_end]
-
         return seq_x, seq_y, seq_x_mark, seq_y_mark
 
     def __len__(self):

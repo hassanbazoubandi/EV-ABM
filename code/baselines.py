@@ -10,7 +10,7 @@ import warnings
 class Lo:
     def __init__(self, args):
         self.args = args
-        self.pred_len = args.pre_len
+        self.pred_len = args.pred_len
 
     def predict(self, train_valid_occ, test_occ):
         """
@@ -42,32 +42,26 @@ class Ar:
         self.lags = lags
 
     def predict(self, train_valid_occ, test_occ):
-        """
-        Perform predictions using the AR model.
-        """
         time_len, node = test_occ.shape
         train_valid_occ = train_valid_occ[:-self.pred_len, :]
         preds = np.zeros((time_len, node))
 
-        for j in range(node):  # Train and predict for each node
-            fit_series = train_valid_occ[:, j]
-
-            # Train AR model on each node
-            model = AutoReg(fit_series, lags=self.lags)
-            model_fitted = model.fit()
+        for j in range(node):
+            series = list(train_valid_occ[:, j])
             for i in range(time_len):
-                start = len(fit_series) + self.pred_len
-                end = start
-                pred = model_fitted.predict(start=start, end=end)
-                preds[i, j] = pred[0]  # Ensure single value is assigned
+                try:
+                    model = AutoReg(series, lags=self.lags).fit()
+                    pred = model.predict(start=len(series), end=len(series))
+                    preds[i, j] = pred[0]
+                    series.append(pred[0])  # 滚动加入预测值
+                except Exception as e:
+                    print(f"[AutoReg] Failed at node {j}, step {i}: {e}")
+                    preds[i, j] = np.nan
 
         return preds
 
 class Arima:
     def __init__(self, pred_len, args, p=1, d=1, q=1):
-        """
-        Initialize the ARIMA model parameters.
-        """
         self.pred_len = pred_len
         self.args = args
         self.p = p
@@ -78,21 +72,20 @@ class Arima:
         time_len, node = test_occ.shape
         train_valid_occ = train_valid_occ[:-self.pred_len, :]
         preds = np.zeros((time_len, node))
-        warnings.filterwarnings("ignore", category=UserWarning,
-                                message=".*Maximum Likelihood optimization failed to converge.*")
-        for j in range(node):  # Train and predict for each node
+
+        warnings.filterwarnings("ignore")
+
+        for j in range(node):
             fit_series = train_valid_occ[:, j]
-
-            # Train ARIMA model on each node
-            model = ARIMA(fit_series, order=(self.p, self.d, self.q))
-            model_fitted = model.fit()
-
-            # Predict using the ARIMA model
-            for i in range(time_len):
-                start = len(fit_series) + self.pred_len
-                end = start
-                pred = model_fitted.predict(start=start, end=end)
-                preds[i, j] = pred[0]  # Ensure single value is assigned
+            try:
+                model = ARIMA(fit_series, order=(self.p, self.d, self.q))
+                model_fitted = model.fit()
+                # Predict future time steps (equal to time_len)
+                pred = model_fitted.forecast(steps=time_len)
+                preds[:, j] = pred
+            except Exception as e:
+                print(f"ARIMA failed for node {j}: {e}")
+                preds[:, j] = np.nan  # or use zeros
 
         return preds
 

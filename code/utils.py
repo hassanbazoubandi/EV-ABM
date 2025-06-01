@@ -10,8 +10,8 @@ from sklearn.preprocessing import MinMaxScaler, StandardScaler
 
 class CreateDataset(Dataset):
     def __init__(self,args, occ, extra_feat,device):  # adj
-        lb = args.seq_l
-        pt = args.pre_len
+        lb = args.seq_len
+        pt = args.pred_len
         self.pred_type = args.pred_type
         occ, label = create_rnn_data(occ, lb, pt)
         self.occ = torch.Tensor(occ)
@@ -138,20 +138,20 @@ def load_net(args, adj, device,occ):
         for _ in args.add_feat.split('+'):
             n_fea += 1
     if args.model == 'lstm':
-        model = baselines.Lstm(args.seq_l, n_fea, node=num_node).to(device)
+        model = baselines.Lstm(args.seq_len, n_fea, node=num_node).to(device)
     elif args.model == 'lo':
         model = baselines.Lo(args)
     elif args.model == 'ar':
-        model = baselines.Ar(pred_len=args.pre_len,lags=args.seq_l,args=args)
+        model = baselines.Ar(pred_len=args.pred_len,lags=args.seq_len,args=args)
     elif args.model == 'arima':
-        model = baselines.Arima(pred_len=args.pre_len,p=args.seq_l,args=args)
+        model = baselines.Arima(pred_len=args.pred_len,p=args.seq_len,args=args)
     elif args.model == 'fcnn':
-        model = baselines.Fcnn(n_fea, node=num_node, seq=args.seq_l).to(device)
+        model = baselines.Fcnn(n_fea, node=num_node, seq=args.seq_len).to(device)
     elif args.model == 'gcnlstm':
-        model = baselines.Gcnlstm(args.seq_l,adj_dense=adj_dense,n_fea=n_fea, node=num_node,gcn_out=32, gcn_layers=1,lstm_hidden_dim=32, lstm_layers=1
+        model = baselines.Gcnlstm(args.seq_len,adj_dense=adj_dense,n_fea=n_fea, node=num_node,gcn_out=32, gcn_layers=1,lstm_hidden_dim=32, lstm_layers=1
                  ,hidden_dim=32).to(device)
     elif args.model == 'gcn':
-        model = baselines.Gcn(args.seq_l,n_fea=n_fea, adj_dense=adj_dense,gcn_hidden=32,gcn_layers=1).to(device)
+        model = baselines.Gcn(args.seq_len,n_fea=n_fea, adj_dense=adj_dense,gcn_hidden=32,gcn_layers=1).to(device)
     elif args.model == 'astgcn':
         model = baselines.Astgcn(adj_dense=adj_dense,nb_block=1,in_channels=n_fea, K=1, nb_chev_filter=32, nb_time_filter=32, time_strides=1,num_for_predict=1,len_input=12,num_of_vertices=num_node).to(device)
     return model

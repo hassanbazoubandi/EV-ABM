@@ -36,7 +36,7 @@ if __name__ == '__main__':
 
     # forecasting task
     parser.add_argument('--seq_len', type=int, default=96, help='input sequence length')
-    parser.add_argument('--label_len', type=int, default=48, help='start token length')
+    parser.add_argument('--label_len', type=int, default=12, help='start token length')
     parser.add_argument('--inverse', action='store_true', help='inverse output data', default=True)
 
     # model define
@@ -64,7 +64,7 @@ if __name__ == '__main__':
     parser.add_argument('--use_norm', type=int, default=1, help='whether to use normalize; True 1 False 0')
 
     # optimization
-    parser.add_argument('--train_epochs', type=int, default=10, help='train epochs')
+    parser.add_argument('--epoch', type=int, default=10, help='train epochs')
     parser.add_argument('--batch_size', type=int, default=32, help='batch size of train input data')
     parser.add_argument('--patience', type=int, default=50, help='early stopping patience')
     parser.add_argument('--learning_rate', type=float, default=0.0001, help='optimizer learning rate')
@@ -135,7 +135,7 @@ if __name__ == '__main__':
         setting =  (args.model +'_'+ 'feat-' + args.feat +  '_'  + 'pred_len-'+ str(args.pred_len) +  '_'  + 'fold-'+ str(
             args.fold) +
                     '_'   +  'node-'+ str(args.pred_type) + '_' + 'add_feat-' + str(args.add_feat) + '_' + 'epoch-' +
-                    str(args.train_epochs))# set experiments
+                    str(args.epoch))# set experiments
 
         print('>>>>>>>start training : {}>>>>>>>>>>>>>>>>>>>>>>>>>>'.format(setting))
         exp.train(setting)
@@ -147,7 +147,7 @@ if __name__ == '__main__':
             setting = (args.model +'_'+ 'feat-' + args.feat +  '_'  + 'pred_len-'+ str(args.pred_len) +  '_'  + 'fold-'+ str(
             args.fold) +
                     '_'   +  'node-'+ str(args.pred_type) + '_' + 'add_feat-' + str(args.add_feat) + '_' + 'epoch-' +
-                    str(args.train_epochs))# set experiments
+                    str(args.epoch))# set experiments
 
             exp = Exp(args)  # set experiments
             print('>>>>>>>testing : {}<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<'.format(setting))

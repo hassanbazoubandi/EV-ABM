@@ -77,7 +77,7 @@ The UrbanEV dataset was developed to meet the urgent need for understanding and 
 
 ## Data Access
 
-All datasets related to UrbanEV have been made publicly available on  **[Dryad](https://doi.org/10.5061/dryad.np5hqc04z)**. In addition to Dryad, all datasets are also available on **[Google Drive](https://drive.google.com/drive/folders/1VUgdb8uNgmtvO93BHBK_OrSxjndrF-48?usp=sharing)** for easier access and to host the most up-to-date versions of the datasets. This includes:
+All datasets related to UrbanEV have been made publicly available on  **[Dryad](https://doi.org/10.5061/dryad.np5hqc04z)**. In addition to Dryad, all datasets are also available on **[Google Drive](https://drive.google.com/drive/folders/1VUgdb8uNgmtvO93BHBK_OrSxjndrF-48?usp=sharing)** and **[Baidu Netdisk](https://pan.baidu.com/s/1__-IjG39tz9VIhHVK3XpQw?pwd=1234#list/path=%2F)** for easier access and to host the most up-to-date versions of the datasets. This includes:
 
 * Preprocessed **zone-level data** at both **hourly** and **5-minute** resolution (**1,362** charging stations with **17,532** charging piles)
 * **Raw station-level data** at **5-minute** resolution (before preprocessing) (**1,682** charging stations with **24,798** charging piles)
@@ -180,7 +180,7 @@ python preprocess.py
 
 ```shell
 cd code
-python main.py --model fcnn --seq_len 12 --pre_len 3 --fold 1 --epoch 20
+python main.py --model fcnn --seq_len 12 --pred_len 3 --fold 1 --epoch 20
 ```
 
 **To run all experiments:**
@@ -206,8 +206,9 @@ Run the appropriate script based on your operating system:
 
 ```shell
 cd code-transformer
-python run.py --model TimeXer --seq_len 12 --train_epochs 1 --pred_len 3 --fold 3
+python run.py --model TimeXer --seq_len 12 --epoch 1 --pred_len 3 --fold 1
 ```
+> **Note:** Make sure that `label_len` is not greater than `seq_len`.
 
 **To run all experiments:**
 

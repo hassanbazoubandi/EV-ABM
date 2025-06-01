@@ -17,7 +17,7 @@ if __name__ == "__main__":
     utils.set_seed(seed=args.seed, flag=True)
     feat, adj, extra_feat, time= utils.read_data(args)
     print(
-        f"Running {args.model} with feat={args.feat}, pre_l={args.pre_len}, fold={args.fold}, add_feat={args.add_feat}, pred_type(node)={args.pred_type}")
+        f"Running {args.model} with feat={args.feat}, pre_l={args.pred_len}, fold={args.fold}, add_feat={args.add_feat}, pred_type(node)={args.pred_type}")
 
     # Initialize and train model
     net = utils.load_net(args, np.array(adj), device, feat)
@@ -38,8 +38,8 @@ if __name__ == "__main__":
         loss_func =None
         args.is_train = False
         args.stat_model = True
-        train_valid_feat = np.vstack((train_feat, valid_feat,test_feat[:args.seq_l+args.pre_len,:]))
-        test_loader = [train_valid_feat,test_feat[args.pre_len+args.seq_l:,:]]
+        train_valid_feat = np.vstack((train_feat, valid_feat,test_feat[:args.seq_len+args.pred_len,:]))
+        test_loader = [train_valid_feat,test_feat[args.pred_len+args.seq_len:,:]]
     else:
         optim = torch.optim.Adam(net.parameters(), weight_decay=0.00001)
         args.stat_model = False

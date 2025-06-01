@@ -57,7 +57,7 @@ def training(args, net, optim, loss_func, train_loader, valid_loader, fold):
                     os.makedirs(output_dir, exist_ok=True)
                     path = (output_dir + args.model + '_' +
                             'feat-' + args.feat + '_' +
-                            'pred_len-' + str(args.pre_len) + '_' +
+                            'pred_len-' + str(args.pred_len) + '_' +
                             'fold-' + str(args.fold) + '_' +
                             'node-' + str(args.pred_type) + '_' +
                             'add_feat-' + str(args.add_feat) + '_' +
@@ -78,7 +78,7 @@ def test(args, test_loader, occ,net,scaler='None'):
         os.makedirs(output_dir,exist_ok=True)
         path = (output_dir + args.model + '_' +
                 'feat-' + args.feat + '_' +
-                'pred_len-' + str(args.pre_len) + '_' +
+                'pred_len-' + str(args.pred_len) + '_' +
                 'fold-' + str(args.fold) + '_' +
                 'node-' + str(args.pred_type) + '_' +
                 'add_feat-' + str(args.add_feat) + '_' +
@@ -117,7 +117,7 @@ def test(args, test_loader, occ,net,scaler='None'):
     # Adding model name, pre_l and metrics and so on to DataFrame
     result_df = pd.DataFrame(result_list, columns=['MSE', 'RMSE', 'MAPE', 'RAE', 'MAE'])
     result_df['model_name'] = args.model
-    result_df['pre_len'] = args.pre_len
+    result_df['pred_len'] = args.pred_len
     result_df['fold'] = args.fold 
 
     # Save the results in a CSV file

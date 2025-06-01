@@ -11,7 +11,7 @@ for l in "${pre_lens[@]}"; do
         python run.py \
             --seq_len 12 \
             --label_len 12 \
-            --train_epochs $EPOCH \
+            --epoch $EPOCH \
             --model TimeXer \
             --pred_len $l \
             --fold $f
@@ -24,7 +24,7 @@ for l in "${pre_lens[@]}"; do
         python run.py \
             --seq_len 12 \
             --label_len 12 \
-            --train_epochs $EPOCH \
+            --epoch $EPOCH \
             --model TimesNet \
             --pred_len $l \
             --fold $f
