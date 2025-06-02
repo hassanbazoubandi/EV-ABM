@@ -107,7 +107,7 @@ The data directory of this GitHub repository contains the preprocessed zone-leve
 * `inf.csv`: Key information about the 275 zones, including coordinates, charging capacities, area (Unit: m^2), and perimeter (Unit: m).
 * `occupancy.csv`: Hourly EV charging occupancy rate (Unit: %).
 * `s_price.csv`: Service price (Unit: Yuan/kWh).
-* `volume.csv`: Hourly EV charging volume (Unit: kWh). The volume in \emph{volume.csv} is derived from the rated power of charging piles
+* `volume.csv`: Hourly EV charging volume (Unit: kWh). The volume in *volume.csv* is derived from the rated power of charging piles
 * `volume-11kW.csv` provides an alternative vehicle-side estimation of charging volume to mitigate potential overestimation in `volume.csv`. Specifically, for direct current charging stations, the volume is calculated using the standard power of the most commonly used electric vehicle, Tesla Model Y (11kW), instead of the rated power of the charging pile.
 * `weather_airport.csv`: Weather data from the meteorological station at Bao'an Airport (Shenzhen). These are the raw data collected, and it is recommended to use the **Max-Min** method for normalization.
 * `weather_central.csv`: Weather data from Futian Meteorological Station in the city center of Shenzhen.
