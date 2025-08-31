@@ -1,0 +1,16 @@
+{
+  "class": "MPC model-based",
+  "control_battery": true,
+  "perfect_foresight": false,
+  "resolution": 15,
+  "resolution units": "minutes",
+  "horizon_length": 96,
+  "num_forecasters": 0,
+  "forecaster_horizon": [96, 48],
+  "autoregression_input_len": 0,
+  "load_history": "data/SPEECh_load_data/speechWeekdayLoad1600.csv",
+  "simulation_load": "data/SPEECh_load_data/speechWeekdayLoad1600.csv",
+  "electricity_rate_plan": "PGEBEV2S",
+  "forecaster": "insert path here or model",
+  "notes": "change control_battery to false if working on centralized storage"
+}
