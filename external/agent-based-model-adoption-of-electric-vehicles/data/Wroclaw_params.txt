@@ -1,0 +1,5 @@
+population
+673_900
+
+area
+293 [km^2]

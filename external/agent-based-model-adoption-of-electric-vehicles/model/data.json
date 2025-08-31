@@ -1,0 +1,52 @@
+{
+    "customers": {
+        "profiles": {
+            "CV": {
+                "mean":15800
+            },
+            "PHEV": {
+                "mean":7666
+            },
+            "BEV": {
+                "mean":5030
+            }
+        }
+    },
+    "units": {
+        "fuel_capacity":"l",
+        "battery_capacity":"kWh",
+        "distance": "km",
+        "energy_consumption": "kWh/100km",
+        "fuel_consumption": "l/100km",
+        "build_price": "PLN"
+    },
+    "cars": {
+        "CV": {
+            "cost":126900,
+            "lifetime":17,
+            "range":141,
+            "fuel_capacity":42,
+            "battery_capacity":1.32,
+            "energy_consumption": null,
+            "fuel_consumption": 4.1
+        },
+        "PHEV": {
+            "cost":158500,
+            "lifetime":8,
+            "range":183,
+            "fuel_capacity":37,
+            "battery_capacity":11.1,
+            "energy_consumption": 17.9,
+            "fuel_consumption": 1
+        },
+        "BEV": {
+            "cost":198900,
+            "lifetime":7,
+            "range":460,
+            "fuel_capacity":0,
+            "battery_capacity":64.8,
+            "energy_consumption": 16.2,
+            "fuel_consumption": null
+        }
+    }
+}
